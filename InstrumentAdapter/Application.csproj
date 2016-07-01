@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB43BC8F-36A9-402B-98AA-F5D8D9F79D05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InstrumentCommunication.Application</RootNamespace>
+    <AssemblyName>Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationParameter.cs" />
+    <Compile Include="Commands\ConfirmMessageReceptionCommand.cs" />
+    <Compile Include="Commands\GetFTPConfiguration.cs" />
+    <Compile Include="Commands\GetParameterCommand.cs" />
+    <Compile Include="Commands\GetParameterListCommand.cs" />
+    <Compile Include="Commands\Handlers\DownloadUrgentInformationHandler.cs" />
+    <Compile Include="Commands\Handlers\GetParameterListHandler.cs" />
+    <Compile Include="Commands\Handlers\ConfirmMessageReceptionHandler.cs" />
+    <Compile Include="Commands\EstablishCommunicationCommand.cs" />
+    <Compile Include="Commands\Handlers\ConfirmReceptionHandler.cs" />
+    <Compile Include="Commands\Handlers\EstablishCommunicationHandler.cs" />
+    <Compile Include="Commands\ICommandWithMessage.cs" />
+    <Compile Include="Commands\Handlers\GetParameterHandler.cs" />
+    <Compile Include="Commands\ParameterConfirmationCommand.cs" />
+    <Compile Include="InstrumentCommunicationServices.cs" />
+    <Compile Include="Events\Handlers\ParametersListReceivedHandler.cs" />
+    <Compile Include="Events\Handlers\ParameterReceivedHandler.cs" />
+    <Compile Include="Commands\Handlers\ParameterConfirmationHandler.cs" />
+    <Compile Include="Ports\FTPConfigurationDTO.cs" />
+    <Compile Include="Ports\ILabConfigurationPort.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commands\StoreMainUnitFTPCredentialsCommand.cs" />
+    <Compile Include="Commands\Handlers\StoreMainUnitFtpCredentialsHandler.cs" />
+    <Compile Include="Commands\Handlers\StoreMessageHandler.cs" />
+    <Compile Include="Commands\Handlers\StoreQCResultHandler.cs" />
+    <Compile Include="Responses\FTPConfigurationPayload.cs" />
+    <Compile Include="Responses\GetFTPConfigurationResponse.cs" />
+    <Compile Include="UnknownCommunicationStatusException.cs" />
+    <Compile Include="Commands\UrgentInformationRequestCommand.cs" />
+    <Compile Include="Events\Handlers\UrgentInformationReceivedHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
+      <Project>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</Project>
+      <Name>Application.Payloads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
+      <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
+      <Name>ApplicationServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{EAC59FA5-08AA-4CF1-97E5-9D8D70D9C661}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstrumentAdapter.Domain\InstrumentAdapter.Domain.csproj">
+      <Project>{098309D2-147C-4567-B006-54542DF12CF3}</Project>
+      <Name>InstrumentAdapter.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
+      <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
+      <Name>QCRoutine.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sender\Sender.csproj">
+      <Project>{7D753AE6-FEF6-4EDB-AB4D-3FFFD2B00CFF}</Project>
+      <Name>Sender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TSNAgentAdapter\TSNAgentAdapter.csproj">
+      <Project>{FA05572F-A257-48DE-9AB8-FB5AA8E5F76B}</Project>
+      <Name>TSNAgentAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

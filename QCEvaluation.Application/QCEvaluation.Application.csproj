@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QCEvaluation.Application</RootNamespace>
+    <AssemblyName>QCEvaluation.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\GetEvaluationFor.cs" />
+    <Compile Include="Events\Handlers\ApplicationInstalledHandler.cs" />
+    <Compile Include="Events\ApplicationInstalled.cs" />
+    <Compile Include="Commands\CreateStandardDeviationRule.cs" />
+    <Compile Include="Commands\DeactivateQCRule.cs" />
+    <Compile Include="Commands\DisableRuleForApplication.cs" />
+    <Compile Include="Commands\EnableRuleForApplication.cs" />
+    <Compile Include="Commands\Handlers\CreateStandardDeviationRuleHandler.cs" />
+    <Compile Include="Commands\Handlers\DeactivateQCRuleHandler.cs" />
+    <Compile Include="Commands\Handlers\DisableRuleForApplicationHandler.cs" />
+    <Compile Include="Commands\Handlers\EnableRuleForApplicationHandler.cs" />
+    <Compile Include="Commands\Handlers\IBuilder.cs" />
+    <Compile Include="Commands\Handlers\ModifyStandardDeviationRuleHandler.cs" />
+    <Compile Include="Events\QCResultBuilder.cs" />
+    <Compile Include="Events\QCResultMapper.cs" />
+    <Compile Include="Commands\Handlers\ReactivateQCRuleHandler.cs" />
+    <Compile Include="Events\Handlers\QCResultReceivedHandler.cs" />
+    <Compile Include="Commands\ModifyStandardDeviationRule.cs" />
+    <Compile Include="Events\QCResultReceived.cs" />
+    <Compile Include="Commands\ReactivateQCRule.cs" />
+    <Compile Include="DTOs\EvaluationDTO.cs" />
+    <Compile Include="IQCEvaluationServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QCEvalutaionServices.cs" />
+    <Compile Include="Responses\GetEvaluationResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
+      <Project>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</Project>
+      <Name>Application.Payloads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
+      <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
+      <Name>ApplicationServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCConfiguration.Application\QCConfiguration.Application.csproj">
+      <Project>{7B3C3123-461B-4DAA-8750-0570DA36ECE4}</Project>
+      <Name>QCConfiguration.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCEvaluation.Domain\QCEvaluation.Domain.csproj">
+      <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
+      <Name>QCEvaluation.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

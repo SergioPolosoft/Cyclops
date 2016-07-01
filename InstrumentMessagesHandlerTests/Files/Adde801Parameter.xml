@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DmMsg Sender="RIST1" Receiver="DM" DateTimeCreated="2012-04-05T09:53:17" XmlSchemaVersion="5.14" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cdb_msg.xsd">
+  <ParameterTransaction DateTime="2012-04-05T09:53:17" IsSuccessful="true" IsManual="true" Operator="bmserv" Transaction="Add">
+    <e801_ApplicationParameter>
+      <ModuleParameterDataFileHeader ModuleType="{ModuleType}" DataConceptVersion="6.17" XmlSchemaVersion="6.17" ParameterDatasetVersion="1" ParameterCreationDate="2012-07-13" SoftwareRelease="A1-06" Manufacturer="Roche" />
+      <e801ApplicationParameterHeader ApplicationDTO="1028" ApplicationNameShort="{Name}" ApplicationNameLong="{Name}" Comment="Parameter Transaction Framework" ComboKitNameLong="{ComboName}" ComboKitNameShort="{ComboName}" StrictComboMode="{StrictComboMode}" NumberOfComboTests="{NumberOfComboTests}" ComboTestApplicationDTO="{ComboLinked}" LogicalLinkedApplicationDTOs="{LogicallyLinked}" ACNApplicationMasterCalibration="{MasterApplication}" RestrictedApplication="{IsRestricted}" ExpireMasking="true" />
+      <e801EP17 MeasuringRange="{MeasuringRange}" HigherUncertanty="{HigherUncertanty}" ThirdEP17Limit="{ThirdEP17Limit}" />
+      <e801ApplicationParameterDetailCommon ActiveUOM="{ActiveUom}" UOMs="{SecondaryUoms}" ConversionFactors="{ConversionFactors}" SampleTypePriorities="{SampleType}" TestPriority="{TestPriority}" />
+      <e801ApplicationParameterDetailSpecific ReagentVolumes="6.0 60.0" PTSFactor="1" AssayProtocolNumber="0" PrewashMode="false" MonotonyOfCurve="asc" SampleVolume="4" DilutionRatio="{DilutionRatio}" DilutionRatioVolumeFirstStepSample="0" DilutionRatioVolumeFirstStepDiluent="6" DilutionRatioVolumeSecondStepSample="0" DilutionRatioVolumeSecondStepDiluent="6" DilutionRatioVolumeThirdStepSample="0" DilutionRatioVolumeThirdStepDiluent="6" RecommendationRerunDilution="1" MaxDilutionRatio="{MaxDilutionRatio}" PT1Volume="0" PT2Volume="0" PretreatmentContainerCodes="123456" BeadVolume="6" ContainerCodes="{ContainerCodes}" SerumIndexChecks="0 99999 1 " />
+      <e801CalibrationProcessingDetail NumberOfDeterminationsCal="2" AutoCalibrationMethodOnContainerChange="None" AutoCalibrationMethodOnLotChange="None" StabilityCheckMode="Timeout" AutoCalibrationContainerTimeout="0" AutoCalibrationMethodOnContainerTimeout="None" AutoCalibrationLotTimeout="0" AutoCalibrationMethodOnLotTimeout="None" NumberOfCalibratorsLotCalibration="0" NumberOfCalibratorsContainerCalibration="0" SubsetLotCalibratorForContainerCalibration="0 5 1 4 2 " />
+      <e801QuantitativeAssayParameter MeasuringRangeLow="0" MeasuringRangeHigh="0" CalibrationWeightingFunction="None" CalibrationWeightingFactors="" EvalAlgorithm="0" />
+    </e801_ApplicationParameter>
+    <AppSetting AutomaticRerun="{AutomaticRerun}" />
+  </ParameterTransaction>
+</DmMsg>

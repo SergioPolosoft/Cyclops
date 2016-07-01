@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAC59FA5-08AA-4CF1-97E5-9D8D70D9C661}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infrastructure</RootNamespace>
+    <AssemblyName>Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HardCodedLogger.cs" />
+    <Compile Include="DTOs\ParameterDTO.cs" />
+    <Compile Include="DTOs\ParametersListMessageDTO.cs" />
+    <Compile Include="DTOs\UrgentInformationDownloadDTO.cs" />
+    <Compile Include="DTOs\XmlMessageDTO.cs" />
+    <Compile Include="EventBroker\CodedEventBroker.cs" />
+    <Compile Include="DTOs\CommunicationStatusDTO.cs" />
+    <Compile Include="DTOs\ConfirmationMessageDTO.cs" />
+    <Compile Include="DTOs\FTPCredentialsMessageDTO.cs" />
+    <Compile Include="EventBroker\IEventBroker.cs" />
+    <Compile Include="EventBroker\IEventHandler.cs" />
+    <Compile Include="Repositories\HardCodedQCRepository.cs" />
+    <Compile Include="Repositories\HardCodedQCResultsEvaluationRepository.cs" />
+    <Compile Include="Repositories\InMemoryIQCApplicationRepository.cs" />
+    <Compile Include="Repositories\HardCodedApplicationRepository.cs" />
+    <Compile Include="Repositories\HardCodedCommunicationStatusRepository.cs" />
+    <Compile Include="EventBroker\IEvent.cs" />
+    <Compile Include="MessageQueue\IMessageQueue.cs" />
+    <Compile Include="DTOs\MessageDTO.cs" />
+    <Compile Include="MessageQueue\MessageQueue.cs" />
+    <Compile Include="Repositories\HardCodedConfigurationRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\HardCodedEvaluationsRepository.cs" />
+    <Compile Include="Repositories\HardCodedQCResultsRepository.cs" />
+    <Compile Include="Repositories\InMemoryMessageRepository.cs" />
+    <Compile Include="Repositories\InMemoryQCRulesRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
+      <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
+      <Name>ApplicationServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstrumentAdapter.Domain\InstrumentAdapter.Domain.csproj">
+      <Project>{098309D2-147C-4567-B006-54542DF12CF3}</Project>
+      <Name>InstrumentAdapter.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabConfiguration.Domain\LabConfiguration.Domain.csproj">
+      <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
+      <Name>LabConfiguration.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
+      <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
+      <Name>QCConfiguration.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCEvaluation.Domain\QCEvaluation.Domain.csproj">
+      <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
+      <Name>QCEvaluation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCRoutine.Domain\QCRoutine.Domain.csproj">
+      <Project>{0D868D3F-C004-4F87-B092-83A23FA9C3EE}</Project>
+      <Name>QCRoutine.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

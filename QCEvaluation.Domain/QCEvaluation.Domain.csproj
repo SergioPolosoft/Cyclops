@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04922212-5EA5-48B8-8169-1DE00152586B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QCEvaluation.Domain</RootNamespace>
+    <AssemblyName>QCEvaluation.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationStatus.cs" />
+    <Compile Include="Events\ApplicationDeleted.cs" />
+    <Compile Include="ApplicationQC.cs" />
+    <Compile Include="Evaluation.cs" />
+    <Compile Include="EvaluationDomainService.cs" />
+    <Compile Include="EvaluationResult.cs" />
+    <Compile Include="Events\ApplicationCreated.cs" />
+    <Compile Include="Events\ApplicationEvent.cs" />
+    <Compile Include="Events\QCRuleCommentUpdated.cs" />
+    <Compile Include="Events\QCRuleDeactivated.cs" />
+    <Compile Include="Events\QCRuleDisabled.cs" />
+    <Compile Include="Events\QCRuleEnabled.cs" />
+    <Compile Include="Events\QCRuleEvent.cs" />
+    <Compile Include="Events\QCRuleLimitsUpdated.cs" />
+    <Compile Include="Events\QCRuleNumberOfControlsUpdated.cs" />
+    <Compile Include="Events\QCRuleReactivate.cs" />
+    <Compile Include="Events\QCStandardDeviationRuleCreated.cs" />
+    <Compile Include="Exceptions\ApplicationNotExistsException.cs" />
+    <Compile Include="Exceptions\QCRuleNameExistsException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QCResult.cs" />
+    <Compile Include="QCRule.cs" />
+    <Compile Include="QualityControlPayload.cs" />
+    <Compile Include="Repositories\IEvaluationsRepository.cs" />
+    <Compile Include="Repositories\IQCApplicationRepository.cs" />
+    <Compile Include="Repositories\IQCResultsRepository.cs" />
+    <Compile Include="Repositories\IQCRuleRepository.cs" />
+    <Compile Include="StandardDeviationRule.cs" />
+    <Compile Include="States\ApplicationQCState.cs" />
+    <Compile Include="States\QCRuleState.cs" />
+    <Compile Include="States\StandardDeviationRuleState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
+      <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
+      <Name>ApplicationServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
+      <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
+      <Name>QCConfiguration.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

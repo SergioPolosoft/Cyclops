@@ -1,0 +1,12 @@
+﻿<DmMsg Sender="RIST1" Receiver="DM" DateTimeCreated="2012-04-05T10:03:17" XmlSchemaVersion="5.14" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cdb_msg.xsd">
+  <ParameterTransaction DateTime="2012-04-05T10:03:17" IsSuccessful="true" IsManual="true" Operator="bmserv" Transaction="Delete">
+    <e602_ApplicationParameter>
+      <ModuleParameterDataFileHeader DataConceptVersion="04.10" XmlSchemaVersion="5.14" ParameterDatasetVersion="302" ParameterCreationDate="2012-04-05" SoftwareRelease="L2-01" ModuleType="{ModuleType}" />
+      <ApplicationParameterHeader ApplicationDTO="{TestCode}" ApplicationNameShort="{Name}" ApplicationNameLong="" ContainerNameShort="" Comment="" />
+      <e602ApplicationParameterDetailCommon ActiveUOM="{ActiveUom}" ConversionFactors="0.03625" NumberOfDeterminationsCal="2" NumberOfDeterminationsContainer="100" Precisions="2 0" TestPriority="{TestPriority}" UOMs="{SecondaryUoms}" />
+      <e602ApplicationParameterDetailSpecific AssayProtocolNumber="2" AutoCalibrationMethodOnContainerTimeout="None" AutoCalibrationMethodOnLotChange="None" AutoCalibrationContainerTimeout="7" AutoCalibrationLotTimeout="28" AutoCalibrationMethodOnContainerChange="None" AutoCalibrationMethodOnLotTimeout="Full" BeadVolume="28" DilutionRatio="1" DilutionRatioVolumeFirstStepDiluent="0" DilutionRatioVolumeFirstStepSample="0" DilutionRatioVolumeSecondStepDiluent="0" DilutionRatioVolumeSecondStepSample="0" DuplicateLimitHigh="10" DuplicateLimitLow="10" InstrumentCalibratorFlag="false" MonotonyOfCurve="desc" NumberOfCalibratorsContainerCalibration="2" NumberOfCalibratorsLotCalibration="2" OnBoardStability="56" PS2Volume="0" PrewashMode="None" ReagentVolumes="0 74 79" SampleVolume="20" SignalLowLimit="400" SubsetLotCalibratorForContainerCalibration="1 2 0 0 0" VoltageProfile="Normal" />
+      <e602QuantitativeAssayParameter CalibrationWeightingFactors="1 1 1 1 1" CalibrationWeightingFunction="None" MeasuringRangeHigh="1750" MeasuringRangeLow="0.5" SerumIndexChecks="0 0 0" />
+    </e602_ApplicationParameter>
+    <AppSetting AutomaticRerun="false" />
+  </ParameterTransaction>
+</DmMsg>
