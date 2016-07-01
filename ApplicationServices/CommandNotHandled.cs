@@ -13,5 +13,7 @@ namespace ApplicationServices
         {
             get { return CommandResult.NotHandled; }
         }
+
+        public string Message { get; private set; }
     }
 }

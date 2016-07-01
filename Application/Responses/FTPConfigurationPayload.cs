@@ -1,7 +1,6 @@
 ﻿using Application.Payloads;
-using ApplicationServices;
 
-namespace InstrumentCommunication.Application.Responses
+namespace LabConfiguration.Application.Responses
 {
     public class FTPConfigurationPayload:IPayloadObject
     {

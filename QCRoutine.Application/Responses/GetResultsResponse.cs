@@ -6,7 +6,13 @@ namespace QCRoutine.Application.Responses
 {
     public class GetResultsResponse:IResponse
     {
-        public CommandResult Status { get; private set; }
+        public GetResultsResponse(List<QCResultPayload> listOfQcResults)
+        {
+            this.Results = listOfQcResults;
+        }
+
+        public CommandResult Status { get; protected set; }
         public IList<QCResultPayload> Results { get; private set; }
+        public string Message { get; protected set; }
     }
 }

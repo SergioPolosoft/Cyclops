@@ -19,7 +19,6 @@ namespace InstrumentCommunication.Application
     public class InstrumentCommunicationServices : ApplicationServicesBase
     {
         private readonly ICommunicationStatusRepository communicationStatusRepository;
-        private readonly IDictionary<Type,Action<IEvent>> eventHandlers;
         private readonly IMessagesRepository messageRepository;
         private readonly IMessageSender messageSender;
         private readonly ITSNAdapter tsnAdapter;        

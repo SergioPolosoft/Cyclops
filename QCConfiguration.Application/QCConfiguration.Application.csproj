@@ -36,9 +36,9 @@
   <ItemGroup>
     <Compile Include="Commands\ConfirmControlInstallation.cs" />
     <Compile Include="Commands\GetQualityControl.cs" />
-    <Compile Include="Commands\Handlers\IBuilder.cs" />
     <Compile Include="Commands\Handlers\ConfirmControlInstallationHandler.cs" />
     <Compile Include="DTOs\ControlDTO.cs" />
+    <Compile Include="Commands\Handlers\GetQualityControlHandler.cs" />
     <Compile Include="IQCConfigurationServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCConfigurationServices.cs" />

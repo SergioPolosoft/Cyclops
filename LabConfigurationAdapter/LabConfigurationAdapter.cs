@@ -1,8 +1,8 @@
 ﻿using InstrumentCommunication.Application.Commands;
 using InstrumentCommunication.Application.Ports;
-using InstrumentCommunication.Application.Responses;
 using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
+using LabConfiguration.Application.Responses;
 
 namespace LabConfigurationAdapter
 {

@@ -4,7 +4,6 @@ using ApplicationServices;
 using QCConfiguration.Application.Commands;
 using QCConfiguration.Application.Commands.Handlers;
 using QCConfiguration.Domain.Repositories;
-using QCEvaluation.Domain;
 
 namespace QCConfiguration.Application
 {
@@ -21,7 +20,8 @@ namespace QCConfiguration.Application
         {
             return new Dictionary<Type, Func<ICommand, IResponse>>()
             {
-                {typeof(ConfirmControlInstallation), x=> new ConfirmControlInstallationHandler(qcRepository).Handle(x as ConfirmControlInstallation)}
+                {typeof(ConfirmControlInstallation), x=> new ConfirmControlInstallationHandler(qcRepository).Handle(x as ConfirmControlInstallation)},
+                {typeof(GetQualityControl), x=>new GetQualityControlHandler().Handle(x as GetQualityControl)}
             };
         }
 
@@ -29,10 +29,5 @@ namespace QCConfiguration.Application
         {
             return new Dictionary<Type, Action<IEvent>>();
         }
-
-        public QualityControlPayload GetQualityControl(int testCode)
-        {
-            throw new NotImplementedException();
-        }       
     }
 }

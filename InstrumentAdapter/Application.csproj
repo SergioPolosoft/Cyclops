@@ -38,7 +38,6 @@
   <ItemGroup>
     <Compile Include="ApplicationParameter.cs" />
     <Compile Include="Commands\ConfirmMessageReceptionCommand.cs" />
-    <Compile Include="Commands\GetFTPConfiguration.cs" />
     <Compile Include="Commands\GetParameterCommand.cs" />
     <Compile Include="Commands\GetParameterListCommand.cs" />
     <Compile Include="Commands\Handlers\DownloadUrgentInformationHandler.cs" />
@@ -61,8 +60,6 @@
     <Compile Include="Commands\Handlers\StoreMainUnitFtpCredentialsHandler.cs" />
     <Compile Include="Commands\Handlers\StoreMessageHandler.cs" />
     <Compile Include="Commands\Handlers\StoreQCResultHandler.cs" />
-    <Compile Include="Responses\FTPConfigurationPayload.cs" />
-    <Compile Include="Responses\GetFTPConfigurationResponse.cs" />
     <Compile Include="UnknownCommunicationStatusException.cs" />
     <Compile Include="Commands\UrgentInformationRequestCommand.cs" />
     <Compile Include="Events\Handlers\UrgentInformationReceivedHandler.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using ApplicationServices;
+using FluentAssertions;
 using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Responses;
@@ -9,6 +11,7 @@ using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Events;
 using QCRoutine.Application.Commands;
 using QCRoutine.Application.Commands.Handlers;
+using QCRoutine.Application.Responses;
 using QCRoutine.Domain;
 
 namespace QCRoutine.Application.Tests
@@ -46,12 +49,18 @@ namespace QCRoutine.Application.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ApplicationNotExistsException))]
-        public void IfTestCodeDoesNotExistsAnExceptionIsThrown()
+        public void IfTestCodeDoesNotExistsAnUnableToProcessResponseIsReturned()
         {
-            labConfigurationServices.Setup(x => x.Handle(new GetApplicationCommand(15182))).Returns(new GetApplicationResponse());
+            labConfigurationServices.Setup(x => x.Handle(It.Is<GetApplicationCommand>(y=>y.TestCode==15182))).Returns(new ApplicationDoesNotExistsResponse());
 
-            handler.Handle(new StoreQCResult(15182, 3.6, DateTime.Now));
+            var response = handler.Handle(new StoreQCResult(15182, 3.6, DateTime.Now));
+
+            Assert.IsNotNull(response);
+            var storeQCResultResponse = response as QCResultNotStoredResponse;
+
+            Assert.IsNotNull(storeQCResultResponse);
+            storeQCResultResponse.Status.Should().Be(CommandResult.Error);
+            storeQCResultResponse.Reason.Should().Be(string.Format(QCRoutineMessages.ApplictionCodeDoesNotExists,15182));
         }
 
         [TestMethod]

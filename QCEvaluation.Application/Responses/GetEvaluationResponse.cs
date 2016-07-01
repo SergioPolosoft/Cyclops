@@ -6,6 +6,7 @@ namespace QCEvaluation.Application.Responses
     public class GetEvaluationResponse:IResponse
     {
         public CommandResult Status { get; private set; }
+        public string Message { get; private set; }
         public EvaluationDTO EvaluationResult { get; private set; }
     }
 }

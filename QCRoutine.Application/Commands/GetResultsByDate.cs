@@ -7,7 +7,9 @@ namespace QCRoutine.Application.Commands
     {
         public GetResultsByDate(int numberOfResults)
         {
-            throw new NotImplementedException();
+            this.NumberOfResults = numberOfResults;
         }
+
+        public int NumberOfResults { get; private set; }
     }
 }

@@ -5,11 +5,13 @@ using LabConfiguration.Application.Commands;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Events;
+using QCRoutine.Application.Responses;
+using QCRoutine.Application.Tests;
 using QCRoutine.Domain;
 
 namespace QCRoutine.Application.Commands.Handlers
 {
-    public class StoreQCResultHandler:IHandler<StoreQCResult,IResponse>
+    public class StoreQCResultHandler:IHandler<StoreQCResult,StoreQCResultResponse>
     {
         private readonly IQCEvaluationServices qcConfiguration;
         private readonly IQCResultsRepository qcRepository;
@@ -22,27 +24,26 @@ namespace QCRoutine.Application.Commands.Handlers
             this.labconfiguration = labconfiguration;
         }
 
-        public IResponse Handle(StoreQCResult domainCommand)
+        public StoreQCResultResponse Handle(StoreQCResult domainCommand)
         {
             var testCode = domainCommand.TestCode;
 
             var response = labconfiguration.Handle(new GetApplicationCommand(testCode));
-            if (response.Status==CommandResult.Success)
+            
+            if (response is ApplicationDoesNotExistsResponse)
             {
-                var qcResult = new QCResult(testCode, domainCommand.Result, domainCommand.MeasuredDate);
-
-                qcRepository.Add(qcResult);
-
-                var qcResultPayload = new QCResultPayload(qcResult);
-
-                qcConfiguration.Handle(new QCResultReceived(qcResultPayload));
-
-                return new CommandSuccesfullyHandled();
+                return new QCResultNotStoredResponse(string.Format(QCRoutineMessages.ApplictionCodeDoesNotExists, testCode));
             }
-            else
-            {
-                return new CommandNotHandled(string.Format("Application code {0} does not exists.",testCode));
-            }
+
+            var qcResult = new QCResult(testCode, domainCommand.Result, domainCommand.MeasuredDate);
+
+            qcRepository.Add(qcResult);
+
+            var qcResultPayload = new QCResultPayload(qcResult);
+
+            qcConfiguration.Handle(new QCResultReceived(qcResultPayload));
+
+            return new StoreQCResultResponse();
         }
     }
 }

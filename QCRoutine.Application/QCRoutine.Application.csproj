@@ -36,12 +36,17 @@
   <ItemGroup>
     <Compile Include="ApplicationNotExistsException.cs" />
     <Compile Include="Commands\GetResultsByDate.cs" />
+    <Compile Include="Commands\Handlers\GetQCResultHandler.cs" />
+    <Compile Include="Responses\QCResultNotStoredResponse.cs" />
+    <Compile Include="Responses\GetResultsResponseError.cs" />
     <Compile Include="IQCRoutineServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QCRoutineMessages.cs" />
     <Compile Include="QCRoutineServices.cs" />
     <Compile Include="Commands\StoreQCResult.cs" />
     <Compile Include="Commands\Handlers\StoreQCResultHandler.cs" />
     <Compile Include="Responses\GetResultsResponse.cs" />
+    <Compile Include="Responses\StoreQCResultResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">

@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using QCConfiguration.Application;
 using QCConfiguration.Application.Commands;
+using QCConfiguration.Application.Responses;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.Events;
@@ -50,6 +51,10 @@ namespace QCEvaluation.Application.Tests
 
             qcResultsRespository = new Mock<IQCResultsRepository>();
             qcConfigurationServices = new Mock<IQCConfigurationServices>();
+
+            qcConfigurationServices.Setup(x => x.Handle(It.IsAny<GetQualityControl>()))
+                .Returns(new GetQualityControlResponse());
+
             receivedHandler = new QCResultReceivedHandler(applicationQCRepository.Object, evaluationsRepository.Object, qcruleRepository.Object, qcResultsRespository.Object, qcConfigurationServices.Object);
         }
 

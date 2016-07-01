@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicationServices;
+using InstrumentCommunication.Application.Commands;
 using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Commands.Handlers;
 using LabConfiguration.Domain;
@@ -50,7 +51,8 @@ namespace LabConfiguration.Application
                 { typeof(ConfirmApplicationInstallationCommand), x=> new ConfirmApplicationInstallationHandler(applicationRepository, qcevaluationServices).Handle(x as ConfirmApplicationInstallationCommand)},
                 { typeof(ConfirmApplicationDeletionCommand), x=> new ConfirmApplicationDeletionHandler(applicationRepository).Handle(x as ConfirmApplicationDeletionCommand)},
                 { typeof(ConfirmApplicationUpdateCommand), x=> new ConfirmApplicationUpdateHandler(applicationRepository).Handle(x as ConfirmApplicationUpdateCommand)},
-                { typeof(StoreMainunitConfigurationCommand), x=> new StoreMainunitConfigurationHandler(configurationRepository).Handle(x as StoreMainunitConfigurationCommand)}
+                { typeof(StoreMainunitConfigurationCommand), x=> new StoreMainunitConfigurationHandler(configurationRepository).Handle(x as StoreMainunitConfigurationCommand)},
+                { typeof(GetFTPConfiguration), x=> new GetFTPConfigurationHandler(configurationRepository).Handle(x as GetFTPConfiguration)}
             };
         }
 

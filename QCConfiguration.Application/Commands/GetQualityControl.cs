@@ -6,7 +6,7 @@ namespace QCConfiguration.Application.Commands
     {
         public GetQualityControl(int testCode)
         {
-            throw new System.NotImplementedException();
+            this.TestCode = testCode;
         }
 
         public int TestCode { get; private set; }

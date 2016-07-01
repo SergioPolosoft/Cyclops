@@ -3,44 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using ApplicationServices;
 using FluentAssertions;
-using LabConfiguration.Application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using QCEvaluation.Application;
 using QCRoutine.Application.Commands;
+using QCRoutine.Application.Commands.Handlers;
 using QCRoutine.Domain;
 
 namespace QCRoutine.Application.Tests
 {
     [TestClass]
-    public class QCRoutineServicesTests
+    public class GetQCResultsHandlerTests
     {
-        private IQCRoutineServices service;
+        private GetQCResultHandler handler;
         private Mock<IQCResultsRepository> resultsRepository;
 
         [TestInitialize]
         public void TestInitialize()
         {
             resultsRepository = new Mock<IQCResultsRepository>();
-            var configurationServices = new Mock<IQCEvaluationServices>();
-            service = new QCRoutineServices(configurationServices.Object, resultsRepository.Object, new Mock<ILogger>().Object, new Mock<ILabConfigurationServices>().Object);
+            handler = new GetQCResultHandler(resultsRepository.Object);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GetResultsByDateWithZeroDaysThrowAnException()
+        public void GetResulstsByDateWithZeroDaysReturnsAnOutOfRangeCommand()
         {
             var command = new GetResultsByDate(0);
-            var response = service.Handle(command);
-            Assert.Inconclusive();
+            var response = handler.Handle(command);
+
+            response.Status.Should().Be(CommandResult.Error);
+
+            response.Message.Should().Be(QCRoutineMessages.InvalidNumberOfResults);
         }
 
         [TestMethod]
         public void GetResultsByDateCallsTheResultsRepository()
         {
-            Assert.Inconclusive();
             var command = new GetResultsByDate(1);
-            var response = service.Handle(command);
+            
+            handler.Handle(command);
 
             resultsRepository.Verify(x => x.GetResultsOrderedByDate(1));
         }
@@ -50,9 +51,10 @@ namespace QCRoutine.Application.Tests
         {
             resultsRepository.Setup(x => x.GetResultsOrderedByDate(1)).Throws(new Exception());
 
-            var resultsByDate = service.Handle(new GetResultsByDate(1));
+            var response = handler.Handle(new GetResultsByDate(1));
 
-            resultsByDate.Should().BeNull();
+            response.Status.Should().Be(CommandResult.Error);
+            response.Message.Should().Be(QCRoutineMessages.ErrorOcurredAccessingRepository);
         }
 
         [TestMethod]
@@ -62,13 +64,12 @@ namespace QCRoutine.Application.Tests
             resultsRepository.Setup(x => x.GetResultsOrderedByDate(1))
                 .Returns(new List<QCResult>() {qcResult});
 
-            var resultsDTO = service.Handle(new GetResultsByDate(1));
+            var response = handler.Handle(new GetResultsByDate(1));
 
-            Assert.Inconclusive();
-            //resultsDTO.Should().NotBeEmpty();
-            //var firstDTO = resultsDTO.First();
+            response.Status.Should().Be(CommandResult.Success);
 
-            //firstDTO.QCResultId.Should().Be(qcResult.Id);
+            response.Results.Count.Should().Be(1);
+            response.Results.First().Id.Should().Be(qcResult.Id);
         }
     }
 }

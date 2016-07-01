@@ -3,6 +3,7 @@
     public enum CommandResult
     {
         Success,
-        NotHandled
+        NotHandled,
+        Error
     }
 }
