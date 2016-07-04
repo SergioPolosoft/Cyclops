@@ -41,6 +41,10 @@
     <Compile Include="QCResultPayload.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LabConfiguration.Domain\LabConfiguration.Domain.csproj">
+      <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
+      <Name>LabConfiguration.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Domain\QCRoutine.Domain.csproj">
       <Project>{0D868D3F-C004-4F87-B092-83A23FA9C3EE}</Project>
       <Name>QCRoutine.Domain</Name>

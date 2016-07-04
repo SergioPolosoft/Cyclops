@@ -52,7 +52,6 @@
     <Compile Include="Commands\StoreMainunitConfigurationCommand.cs" />
     <Compile Include="Commands\Handlers\StoreMainunitConfigurationHandler.cs" />
     <Compile Include="Responses\ApplicationDoesNotExistsResponse.cs" />
-    <Compile Include="Responses\FTPConfigurationPayload.cs" />
     <Compile Include="Responses\GetApplicationResponse.cs" />
     <Compile Include="Responses\GetFTPConfigurationResponse.cs" />
   </ItemGroup>

@@ -86,7 +86,7 @@ namespace InstrumentCommunication.Application
                     typeof (UrgentInformationRequestCommand),
                     x =>
                         new StoreMessageHandler(messageRepository,x as UrgentInformationRequestCommand).Handle(new ActionCommand(()=>
-                        new ConfirmReceptionHandler(messageSender).Handle(new ActionCommand(()=>new DownloadUrgentInformationHandler(tsnAdapter).Handle(x as UrgentInformationRequestCommand)))))
+                            new ConfirmReceptionHandler(messageSender).Handle(new ActionCommand(()=>new DownloadUrgentInformationHandler(tsnAdapter).Handle(x as UrgentInformationRequestCommand)))))
                 },
                 {
                     typeof (StoreMainUnitFTPCredentialsCommand),
