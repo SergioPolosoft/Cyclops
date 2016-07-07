@@ -30,33 +30,14 @@ namespace QCRoutine.Application
         {
             return new Dictionary<Type, Func<ICommand, IResponse>>
             {
-                {typeof(StoreQCResult),x=>new StoreQCResultHandler(qcConfigurationServices,resultsRepository, labconfiguration).Handle(x as StoreQCResult)}
+                {typeof(StoreQCResult),x=>new StoreQCResultHandler(qcConfigurationServices,resultsRepository, labconfiguration).Handle(x as StoreQCResult)},
+                {typeof(GetResultsByDate),x=>new GetQCResultHandler(resultsRepository).Handle(x as GetResultsByDate)}
             };
         }
 
         protected override Dictionary<Type, Action<IEvent>> GetEventHandlers()
         {
             throw new NotImplementedException();
-        }
-
-        public List<QCResultPayload> GetResultsByDate(int numberOfResults)
-        {
-            if (numberOfResults<=0)
-            {
-                throw new ArgumentOutOfRangeException("numberOfResults");
-            }
-            
-            IEnumerable<QCResult> listOfQCResults = new List<QCResult>();
-            try
-            {
-                listOfQCResults = resultsRepository.GetResultsOrderedByDate(numberOfResults);
-            }
-            catch (Exception exception)
-            {
-                log.Warning(exception);
-            }
-
-            return listOfQCResults.Select(qcResult => new QCResultPayload(qcResult)).ToList();
-        }
+        }        
     }
 }

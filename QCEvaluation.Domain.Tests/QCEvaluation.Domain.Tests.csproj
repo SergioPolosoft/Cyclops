@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
+      <Project>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</Project>
+      <Name>Application.Payloads</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
       <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
       <Name>ApplicationServices.Common</Name>

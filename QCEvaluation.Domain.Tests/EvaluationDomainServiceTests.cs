@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Application.Payloads;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCConfiguration.Domain;
 using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Domain.Tests
@@ -15,7 +15,7 @@ namespace QCEvaluation.Domain.Tests
         private EvaluationDomainService evaluationService;
         private List<QCRule> listOfRules;
         private int testCode = 17202;
-        private QualityControlPayload qualityControlPayload;
+        private QualityControl qualityControl;
 
         [TestInitialize]
         public void TestInitialize()
@@ -37,10 +37,13 @@ namespace QCEvaluation.Domain.Tests
                 rule2QCsOutOf2Limits, rule1QCsOutOf3Limits
             };
 
-            var qualityControl = new QualityControl();
-            qualityControl.Create(testCode, 2, 1);
+            qualityControl = new QualityControl
+            {
+                TestCode = testCode,
+                TargetValue = 2,
+                StandardDeviation = 1
+            };
 
-            qualityControlPayload = new QualityControlPayload(qualityControl);
         }
 
         [TestMethod]
@@ -58,8 +61,8 @@ namespace QCEvaluation.Domain.Tests
                 qcResultToEvaluate,
                 new QCResult() {TestCode = testCode, Id = Guid.NewGuid(), Result = 5.1}
             });
-            
-            var evaluation = evaluationService.Evaluate(qcResultToEvaluate, listOfRules, qualityControlPayload);
+
+            var evaluation = evaluationService.Evaluate(qcResultToEvaluate, listOfRules, qualityControl);
 
             evaluation.Should().Be(EvaluationResult.Error);
         }
@@ -68,7 +71,7 @@ namespace QCEvaluation.Domain.Tests
         [TestMethod]
         public void IfNoErrorsButAnyRuleWithNotEnoughDataErrorThenNotEnoughDataStatusIsReturned()
         {
-            var evaluation = evaluationService.Evaluate(new QCResult() { TestCode = testCode, Id = Guid.NewGuid(), Result = 2.1 }, listOfRules, qualityControlPayload);
+            var evaluation = evaluationService.Evaluate(new QCResult() { TestCode = testCode, Id = Guid.NewGuid(), Result = 2.1 }, listOfRules, qualityControl);
 
             evaluation.Should().Be(EvaluationResult.NotEnoughData);
         }
@@ -88,8 +91,8 @@ namespace QCEvaluation.Domain.Tests
                 qcResultToEvaluate,
                 new QCResult {TestCode = testCode, Id = Guid.NewGuid(), Result = 2.1}
             });
-            
-            var evaluation = evaluationService.Evaluate(qcResultToEvaluate, listOfRules, qualityControlPayload);
+
+            var evaluation = evaluationService.Evaluate(qcResultToEvaluate, listOfRules, qualityControl);
 
             evaluation.Should().Be(EvaluationResult.Ok);
         }

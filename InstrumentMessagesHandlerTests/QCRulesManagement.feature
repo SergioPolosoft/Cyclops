@@ -69,6 +69,3 @@ Scenario: Validate QC results
 	When a qc result with for the test "7260" with value 0.9 is received
 	Then the qc result is succesfully evaluated
 
-@ignore
-Scenario: Preconfigured rules
-	

@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\QualityControlCreated.cs" />
+    <Compile Include="Events\QualityControlUpdated.cs" />
     <Compile Include="QualityControl.cs" />
     <Compile Include="QualityControlState.cs" />
     <Compile Include="Repositories\IQualityControlRepository.cs" />

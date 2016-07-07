@@ -52,8 +52,11 @@ namespace QCEvaluation.Application.Tests
             qcResultsRespository = new Mock<IQCResultsRepository>();
             qcConfigurationServices = new Mock<IQCConfigurationServices>();
 
+            var qualityControl = new QCConfiguration.Domain.QualityControl();
+            qualityControl.Create(testCode,15.25,0.607);
+
             qcConfigurationServices.Setup(x => x.Handle(It.IsAny<GetQualityControl>()))
-                .Returns(new GetQualityControlResponse());
+                .Returns(new GetQualityControlFound(new QualityControlPayload(qualityControl)));
 
             receivedHandler = new QCResultReceivedHandler(applicationQCRepository.Object, evaluationsRepository.Object, qcruleRepository.Object, qcResultsRespository.Object, qcConfigurationServices.Object);
         }
@@ -129,7 +132,14 @@ namespace QCEvaluation.Application.Tests
         [TestMethod]
         public void IfQualityControlIsNotFoundThenNoEvaluationIsStored()
         {
-            Assert.Inconclusive();
+            qcConfigurationServices.Setup(x => x.Handle(It.IsAny<GetQualityControl>()))
+                .Returns(new QualityControlNotFound(testCode));
+
+            var validateQcResult = new QCResultReceived(new QCResultPayload(new QCResult(testCode, 0.6, DateTime.Now)));
+
+            receivedHandler.Handle(validateQcResult);
+
+            evaluationsRepository.Verify(x=>x.Add(It.Is<Evaluation>(y=>y.EvaluationResult==EvaluationResult.NotEvaluated)));
         }
     }
 }

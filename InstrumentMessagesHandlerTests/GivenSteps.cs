@@ -112,7 +112,7 @@ namespace InstrumentMessagesHandlerTests
         {
             var qcConfiguration = ScenarioContext.Current.Get<IQCConfigurationServices>();
 
-            var control = new ControlDTO(testCode, Convert.ToDouble(table.Rows[0]["Range1SD"]),
+            var control = new ControlDTO(testCode, Convert.ToDouble(table.Rows[0]["StandardDeviation"]),
                 Convert.ToDouble(table.Rows[0]["TargetValue"]));
 
             qcConfiguration.Handle(new ConfirmControlInstallation(control));

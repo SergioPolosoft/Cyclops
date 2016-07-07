@@ -46,6 +46,7 @@
     <Compile Include="Commands\ConfirmApplicationInstallationCommand.cs" />
     <Compile Include="Commands\Handlers\ConfirmApplicationInstallationHandler.cs" />
     <Compile Include="Commands\Handlers\GetFTPConfigurationHandler.cs" />
+    <Compile Include="Commands\Handlers\GetApplicationCommandHandler.cs" />
     <Compile Include="ILabConfigurationServices.cs" />
     <Compile Include="LabConfigurationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

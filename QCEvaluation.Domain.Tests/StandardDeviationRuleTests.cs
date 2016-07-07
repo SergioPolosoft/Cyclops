@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ApplicationServices;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCConfiguration.Domain;
-using QCEvaluation.Domain.Events;
-using QCEvaluation.Domain.Exceptions;
 using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Domain.Tests
@@ -16,7 +12,7 @@ namespace QCEvaluation.Domain.Tests
     {
         private Mock<IQCResultsRepository> qcResultsRepository;
         private StandardDeviationRule standardDeviationRule;
-        private QualityControlPayload qualityControlPayload;
+        private QualityControl qualityControlPayload;
 
         [TestInitialize]
         public void TestInitialize()
@@ -25,7 +21,7 @@ namespace QCEvaluation.Domain.Tests
           
             standardDeviationRule = new StandardDeviationRule();
 
-            qualityControlPayload = new QualityControlPayload(new QualityControl());
+            qualityControlPayload = new QualityControl();
         }
 
         [TestMethod]
@@ -117,12 +113,14 @@ namespace QCEvaluation.Domain.Tests
             standardDeviationRule.UpdateNumberOfControls(1);
             standardDeviationRule.UpdateLimits(3);
 
-            var qualityControl = new QualityControl();
-            qualityControl.Create(10620, 11, 7);
+            var qualityControl = new QualityControl
+            {
+                TestCode = 10620,
+                TargetValue = 11,
+                StandardDeviation = 7
+            };
 
-            qualityControlPayload = new QualityControlPayload(qualityControl);
-
-            var evaluationResult = standardDeviationRule.Evaluate(qcResult, qcResultsRepository.Object, qualityControlPayload);
+            var evaluationResult = standardDeviationRule.Evaluate(qcResult, qcResultsRepository.Object, qualityControl);
 
             evaluationResult.Should().Be(EvaluationResult.Ok);
         }
@@ -151,12 +149,14 @@ namespace QCEvaluation.Domain.Tests
             standardDeviationRule.UpdateNumberOfControls(2);
             standardDeviationRule.UpdateLimits(3);
 
-            var qualityControl = new QualityControl();
-            qualityControl.Create(10620, 60, 7);
+            var qualityControl = new QualityControl
+            {
+                TestCode = 10620,
+                TargetValue = 60,
+                StandardDeviation = 7
+            };
 
-            qualityControlPayload = new QualityControlPayload(qualityControl);
-
-            var evaluationResult = standardDeviationRule.Evaluate(qcResult, qcResultsRepository.Object, qualityControlPayload);
+            var evaluationResult = standardDeviationRule.Evaluate(qcResult, qcResultsRepository.Object, qualityControl);
 
             evaluationResult.Should().Be(EvaluationResult.Ok);
         }

@@ -7,6 +7,7 @@ using Moq;
 using QCConfiguration.Application.Commands;
 using QCConfiguration.Application.Commands.Handlers;
 using QCConfiguration.Application.DTOs;
+using QCConfiguration.Domain;
 using QCConfiguration.Domain.Events;
 using QCConfiguration.Domain.Repositories;
 
@@ -15,13 +16,20 @@ namespace QCConfiguration.Application.Tests
     [TestClass]
     public class ConfirmControlInstallationHandlerTests
     {
+        private Mock<IQualityControlRepository> qcRepository;
+        private ConfirmControlInstallationHandler handler;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            qcRepository = new Mock<IQualityControlRepository>();
+
+            handler = new ConfirmControlInstallationHandler(qcRepository.Object);
+        }
+
         [TestMethod]
         public void WhenTheConfirmationIsReceivedAControlIsCreated()
         {
-            Mock<IQualityControlRepository> qcRepository = new Mock<IQualityControlRepository>();
-
-            var handler = new ConfirmControlInstallationHandler(qcRepository.Object);
-
             handler.Handle(new ConfirmControlInstallation(new ControlDTO(11162,163,223)));
 
             qcRepository.Verify(x => x.Add(It.IsAny<List<AggreggateEvent>>()));
@@ -29,11 +37,7 @@ namespace QCConfiguration.Application.Tests
 
         [TestMethod]
         public void TheControlIsCreatedWithTheTestCodeTheRange1SDAndTheTargetValue()
-        {
-            Mock<IQualityControlRepository> qcRepository = new Mock<IQualityControlRepository>();
-
-            var handler = new ConfirmControlInstallationHandler(qcRepository.Object);
-
+        {            
             handler.Handle(new ConfirmControlInstallation(new ControlDTO(11162,16,22)));
 
             qcRepository.Verify(x => x.Add(It.Is<List<AggreggateEvent>>(y => y.Any(z=> ValidateQualityControlCreatedEvent(z, 11162,16,22)))));
@@ -45,24 +49,35 @@ namespace QCConfiguration.Application.Tests
             if (qualityControlCreated == null)
             {
                 return false;
-            }
-            //qualityControlCreated.Id.Should().NotBeEmpty();
-            //qualityControlCreated.TestCode.Should().Be(testCode);
-            //qualityControlCreated.StandardDeviation.Should().Be(range1SD);
-            //qualityControlCreated.TargetValue.Should().Be(targetValue);
+            }           
             return true;
-        }
-
-        [TestMethod]
-        public void WhenTheConfirmationIsStoredItIsSentToValidationUnit()
-        {
-            Assert.Inconclusive();
-        }
+        }        
 
         [TestMethod]
         public void WhenTheControlExistsTheTargetValueAndSDRangeIsUpdated()
         {
-            Assert.Inconclusive();
+            var controlId = Guid.NewGuid();
+            qcRepository.Setup(x => x.GetQualityControlForTestCode(10560)).Returns(new QualityControl(new QualityControlCreated(controlId, 10560, 1.57, 0.707)));
+
+            var controlDto = new ControlDTO(10560, 7.07, 2.16);
+            handler.Handle(new ConfirmControlInstallation(controlDto));
+
+            qcRepository.Verify(x=>x.Add(It.Is<List<AggreggateEvent>>(y=>y.Any(z=>ValidateIsUpdateEvent(z,controlDto, controlId)))));
+        }
+
+        private bool ValidateIsUpdateEvent(AggreggateEvent aggreggateEvent, ControlDTO controlDto, Guid qualityControlId)
+        {
+            QualityControlUpdated qualityControlUpdated = aggreggateEvent as QualityControlUpdated;
+            if (qualityControlUpdated!=null)
+            {
+                if (qualityControlUpdated.ControlId == qualityControlId &&
+                    qualityControlUpdated.StandardDeviation == controlDto.StandardDeviation &&
+                    qualityControlUpdated.TargetValue == controlDto.TargetValue)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

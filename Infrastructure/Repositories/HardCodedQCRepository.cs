@@ -13,7 +13,11 @@ namespace Infrastructure.Repositories
 
         public QualityControl GetQualityControlForTestCode(int testCode)
         {
-            var creationEvent = qcevents.OfType<QualityControlCreated>().First(x => x.TestCode == testCode);
+            var creationEvent = qcevents.OfType<QualityControlCreated>().FirstOrDefault(x => x.TestCode == testCode);
+            if (creationEvent==null)
+            {
+                return null;
+            }
             var events = qcevents.OfType<QualityControlEvent>().Where(x => x.ControlId == creationEvent.ControlId);
             return new QualityControl(events);
         }

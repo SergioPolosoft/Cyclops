@@ -8,7 +8,7 @@ namespace QCConfiguration.Domain
 {
     public class QualityControl:Aggreggate<QualityControlState>
     {
-        public QualityControl(IEnumerable<QualityControlEvent> aggreggateEvents) : base(new List<AggreggateEvent>())
+        public QualityControl(IEnumerable<QualityControlEvent> aggreggateEvents) : base(aggreggateEvents)
         {
         }
 
@@ -31,9 +31,31 @@ namespace QCConfiguration.Domain
             get { return state.TestCode; }
         }
 
+        public bool Installed
+        {
+            get { return state.Installed; }
+        }
+
         public void Create(int testCode, double targetValue, double standardDeviation)
         {
             Apply(new QualityControlCreated(Guid.NewGuid(),testCode,targetValue,standardDeviation));
+        }
+
+        public void Update(double targetValue, double standardDeviation)
+        {
+            if (this.state.Installed)
+            {
+                Apply(new QualityControlUpdated(this.ControlId,targetValue,standardDeviation));
+            }
+            else
+            {
+                throw new InvalidOperationException("A non installed control cannot be updated.");
+            }
+        }
+
+        private Guid ControlId
+        {
+            get { return state.ControlId; }
         }
     }
 }

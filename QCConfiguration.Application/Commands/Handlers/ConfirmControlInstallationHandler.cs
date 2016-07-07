@@ -17,8 +17,18 @@ namespace QCConfiguration.Application.Commands.Handlers
 
         public IResponse Handle(ConfirmControlInstallation command)
         {
-            var control = new QualityControl();
-            control.Create(command.ControlDTO.TestCode, command.ControlDTO.Range1SD, command.ControlDTO.TargetValue);
+            var controlDto = command.ControlDTO;
+            var control = qcrepository.GetQualityControlForTestCode(controlDto.TestCode);
+            if (control!=null)
+            {
+                control.Update(controlDto.TargetValue, controlDto.StandardDeviation);
+            }
+            else
+            {
+                control = new QualityControl();
+                control.Create(controlDto.TestCode, controlDto.StandardDeviation, controlDto.TargetValue);
+            }
+            
 
             qcrepository.Add(control.Changes);
             return new CommandSuccesfullyHandled();

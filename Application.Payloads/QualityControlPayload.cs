@@ -1,8 +1,8 @@
 using QCConfiguration.Domain;
 
-namespace QCEvaluation.Domain
+namespace Application.Payloads
 {
-    public class QualityControlPayload
+    public class QualityControlPayload : IPayloadObject
     {
         private readonly QualityControl qualityControl;
 
@@ -17,5 +17,10 @@ namespace QCEvaluation.Domain
         }
 
         public double StandardDeviation { get { return qualityControl.StandardDeviation; } }
+
+        public int TestCode
+        {
+            get { return qualityControl.TestCode; }
+        }
     }
 }

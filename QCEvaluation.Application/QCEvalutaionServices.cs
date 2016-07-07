@@ -38,6 +38,7 @@ namespace QCEvaluation.Application
                 {typeof(ReactivateQCRule), x=>new ReactivateQCRuleHandler(qcRulesRepository).Handle(x as ReactivateQCRule) },
                 {typeof(EnableRuleForApplication), x=>new EnableRuleForApplicationHandler(applicationRepository, qcRulesRepository).Handle(x as EnableRuleForApplication) },
                 {typeof(DisableRuleForApplication), x=>new DisableRuleForApplicationHandler(applicationRepository).Handle(x as DisableRuleForApplication) },
+                {typeof(GetEvaluationFor), x=>new GetEvaluationHandler(evaluationsRepository).Handle(x as GetEvaluationFor)}
             };
         }
 

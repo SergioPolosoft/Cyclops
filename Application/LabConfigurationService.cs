@@ -22,28 +22,6 @@ namespace LabConfiguration.Application
             this.qcevaluationServices = qcevaluationServices;
         }
 
-        public FTPConfiguration GetFTPConfiguration()
-        {
-            return configurationRepository.GetFTPConfiguration();
-        }        
-
-        public Guid GetApplicationId(int testCode)
-        {
-            try
-            {
-                return applicationRepository.GetApplicationId(testCode);
-            }
-            catch (Exception)
-            {
-                return Guid.Empty;
-            }
-        }
-
-        public bool ApplicationExists(int testCode)
-        {
-            return applicationRepository.ApplicationCodeExists(testCode);
-        }
-
         protected override Dictionary<Type, Func<ICommand, IResponse>> GetCommandHandlers()
         {
             return new Dictionary<Type, Func<ICommand, IResponse>>()
@@ -52,7 +30,8 @@ namespace LabConfiguration.Application
                 { typeof(ConfirmApplicationDeletionCommand), x=> new ConfirmApplicationDeletionHandler(applicationRepository).Handle(x as ConfirmApplicationDeletionCommand)},
                 { typeof(ConfirmApplicationUpdateCommand), x=> new ConfirmApplicationUpdateHandler(applicationRepository).Handle(x as ConfirmApplicationUpdateCommand)},
                 { typeof(StoreMainunitConfigurationCommand), x=> new StoreMainunitConfigurationHandler(configurationRepository).Handle(x as StoreMainunitConfigurationCommand)},
-                { typeof(GetFTPConfiguration), x=> new GetFTPConfigurationHandler(configurationRepository).Handle(x as GetFTPConfiguration)}
+                { typeof(GetFTPConfiguration), x=> new GetFTPConfigurationHandler(configurationRepository).Handle(x as GetFTPConfiguration)},
+                { typeof(GetApplicationCommand), x=> new GetApplicationCommandHandler(applicationRepository).Handle(x as GetApplicationCommand)}
             };
         }
 

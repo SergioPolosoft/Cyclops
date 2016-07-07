@@ -79,37 +79,6 @@ namespace LabConfiguration.Application.Tests
 
             labConfigurationServices.Handle(new ConfirmApplicationUpdateCommand(1440));                       
         }
-
-        [TestMethod]
-        public void GetApplicationCallsTheRepositoryToGetTheId()
-        {
-            Guid guidOnRepository = Guid.NewGuid();
-            var applicationTestCode = 13391;
-            applicationRepository.Setup(x => x.GetApplicationId(applicationTestCode)).Returns(guidOnRepository);
-
-            var guid = labConfigurationServices.GetApplicationId(applicationTestCode);
-
-            applicationRepository.Verify(x=>x.GetApplicationId(applicationTestCode));
-            guid.Should().Be(guidOnRepository);
-        }
-
-        [TestMethod]
-        public void IfAnExceptionOccursOnTheRepositoryAnEmptyGuidIsReturned()
-        {
-            var applicationTestCode = 13391;
-            applicationRepository.Setup(x => x.GetApplicationId(applicationTestCode)).Throws(new Exception());
-
-            var guid = labConfigurationServices.GetApplicationId(applicationTestCode);
-           
-            guid.Should().Be(Guid.Empty);
-        }
-
-        [TestMethod]
-        public void LookingForApplicationCallsToRepository()
-        {
-            labConfigurationServices.ApplicationExists(2);
-
-            applicationRepository.Verify(x=>x.ApplicationCodeExists(2));
-        }
+        
     }
 }

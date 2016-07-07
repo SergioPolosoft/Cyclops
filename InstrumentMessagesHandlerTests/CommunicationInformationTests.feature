@@ -1,18 +1,5 @@
 ﻿Feature: Communication Information Messages
 	
-Scenario: Connection established
-	Given a disconnected Data Manager
-	And a disconnected Main Unit
-	When the connection is established
-	Then Data Manager sends a CI11 message 
-	And the CI11 message contains the FTP user and FTP databasket information from DM
-	And Data Manager expects to receive a RO00 to confirm the reception
-	And the Main Unit sends an RO00 Message to confirm the reception
-	And Data Manager expects to receive a CI01 message 
-	And the Main Unit sends an CI01 Message to confirm the reception	
-	And the CI01 message contains the FTP user and FTP databasket information from the Main Unit
-	And Data Manager sends an RO00 message to confirm the reception
-
 Scenario: Urgent information request receive UR01
 	Given a connected Data Manager
 	And a disconnected Main Unit

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Application.Payloads;
 using QCEvaluation.Domain.Events;
 using QCEvaluation.Domain.Exceptions;
 using QCEvaluation.Domain.Repositories;
@@ -53,7 +54,7 @@ namespace QCEvaluation.Domain
             return new StandardDeviationRuleState(changesForTheId);
         }
 
-        public override EvaluationResult Evaluate(QCResult result, IQCResultsRepository resultsRepository, QualityControlPayload qualityControl)
+        public override EvaluationResult Evaluate(QCResult result, IQCResultsRepository resultsRepository, QualityControl qualityControl)
         {
             var evaluationResult = EvaluationResult.NotEnoughData;
             

@@ -22,14 +22,23 @@ namespace QCConfiguration.Domain
             this.TestCode = qualityControlCreated.TestCode;
             this.TargetValue = qualityControlCreated.TargetValue;
             this.StandardDeviation = qualityControlCreated.StandardDeviation;
+            this.Installed = true;
         }
 
-        public double StandardDeviation { get; set; }
+        public void When(QualityControlUpdated qualityControlUpdated)
+        {
+            this.StandardDeviation = qualityControlUpdated.StandardDeviation;
+            this.TargetValue = qualityControlUpdated.TargetValue;
+        }
 
-        public double TargetValue { get; set; }
+        public double StandardDeviation { get; private set; }
 
-        public int TestCode { get; set; }
+        public double TargetValue { get; private set; }
 
-        public Guid ControlId { get; set; }
+        public int TestCode { get; private set; }
+
+        public Guid ControlId { get; private set; }
+
+        public bool Installed{get; private set;}
     }
 }

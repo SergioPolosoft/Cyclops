@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Application.Payloads;
 using ApplicationServices;
 using QCEvaluation.Domain.Events;
 using QCEvaluation.Domain.Repositories;
@@ -96,6 +97,6 @@ namespace QCEvaluation.Domain
             }
         }
 
-        public abstract EvaluationResult Evaluate(QCResult result, IQCResultsRepository resultsRepository, QualityControlPayload qualityControlRepository);
+        public abstract EvaluationResult Evaluate(QCResult result, IQCResultsRepository resultsRepository, QualityControl qualityControlRepository);
     }
 }

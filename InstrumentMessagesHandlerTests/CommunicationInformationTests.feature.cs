@@ -68,55 +68,20 @@ namespace InstrumentMessagesHandlerTests
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Connection established")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Communication Information Messages")]
-        public virtual void ConnectionEstablished()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connection established", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
-#line 4
- testRunner.Given("a disconnected Data Manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 5
- testRunner.And("a disconnected Main Unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 6
- testRunner.When("the connection is established", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
- testRunner.Then("Data Manager sends a CI11 message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 8
- testRunner.And("the CI11 message contains the FTP user and FTP databasket information from DM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.And("Data Manager expects to receive a RO00 to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.And("the Main Unit sends an RO00 Message to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
- testRunner.And("Data Manager expects to receive a CI01 message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.And("the Main Unit sends an CI01 Message to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
- testRunner.And("the CI01 message contains the FTP user and FTP databasket information from the Ma" +
-                    "in Unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
- testRunner.And("Data Manager sends an RO00 message to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Urgent information request receive UR01")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Communication Information Messages")]
         public virtual void UrgentInformationRequestReceiveUR01()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Urgent information request receive UR01", ((string[])(null)));
-#line 16
+#line 3
 this.ScenarioSetup(scenarioInfo);
-#line 17
+#line 4
  testRunner.Given("a connected Data Manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
+#line 5
  testRunner.And("a disconnected Main Unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
+#line 6
  testRunner.When("Data Manager receives an UR01 message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
+#line 7
  testRunner.Then("Data Manager sends an RO00 message to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,15 +93,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void UrgentInformationRequestHandleUR01()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Urgent information request handle UR01", ((string[])(null)));
-#line 22
+#line 9
 this.ScenarioSetup(scenarioInfo);
-#line 23
+#line 10
  testRunner.Given("a connected Data Manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 24
+#line 11
  testRunner.And("a disconnected Main Unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 25
+#line 12
  testRunner.When("Data Manager receives an UR01 message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 26
+#line 13
  testRunner.Then("Data Manager requests to download the urgent information to TSNAgent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -148,17 +113,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void UrgentInformationRequestSendsUR11()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Urgent information request sends UR11", ((string[])(null)));
-#line 28
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 29
+#line 16
  testRunner.Given("a connected Data Manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
+#line 17
  testRunner.And("a disconnected Main Unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 18
  testRunner.When("Data Manager receives the urgent information from TSNAgent as an xml file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 19
  testRunner.Then("Data Manager sends an UR11 message to the Main Unit with the xml file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 33
+#line 20
  testRunner.And("Data Manager expects to receive a RO00 to confirm the reception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

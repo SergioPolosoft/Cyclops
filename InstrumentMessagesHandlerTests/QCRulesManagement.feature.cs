@@ -320,7 +320,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("an existing application with test code \"7260\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Range1SD",
+                        "StandardDeviation",
                         "TargetValue"});
             table10.AddRow(new string[] {
                         "0.5",
@@ -348,20 +348,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("a qc result with for the test \"7260\" with value 0.9 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 70
  testRunner.Then("the qc result is succesfully evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Preconfigured rules")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "QCRulesManagement")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.IgnoreAttribute()]
-        public virtual void PreconfiguredRules()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preconfigured rules", new string[] {
-                        "ignore"});
-#line 73
-this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }

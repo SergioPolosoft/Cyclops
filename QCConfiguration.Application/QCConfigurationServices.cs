@@ -21,7 +21,7 @@ namespace QCConfiguration.Application
             return new Dictionary<Type, Func<ICommand, IResponse>>()
             {
                 {typeof(ConfirmControlInstallation), x=> new ConfirmControlInstallationHandler(qcRepository).Handle(x as ConfirmControlInstallation)},
-                {typeof(GetQualityControl), x=>new GetQualityControlHandler().Handle(x as GetQualityControl)}
+                {typeof(GetQualityControl), x=>new GetQualityControlHandler(qcRepository).Handle(x as GetQualityControl)}
             };
         }
 

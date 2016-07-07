@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Application.Payloads;
 using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Domain
@@ -13,7 +14,7 @@ namespace QCEvaluation.Domain
             this.resultsRepository = resultsRepository;
         }
 
-        public EvaluationResult Evaluate(QCResult qcResult, IEnumerable<QCRule> qcRules, QualityControlPayload qualityControl)
+        public EvaluationResult Evaluate(QCResult qcResult, IEnumerable<QCRule> qcRules, QualityControl qualityControl)
         {
             EvaluationResult evaluationResult = EvaluationResult.Ok; 
             

@@ -4,16 +4,16 @@ namespace QCConfiguration.Application.DTOs
 {
     public class ControlDTO
     {
-        public ControlDTO(int testCode, double range1SD, double targetValue)
+        public ControlDTO(int testCode, double standardDeviation, double targetValue)
         {
             TestCode = testCode;
-            Range1SD = range1SD;
+            StandardDeviation = standardDeviation;
             TargetValue = targetValue;
         }
 
         internal int TestCode { get; set; }
 
-        public double Range1SD { get; set; }
+        public double StandardDeviation { get; set; }
         public double TargetValue { get; set; }
     }
 }

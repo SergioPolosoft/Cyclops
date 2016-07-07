@@ -5,9 +5,16 @@ namespace QCEvaluation.Application.Commands
 {
     public class GetEvaluationFor : ICommand
     {
+        private readonly Guid qcResultId;
+
         public GetEvaluationFor(Guid qcResultId)
         {
-            throw new NotImplementedException();
+            this.qcResultId = qcResultId;
+        }
+
+        public Guid QCResultId
+        {
+            get { return qcResultId; }
         }
     }
 }

@@ -47,8 +47,10 @@
     <Compile Include="Commands\Handlers\EnableRuleForApplicationHandler.cs" />
     <Compile Include="Commands\Handlers\IBuilder.cs" />
     <Compile Include="Commands\Handlers\ModifyStandardDeviationRuleHandler.cs" />
+    <Compile Include="Commands\Handlers\GetEvaluationHandler.cs" />
+    <Compile Include="PayloadMappers\QualityControlMapper.cs" />
     <Compile Include="Events\QCResultBuilder.cs" />
-    <Compile Include="Events\QCResultMapper.cs" />
+    <Compile Include="PayloadMappers\QCResultMapper.cs" />
     <Compile Include="Commands\Handlers\ReactivateQCRuleHandler.cs" />
     <Compile Include="Events\Handlers\QCResultReceivedHandler.cs" />
     <Compile Include="Commands\ModifyStandardDeviationRule.cs" />
