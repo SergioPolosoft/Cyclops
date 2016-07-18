@@ -73,20 +73,20 @@ namespace InstrumentMessagesHandlerTests
             service.Handle(new DeactivateQCRule(ruleId));
         }
 
-        [Given(@"an existing application with test code ""(.*)""")]
+        [Given(@"an existing ApplicationTest with test code ""(.*)""")]
         public void GivenAnExistingApplicationWithTestCode(int applicationTestCode)
         {
             var labConfigurationServices = ScenarioContext.Current.Get<ILabConfigurationServices>();
             labConfigurationServices.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(applicationTestCode)));
         }
 
-        [Given(@"the application ""(.*)"" is assigned to the qc rule ""(.*)""")]
+        [Given(@"the ApplicationTest ""(.*)"" is assigned to the qc rule ""(.*)""")]
         public void GivenTheApplicationIsAssignedToTheQcRule(int applicationCode, string ruleName)
         {
             CommonFunctionalities.EnableRuleForApplication(applicationCode, ruleName);
         }
 
-        [Given(@"an existing application with the values")]
+        [Given(@"an existing ApplicationTest with the values")]
         public void GivenAnExistingApplicationWithTheValues(Table table)
         {
             /*"TestCode",

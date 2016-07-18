@@ -30,7 +30,7 @@ namespace LabConfiguration.Application.Tests
 
             labConfigurationServices.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(application)));
 
-            applicationRepository.Verify(x=>x.Add(It.IsAny<Domain.Application>()));
+            applicationRepository.Verify(x=>x.Add(It.IsAny<Domain.ApplicationTest>()));
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace LabConfiguration.Application.Tests
 
             labConfigurationServices.Handle(new ConfirmApplicationUpdateCommand(1439));
 
-            applicationRepository.Verify(x => x.Update(It.IsAny<Domain.Application>()));
+            applicationRepository.Verify(x => x.Update(It.IsAny<Domain.ApplicationTest>()));
         }
 
         [TestMethod]

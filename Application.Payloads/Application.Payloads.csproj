@@ -34,12 +34,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationPayload.cs" />
     <Compile Include="FTPConfigurationPayload.cs" />
     <Compile Include="IDPOMapper.cs" />
     <Compile Include="IPayloadObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCResultPayload.cs" />
     <Compile Include="QualityControlPayload.cs" />
+    <Compile Include="StandardDeviationRulePayload.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">

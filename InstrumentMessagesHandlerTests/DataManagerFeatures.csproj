@@ -48,6 +48,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
@@ -82,6 +84,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QCRulesManagement.feature</DependentUpon>
     </Compile>
+    <Compile Include="Service References\QCEvaluationServicesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ThenSteps.cs" />
     <Compile Include="ParameterDownload.feature.cs">
       <AutoGen>True</AutoGen>
@@ -104,9 +111,22 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ParameterDownload.feature.cs</LastGenOutput>
     </None>
+    <None Include="Properties\DataSources\QCEvaluation.WCFService.CompositeType.datasource" />
+    <None Include="Properties\DataSources\QCEvaluation.WCFService.CreateStandardDeviationRuleResponse.datasource" />
+    <None Include="Properties\DataSources\QCEvaluation.WCFService.GetStandardDeviationRuleResponse.datasource" />
     <None Include="QCRulesManagement.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QCRulesManagement.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.wsdl" />
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService2.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +178,10 @@
       <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
       <Name>QCEvaluation.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QCEvaluation.WCFService\QCEvaluation.WCFService.csproj">
+      <Project>{fba734c1-f807-432d-ba52-b1e27c5b4b64}</Project>
+      <Name>QCEvaluation.WCFService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
       <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
       <Name>QCRoutine.Application</Name>
@@ -180,6 +204,22 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServicesReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QCEvaluationServicesReference\configuration.svcinfo" />
+    <None Include="Service References\QCEvaluationServicesReference\configuration91.svcinfo" />
+    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\QCEvaluationServicesReference\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -48,7 +48,12 @@ namespace LabConfiguration.Application.Tests
         [TestMethod]
         public void WhenRepositoryFailsAnErrorIsReturned()
         {
-            Assert.Inconclusive();
+            repository.Setup(x => x.GetFTPConfiguration()).Throws(new Exception());
+
+            var result = handler.Handle(new GetFTPConfiguration());
+
+            result.Status.Should().Be(CommandResult.Error);
+            result.Message.Should().Be(LabConfigurationMessages.ErrorReadingFTPConfiguration);
         }
     }
 }

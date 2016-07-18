@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Application.Payloads" />
+  <xs:complexType name="CreateStandardDeviationRuleRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfControls" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardDeviationLimits" type="xs:int" />
+      <xs:element minOccurs="0" name="WithinControlValue" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateStandardDeviationRuleRequest" nillable="true" type="tns:CreateStandardDeviationRuleRequest" />
+  <xs:complexType name="CreateStandardDeviationRuleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestResult" type="tns:RequestResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateStandardDeviationRuleResponse" nillable="true" type="tns:CreateStandardDeviationRuleResponse" />
+  <xs:simpleType name="RequestResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Succesfull" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequestResult" nillable="true" type="tns:RequestResult" />
+  <xs:complexType name="GetStandardDeviationRuleResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Application.Payloads" minOccurs="0" name="StandardDeviationRule" nillable="true" type="q1:StandardDeviationRulePayload" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetStandardDeviationRuleResponse" nillable="true" type="tns:GetStandardDeviationRuleResponse" />
+</xs:schema>

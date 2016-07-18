@@ -28,7 +28,7 @@ namespace LabConfiguration.Application.Commands.Handlers
                 throw new ApplicationExistException();
             }
 
-            applicationRepository.Add(new Domain.Application(applicationCode));
+            applicationRepository.Add(new Domain.ApplicationTest(applicationCode));
 
             qcevaluationServices.Handle(new ApplicationInstalled(applicationCode));
 

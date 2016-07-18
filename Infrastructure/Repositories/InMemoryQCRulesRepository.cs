@@ -1,59 +1,69 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ApplicationServices;
-using QCConfiguration.Domain;
-using QCConfiguration.Domain.Events;
-using QCConfiguration.Domain.Repositories;
-using QCConfiguration.Domain.States;
-using QCEvaluation.Domain;
-using QCEvaluation.Domain.Events;
-using QCEvaluation.Domain.Repositories;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using ApplicationServices;
+//using QCConfiguration.Domain;
+//using QCConfiguration.Domain.Events;
+//using QCConfiguration.Domain.Repositories;
+//using QCConfiguration.Domain.States;
+//using QCEvaluation.Domain;
+//using QCEvaluation.Domain.Events;
+//using QCEvaluation.Domain.Repositories;
 
-namespace Infrastructure.Repositories
-{
-    public class InMemoryQCRulesRepository : IQCRuleRepository
-    {
-        private readonly List<QCRuleEvent> changes = new List<QCRuleEvent>();
+//namespace Infrastructure.Repositories
+//{
+//    public class InMemoryQCRulesRepository : IQCRuleRepository
+//    {
+//        private readonly List<QCRuleEvent> changes = new List<QCRuleEvent>();
+//        private static InMemoryQCRulesRepository instance;
 
-        public QCRule GetRuleByName(string ruleName)
-        {
-            return this.GetStandardDeviationRuleByName(ruleName);
-        }
+//        private InMemoryQCRulesRepository()
+//        {
+//        }
 
-        public void Save(IList<AggreggateEvent> events)
-        {
-            foreach (var domainEvent in events)
-            {
-                this.changes.Add((QCRuleEvent) domainEvent);
-            }
-        }
+//        public static IQCRuleRepository Instance
+//        {
+//            get { return instance ?? (instance = new InMemoryQCRulesRepository()); }
+//        }
 
-        public bool ExistARuleWithName(string ruleName)
-        {
-            return this.changes.OfType<QCStandardDeviationRuleCreated>().Any(x => x.Name == ruleName);
-        }
+//        public QCRule GetRuleByName(string ruleName)
+//        {
+//            return this.GetStandardDeviationRuleByName(ruleName);
+//        }
 
-        public StandardDeviationRule GetStandardDeviationRuleByName(string ruleName)
-        {
-            var changesForTheRule = changes.First(x => x.Name == ruleName);
-            var changesForTheId = changes.Where(x => x.QCRuleId == changesForTheRule.QCRuleId);
+//        public void Save(IList<AggreggateEvent> events)
+//        {
+//            foreach (var domainEvent in events)
+//            {
+//                this.changes.Add((QCRuleEvent) domainEvent);
+//            }
+//        }
 
-            var qcRule = new StandardDeviationRule(changesForTheId);
+//        public bool ExistARuleWithName(string ruleName)
+//        {
+//            return this.changes.OfType<QCStandardDeviationRuleCreated>().Any(x => x.Name == ruleName);
+//        }
 
-            return qcRule;
-        }
+//        public StandardDeviationRule GetStandardDeviationRuleByName(string ruleName)
+//        {
+//            var changesForTheRule = changes.First(x => x.Name == ruleName);
+//            var changesForTheId = changes.Where(x => x.QCRuleId == changesForTheRule.QCRuleId);
 
-        public QCRule GetRuleById(Guid ruleId)
-        {
-            var changesForTheId = changes.OfType<QCRuleEvent>().Where(x => x.QCRuleId == ruleId);
+//            var qcRule = new StandardDeviationRule(changesForTheId);
 
-            return QCRule.CreateRule(changesForTheId);
-        }
+//            return qcRule;
+//        }
 
-        public bool ExistsRule(Guid ruleId)
-        {
-            return this.changes.OfType<QCStandardDeviationRuleCreated>().Any(x => x.Id == ruleId);
-        }
-    }
-}
+//        public QCRule GetRuleById(Guid ruleId)
+//        {
+//            var changesForTheId = changes.OfType<QCRuleEvent>().Where(x => x.QCRuleId == ruleId);
+
+//            return QCRule.CreateRule(changesForTheId);
+//        }
+
+//        public bool ExistsRule(Guid ruleId)
+//        {
+//            return this.changes.OfType<QCStandardDeviationRuleCreated>().Any(x => x.Id == ruleId);
+//        }
+//    }
+//}

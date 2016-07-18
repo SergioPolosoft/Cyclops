@@ -34,7 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\GetEvaluationFor.cs" />
+    <Compile Include="Commands\GetEvaluation.cs" />
+    <Compile Include="Commands\GetStandardDeviationRuleByName.cs" />
     <Compile Include="Events\Handlers\ApplicationInstalledHandler.cs" />
     <Compile Include="Events\ApplicationInstalled.cs" />
     <Compile Include="Commands\CreateStandardDeviationRule.cs" />
@@ -59,8 +60,9 @@
     <Compile Include="DTOs\EvaluationDTO.cs" />
     <Compile Include="IQCEvaluationServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QCEvalutaionServices.cs" />
+    <Compile Include="QCEvaluationServices.cs" />
     <Compile Include="Responses\GetEvaluationResponse.cs" />
+    <Compile Include="Responses\GetStandardDeviationRuleByNameResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">

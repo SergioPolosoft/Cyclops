@@ -17,14 +17,14 @@ namespace QCEvaluation.Application.Tests
     public class RulesManagementTests
     {
         private Mock<IQCRuleRepository> repository;
-        private QCEvalutaionServices handler;
+        private QCEvaluationServices handler;
 
         [TestInitialize]
         public void TestInitialize()
         {
             repository = new Mock<IQCRuleRepository>();
 
-            handler = new QCEvalutaionServices(repository.Object, new Mock<IQCApplicationRepository>().Object, new Mock<IEvaluationsRepository>().Object, new Mock<IQCResultsRepository>().Object, new Mock<IQCConfigurationServices>().Object);
+            handler = new QCEvaluationServices(repository.Object, new Mock<IQCApplicationRepository>().Object, new Mock<IEvaluationsRepository>().Object, new Mock<IQCResultsRepository>().Object, new Mock<IQCConfigurationServices>().Object);
 
         }
 

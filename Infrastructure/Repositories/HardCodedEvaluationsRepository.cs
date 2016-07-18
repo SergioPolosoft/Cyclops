@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using QCConfiguration.Domain;
-using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Domain;
 using QCEvaluation.Domain.Repositories;
 

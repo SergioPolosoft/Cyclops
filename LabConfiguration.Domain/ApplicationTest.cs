@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace LabConfiguration.Domain
 {
-    public class Application
+    public class ApplicationTest
     {
         public Guid Id { get; private set; }
         public int ApplicationCode { get; private set; }
 
-        public Application(int applicationToInstall)
+        public ApplicationTest(int applicationToInstall)
         {
             this.Id = Guid.NewGuid();
             this.ApplicationCode = applicationToInstall;

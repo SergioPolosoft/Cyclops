@@ -3,11 +3,11 @@ using ApplicationServices;
 
 namespace QCEvaluation.Application.Commands
 {
-    public class GetEvaluationFor : ICommand
+    public class GetEvaluation : ICommand
     {
         private readonly Guid qcResultId;
 
-        public GetEvaluationFor(Guid qcResultId)
+        public GetEvaluation(Guid qcResultId)
         {
             this.qcResultId = qcResultId;
         }

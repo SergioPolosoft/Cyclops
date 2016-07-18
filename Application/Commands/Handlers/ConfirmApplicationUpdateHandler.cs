@@ -18,7 +18,7 @@ namespace LabConfiguration.Application.Commands.Handlers
             if (applicationRepository.ApplicationCodeExists(command.ApplicationCode))
             {
 
-                this.applicationRepository.Update(command.Application);    
+                this.applicationRepository.Update(command.ApplicationTest);    
             }
             else
             {

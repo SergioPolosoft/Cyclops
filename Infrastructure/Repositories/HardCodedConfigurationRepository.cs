@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
             this.MainUitFTPConfiguration = ftpConfiguration;
         }
 
-        public void Add(Application application)
+        public void Add(ApplicationTest applicationTest)
         {
             throw new System.NotImplementedException();
         }

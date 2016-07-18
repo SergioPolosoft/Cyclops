@@ -67,7 +67,6 @@
     <Compile Include="DisableRuleForApplicatationTests.cs" />
     <Compile Include="EnableRuleForApplicationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QCConfigurationServicesTests.cs" />
     <Compile Include="ReactivateQCRuleTests.cs" />
     <Compile Include="RulesManagementTests.cs" />
     <Compile Include="ApplicationInstalledTests.cs" />

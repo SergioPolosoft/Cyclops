@@ -2,11 +2,11 @@ using Application.Payloads;
 using ApplicationServices;
 using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
+using LabConfiguration.Application.Responses;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Events;
 using QCRoutine.Application.Responses;
-using QCRoutine.Application.Tests;
 using QCRoutine.Domain;
 
 namespace QCRoutine.Application.Commands.Handlers
@@ -30,7 +30,7 @@ namespace QCRoutine.Application.Commands.Handlers
 
             var response = labconfiguration.Handle(new GetApplicationCommand(testCode));
             
-            if (response is ApplicationDoesNotExistsResponse)
+            if (response is ApplicationNotFound)
             {
                 return new QCResultNotStoredResponse(string.Format(QCRoutineMessages.ApplictionCodeDoesNotExists, testCode));
             }

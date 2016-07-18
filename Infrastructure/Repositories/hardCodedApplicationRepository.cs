@@ -8,17 +8,17 @@ namespace Infrastructure.Repositories
 {
     public class HardCodedApplicationRepository : IApplicationRepository
     {
-        private readonly Dictionary<Guid,Application> identityMap = new Dictionary<Guid, Application>();
+        private readonly Dictionary<Guid,ApplicationTest> identityMap = new Dictionary<Guid, ApplicationTest>();
 
-        public void Add(Application application)
+        public void Add(ApplicationTest applicationTest)
         {
-            if (identityMap.ContainsKey(application.Id))
+            if (identityMap.ContainsKey(applicationTest.Id))
             {
                 throw new InvalidDataException();
             }
             else
             {
-                identityMap.Add(application.Id,application);
+                identityMap.Add(applicationTest.Id,applicationTest);
             }
         }
 
@@ -32,7 +32,7 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(Application application)
+        public void Update(ApplicationTest applicationTest)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Application GetByCode(int applicationCode)
+        public ApplicationTest GetByCode(int applicationCode)
         {
             return this.identityMap.Values.FirstOrDefault(x => x.ApplicationCode == applicationCode);
         }

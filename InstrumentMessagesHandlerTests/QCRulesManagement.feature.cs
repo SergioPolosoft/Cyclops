@@ -320,7 +320,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("an existing application with test code \"7260\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "StandardDeviation",
+                        "Range1SD",
                         "TargetValue"});
             table10.AddRow(new string[] {
                         "0.5",

@@ -51,7 +51,7 @@ namespace QCRoutine.Application.Tests
         [TestMethod]
         public void IfTestCodeDoesNotExistsAnUnableToProcessResponseIsReturned()
         {
-            labConfigurationServices.Setup(x => x.Handle(It.Is<GetApplicationCommand>(y=>y.TestCode==15182))).Returns(new ApplicationDoesNotExistsResponse());
+            labConfigurationServices.Setup(x => x.Handle(It.Is<GetApplicationCommand>(y=>y.TestCode==15182))).Returns(new ApplicationNotFound(15182));
 
             var response = handler.Handle(new StoreQCResult(15182, 3.6, DateTime.Now));
 

@@ -17,6 +17,6 @@ namespace LabConfiguration.Application.Commands
             get { return applicationCode; }
         }
 
-        public Domain.Application Application { get; internal set; }
+        public Domain.ApplicationTest ApplicationTest { get; internal set; }
     }
 }

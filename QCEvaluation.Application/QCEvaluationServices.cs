@@ -11,7 +11,7 @@ using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Application
 {
-    public class QCEvalutaionServices:ApplicationServicesBase, IQCEvaluationServices
+    public class QCEvaluationServices:ApplicationServicesBase, IQCEvaluationServices
     {
         private readonly IQCRuleRepository qcRulesRepository;
         private readonly IQCApplicationRepository applicationRepository;
@@ -19,7 +19,7 @@ namespace QCEvaluation.Application
         private readonly IQCResultsRepository qcResultsRepository;
         private readonly IQCConfigurationServices qcConfigurationServices;
 
-        public QCEvalutaionServices(IQCRuleRepository qcRulesRepository, IQCApplicationRepository applicationRepository, IEvaluationsRepository evaluationsRepository, IQCResultsRepository qcResultsRepository, IQCConfigurationServices qcConfigurationServices)
+        public QCEvaluationServices(IQCRuleRepository qcRulesRepository, IQCApplicationRepository applicationRepository, IEvaluationsRepository evaluationsRepository, IQCResultsRepository qcResultsRepository, IQCConfigurationServices qcConfigurationServices)
         {
             this.qcRulesRepository = qcRulesRepository;
             this.applicationRepository = applicationRepository;
@@ -38,7 +38,7 @@ namespace QCEvaluation.Application
                 {typeof(ReactivateQCRule), x=>new ReactivateQCRuleHandler(qcRulesRepository).Handle(x as ReactivateQCRule) },
                 {typeof(EnableRuleForApplication), x=>new EnableRuleForApplicationHandler(applicationRepository, qcRulesRepository).Handle(x as EnableRuleForApplication) },
                 {typeof(DisableRuleForApplication), x=>new DisableRuleForApplicationHandler(applicationRepository).Handle(x as DisableRuleForApplication) },
-                {typeof(GetEvaluationFor), x=>new GetEvaluationHandler(evaluationsRepository).Handle(x as GetEvaluationFor)}
+                {typeof(GetEvaluation), x=>new GetEvaluationHandler(evaluationsRepository).Handle(x as GetEvaluation)}
             };
         }
 
@@ -49,12 +49,6 @@ namespace QCEvaluation.Application
                 {typeof(QCResultReceived), x=>new QCResultReceivedHandler(applicationRepository, evaluationsRepository, qcRulesRepository, qcResultsRepository, qcConfigurationServices).Handle(x as QCResultReceived) },
                 {typeof(ApplicationInstalled), x=>new ApplicationInstalledHandler(applicationRepository).Handle(x as ApplicationInstalled) },
             };
-        }
-
-        public EvaluationDTO GetEvaluationOf(Guid qcResultId)
-        {
-            var evaluation = evaluationsRepository.GetEvaluationFor(qcResultId);
-            return (EvaluationDTO)evaluation;
         }
     }
 }

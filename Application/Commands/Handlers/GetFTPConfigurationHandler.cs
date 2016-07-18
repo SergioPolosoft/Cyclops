@@ -19,12 +19,21 @@ namespace LabConfiguration.Application.Commands.Handlers
 
         public GetFTPConfigurationResponse Handle(GetFTPConfiguration command)
         {
-            var configuration = this.configurationRepository.GetFTPConfiguration();
-
-            var getFtpConfigurationResponse = new GetFTPConfigurationResponse
+            GetFTPConfigurationResponse getFtpConfigurationResponse;
+            try
             {
-                FTPConfiguration = new FTPConfigurationPayload(configuration)
-            };
+                var configuration = this.configurationRepository.GetFTPConfiguration();
+
+                getFtpConfigurationResponse = new GetFTPConfigurationResponse
+                {
+                    FTPConfiguration = new FTPConfigurationPayload(configuration)
+                };
+            }
+            catch (Exception)
+            {
+                getFtpConfigurationResponse = new GetFTPConfigurationFailed();
+            }
+            
 
             return getFtpConfigurationResponse;
         }

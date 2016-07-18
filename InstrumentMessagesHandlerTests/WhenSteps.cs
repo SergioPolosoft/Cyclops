@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using ApplicationServices;
+using Infrastructure.Repositories;
 using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
 using InstrumentCommunication.Application.Commands;
@@ -15,6 +16,7 @@ using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Domain.Repositories;
+using QCEvaluation.WCFService;
 using QCRoutine.Application;
 using QCRoutine.Application.Commands;
 using TechTalk.SpecFlow;
@@ -98,11 +100,20 @@ namespace InstrumentMessagesHandlerTests
             var numberOfControls = Convert.ToInt32(table.Rows[0]["NumberOfControls"]);
             var standardDeviationLimits = Convert.ToInt32(table.Rows[0]["StandardDeviationLimits"]);
 
-            var command = new CreateStandardDeviationRule(ruleName, withingControlValue,
-                comment, numberOfControls, standardDeviationLimits);
+            var qcrulesRepository = ScenarioContext.Current.Get<IQCRuleRepository>() as MongoDBQCRulesRepository;
+            qcrulesRepository.DeleteRuleByName(ruleName);
 
-            var qcConfigutationServices = ScenarioContext.Current.Get<IQCEvaluationServices>();
-            qcConfigutationServices.Handle(command);
+            var request = new CreateStandardDeviationRuleRequest
+            {
+                RuleName = ruleName,
+                WithinControlValue = withingControlValue,
+                Comments = comment,
+                NumberOfControls = numberOfControls,
+                StandardDeviationLimits = standardDeviationLimits
+            };
+
+            var qcConfigutationServices = ScenarioContext.Current.Get<QCEvaluationServicesReference.QCEvaluationServiceClient>();
+            qcConfigutationServices.CreateStandardDeviationRule(request);
         }
 
         [When(@"user modifies the values")]
@@ -140,13 +151,13 @@ namespace InstrumentMessagesHandlerTests
             service.Handle(new ReactivateQCRule(ruleId));
         }
 
-        [When(@"the application ""(.*)"" is assigned to the qc rule ""(.*)""")]
+        [When(@"the ApplicationTest ""(.*)"" is assigned to the qc rule ""(.*)""")]
         public void WhenTheApplicationIsAssignedToTheQcRule(int applicationCode, string ruleName)
         {
             CommonFunctionalities.EnableRuleForApplication(applicationCode, ruleName);
         }
 
-        [When(@"the application ""(.*)"" is unassigned to the qc rule ""(.*)""")]
+        [When(@"the ApplicationTest ""(.*)"" is unassigned to the qc rule ""(.*)""")]
         public void WhenTheApplicationIsUnassignedToTheQcRule(int applicationCode, string ruleName)
         {
             var application = ScenarioContext.Current.Get<IQCApplicationRepository>().GetApplicationByTestCode(applicationCode);

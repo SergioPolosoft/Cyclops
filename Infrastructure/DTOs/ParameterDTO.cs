@@ -10,7 +10,7 @@ namespace Infrastructure.DTOs
 
         public override string XmlName
         {
-            get { return "Application.xml"; }
+            get { return "ApplicationTest.xml"; }
         }
     }
 }

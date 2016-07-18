@@ -132,11 +132,11 @@ namespace InstrumentMessagesHandlerTests
             ScenarioContext.Current.Get<Mock<IMessageSender>>().Verify(x=>x.SendMessage(It.IsAny<ParameterDTO>()));
         }
         
-        [Then(@"Data Manager sends an xml file with th name Application\.xml with the parameters")]
+        [Then(@"Data Manager sends an xml file with th name ApplicationTest\.xml with the parameters")]
         public void ThenDataManagerSendsAnXmlFileWithThNameApplication_XmlWithTheParameters()
         {
             var messageSender = ScenarioContext.Current.Get<Mock<IMessageSender>>();
-            messageSender.Verify(x => x.SendMessage(It.Is<ParameterDTO>(p => p.XmlMessage != null && p.XmlName == "Application.xml")));
+            messageSender.Verify(x => x.SendMessage(It.Is<ParameterDTO>(p => p.XmlMessage != null && p.XmlName == "ApplicationTest.xml")));
         }
         
         [Then(@"Data Manager stores the parameter")]
@@ -151,16 +151,16 @@ namespace InstrumentMessagesHandlerTests
         [Then(@"the rule is saved on the system with the values")]
         public void ThenTheRuleIsSavedOnTheSystemWithTheValues(Table table)
         {
-            var ruleRepository = ScenarioContext.Current.Get<IQCRuleRepository>();
-
-            var qcRule = ruleRepository.GetStandardDeviationRuleByName(table.Rows[0]["Name"]);
-
             var ruleName = table.Rows[0]["Name"];
             var withingControlValue = Convert.ToBoolean(table.Rows[0]["WithinControl"]);
             var comment = table.Rows[0]["Comment"];
             var numberOfControls = Convert.ToInt32(table.Rows[0]["NumberOfControls"]);
             var standardDeviationLimits = Convert.ToInt32(table.Rows[0]["StandardDeviationLimits"]);
 
+
+            var qcRuleRespository = new MongoDBQCRulesRepository();
+            var qcRule = qcRuleRespository.GetStandardDeviationRuleByName(ruleName);
+            
             Assert.AreEqual(ruleName, qcRule.Name);
             Assert.AreEqual(withingControlValue, qcRule.WithinControl);
             Assert.AreEqual(comment, qcRule.Comment);
@@ -189,7 +189,7 @@ namespace InstrumentMessagesHandlerTests
         }
 
 
-        [Then(@"the application ""(.*)"" and the qc rule ""(.*)"" are linked")]
+        [Then(@"the ApplicationTest ""(.*)"" and the qc rule ""(.*)"" are linked")]
         public void ThenTheApplicationAndTheQcRuleAreLinked(int applicationCode, int ruleName)
         {
             var applicationQC = GetApplicationQC(applicationCode);
@@ -212,7 +212,7 @@ namespace InstrumentMessagesHandlerTests
             return applicationRepository.GetApplicationByTestCode(applicationCode);          
         }
 
-        [Then(@"the application ""(.*)"" and the qc rule ""(.*)"" are not linked")]
+        [Then(@"the ApplicationTest ""(.*)"" and the qc rule ""(.*)"" are not linked")]
         public void ThenTheApplicationAndTheQcRuleAreNotLinked(int applicationCode, int ruleName)
         {
             var applicationQC = GetApplicationQC(applicationCode);
@@ -232,7 +232,7 @@ namespace InstrumentMessagesHandlerTests
             Assert.IsNotNull(getResultsResponse);
 
             var qcResultId = getResultsResponse.Results.First().Id;
-            response   = qcServices.Handle(new GetEvaluationFor(qcResultId));
+            response   = qcServices.Handle(new GetEvaluation(qcResultId));
 
             var evaluation = response as GetEvaluationResponse;
             Assert.IsNotNull(evaluation);

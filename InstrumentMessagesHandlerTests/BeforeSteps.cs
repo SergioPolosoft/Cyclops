@@ -23,8 +23,7 @@ namespace InstrumentMessagesHandlerTests
         [BeforeScenario()]
         public static void InittializeQCConfiguration()
         {
-            var qcRuleRepository = new InMemoryQCRulesRepository();
-            ScenarioContext.Current.Set(qcRuleRepository as IQCRuleRepository);
+            ScenarioContext.Current.Set(new MongoDBQCRulesRepository() as IQCRuleRepository);
 
             IQCApplicationRepository qcapplicationRepository = new InMemoryIQCApplicationRepository();
             ScenarioContext.Current.Set(qcapplicationRepository);
@@ -47,7 +46,7 @@ namespace InstrumentMessagesHandlerTests
             IQCConfigurationServices configurationServices = new QCConfigurationServices(qualityControlRepository);
             ScenarioContext.Current.Set(configurationServices);
 
-            IQCEvaluationServices evaluationServices = new QCEvalutaionServices(qcRuleRepository,
+            IQCEvaluationServices evaluationServices = new QCEvaluationServices(new MongoDBQCRulesRepository(),
                 qcapplicationRepository, evaluationsRepository, qcResultsEvaluationRepository, configurationServices);
             ScenarioContext.Current.Set(evaluationServices);
 
@@ -73,6 +72,7 @@ namespace InstrumentMessagesHandlerTests
 
             ScenarioContext.Current.Set(instrumentCommunicationServices);
             
+            ScenarioContext.Current.Set(new QCEvaluationServicesReference.QCEvaluationServiceClient());
         }
     }
 }

@@ -38,7 +38,10 @@
     <Compile Include="Commands\ConfirmApplicationUpdateCommand.cs" />
     <Compile Include="Commands\GetApplicationCommand.cs" />
     <Compile Include="Commands\GetFTPConfiguration.cs" />
+    <Compile Include="Responses\ErrorReadingApplication.cs" />
+    <Compile Include="Responses\ApplicationNotFound.cs" />
     <Compile Include="Commands\Handlers\ConfirmApplicationUpdateHandler.cs" />
+    <Compile Include="Responses\GetFTPConfigurationFailed.cs" />
     <Compile Include="Exceptions\ApplicationExistException.cs" />
     <Compile Include="Exceptions\ApplicationNotExistException.cs" />
     <Compile Include="Commands\ConfirmApplicationDeletionCommand.cs" />
@@ -48,11 +51,11 @@
     <Compile Include="Commands\Handlers\GetFTPConfigurationHandler.cs" />
     <Compile Include="Commands\Handlers\GetApplicationCommandHandler.cs" />
     <Compile Include="ILabConfigurationServices.cs" />
+    <Compile Include="LabConfigurationMessages.cs" />
     <Compile Include="LabConfigurationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\StoreMainunitConfigurationCommand.cs" />
     <Compile Include="Commands\Handlers\StoreMainunitConfigurationHandler.cs" />
-    <Compile Include="Responses\ApplicationDoesNotExistsResponse.cs" />
     <Compile Include="Responses\GetApplicationResponse.cs" />
     <Compile Include="Responses\GetFTPConfigurationResponse.cs" />
   </ItemGroup>

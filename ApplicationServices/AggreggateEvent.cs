@@ -6,7 +6,7 @@ namespace ApplicationServices
     {
         public Guid Id { get; private set; }
 
-        private DateTime EventTime { get; set; }
+        public DateTime EventTime { get; set; }
 
         public AggreggateEvent()
         {
