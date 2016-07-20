@@ -57,5 +57,6 @@ namespace QCConfiguration.Domain
         {
             get { return state.ControlId; }
         }
+       
     }
 }

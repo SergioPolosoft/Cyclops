@@ -5,7 +5,7 @@
       <xsd:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService" />
-      <xsd:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Application.Payloads" />
+      <xsd:import schemaLocation="http://localhost:48560/QCEvaluationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IQCEvaluationService_CreateStandardDeviationRule_InputMessage">
@@ -14,35 +14,16 @@
   <wsdl:message name="IQCEvaluationService_CreateStandardDeviationRule_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateStandardDeviationRuleResponse" />
   </wsdl:message>
-  <wsdl:message name="IQCEvaluationService_GetStandardDeviationRuleByName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetStandardDeviationRuleByName" />
-  </wsdl:message>
-  <wsdl:message name="IQCEvaluationService_GetStandardDeviationRuleByName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStandardDeviationRuleByNameResponse" />
-  </wsdl:message>
   <wsdl:portType name="IQCEvaluationService">
     <wsdl:operation name="CreateStandardDeviationRule">
       <wsdl:input wsaw:Action="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRule" message="tns:IQCEvaluationService_CreateStandardDeviationRule_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRuleResponse" message="tns:IQCEvaluationService_CreateStandardDeviationRule_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetStandardDeviationRuleByName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByName" message="tns:IQCEvaluationService_GetStandardDeviationRuleByName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByNameResponse" message="tns:IQCEvaluationService_GetStandardDeviationRuleByName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IQCEvaluationService" type="tns:IQCEvaluationService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateStandardDeviationRule">
       <soap:operation soapAction="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRule" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetStandardDeviationRuleByName">
-      <soap:operation soapAction="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

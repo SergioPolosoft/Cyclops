@@ -9,7 +9,19 @@
 //------------------------------------------------------------------------------
 
 namespace InstrumentMessagesHandlerTests.QCEvaluationServicesReference {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestResult", Namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common")]
+    public enum RequestResult : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Succesfull = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Error = 1,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="QCEvaluationServicesReference.IQCEvaluationService")]
@@ -20,12 +32,6 @@ namespace InstrumentMessagesHandlerTests.QCEvaluationServicesReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRule", ReplyAction="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRuleResponse")]
         System.Threading.Tasks.Task<QCEvaluation.WCFService.CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(QCEvaluation.WCFService.CreateStandardDeviationRuleRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByName", ReplyAction="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByNameResponse")]
-        QCEvaluation.WCFService.GetStandardDeviationRuleResponse GetStandardDeviationRuleByName(string ruleName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByName", ReplyAction="http://tempuri.org/IQCEvaluationService/GetStandardDeviationRuleByNameResponse")]
-        System.Threading.Tasks.Task<QCEvaluation.WCFService.GetStandardDeviationRuleResponse> GetStandardDeviationRuleByNameAsync(string ruleName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -61,14 +67,6 @@ namespace InstrumentMessagesHandlerTests.QCEvaluationServicesReference {
         
         public System.Threading.Tasks.Task<QCEvaluation.WCFService.CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(QCEvaluation.WCFService.CreateStandardDeviationRuleRequest request) {
             return base.Channel.CreateStandardDeviationRuleAsync(request);
-        }
-        
-        public QCEvaluation.WCFService.GetStandardDeviationRuleResponse GetStandardDeviationRuleByName(string ruleName) {
-            return base.Channel.GetStandardDeviationRuleByName(ruleName);
-        }
-        
-        public System.Threading.Tasks.Task<QCEvaluation.WCFService.GetStandardDeviationRuleResponse> GetStandardDeviationRuleByNameAsync(string ruleName) {
-            return base.Channel.GetStandardDeviationRuleByNameAsync(ruleName);
         }
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d3957db1-163f-4bb6-9ce1-7a68be1cc38c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:42153/QCConfigurationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QCConfigurationService.xsd" MetadataType="Schema" ID="348f9b7d-9c4e-4851-ae76-1f96a4572a4b" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="QCConfigurationService1.xsd" MetadataType="Schema" ID="c8a38c7f-a4ff-4cf0-b1df-71f1224965a3" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="QCConfigurationService2.xsd" MetadataType="Schema" ID="2230ea3a-bcae-4b4d-87a2-b5c9cc486f10" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="QCConfigurationService3.xsd" MetadataType="Schema" ID="ba449960-eaa3-4670-9461-ac41dce9fc7d" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="QCConfigurationService.wsdl" MetadataType="Wsdl" ID="a5e3b26b-a4e3-4c47-a0b7-7c2dfd20ae5d" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?wsdl" />
+    <MetadataFile FileName="QCConfigurationService.disco" MetadataType="Disco" ID="a65c87c6-e619-4e58-bb88-25ed1c33f8b8" SourceId="1" SourceUrl="http://localhost:42153/QCConfigurationService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

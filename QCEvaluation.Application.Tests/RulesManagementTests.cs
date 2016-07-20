@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using QCConfiguration.Application;
 using QCEvaluation.Application.Commands;
+using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain;
 using QCEvaluation.Domain.Events;
 using QCEvaluation.Domain.Repositories;
@@ -24,7 +25,7 @@ namespace QCEvaluation.Application.Tests
         {
             repository = new Mock<IQCRuleRepository>();
 
-            handler = new QCEvaluationServices(repository.Object, new Mock<IQCApplicationRepository>().Object, new Mock<IEvaluationsRepository>().Object, new Mock<IQCResultsRepository>().Object, new Mock<IQCConfigurationServices>().Object);
+            handler = new QCEvaluationServices(repository.Object, new Mock<IQCApplicationRepository>().Object, new Mock<IEvaluationsRepository>().Object, new Mock<IQCResultsRepository>().Object, new Mock<IQCConfigurationServicesPort>().Object);
 
         }
 

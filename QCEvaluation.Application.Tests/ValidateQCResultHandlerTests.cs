@@ -12,6 +12,7 @@ using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.Events;
 using QCEvaluation.Application.Events.Handlers;
+using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain;
 using QCEvaluation.Domain.Events;
 using QCEvaluation.Domain.Exceptions;
@@ -32,7 +33,7 @@ namespace QCEvaluation.Application.Tests
         private Mock<IEvaluationsRepository> evaluationsRepository;
         private Mock<IQCRuleRepository> qcruleRepository;
         private Mock<IQCResultsRepository> qcResultsRespository;
-        private Mock<IQCConfigurationServices> qcConfigurationServices;
+        private Mock<IQCConfigurationServicesPort> qcConfigurationServices;
 
         [TestInitialize]
         public void TestInitialize()
@@ -50,13 +51,12 @@ namespace QCEvaluation.Application.Tests
             labConfigurationServices.Setup(x => x.Handle(new GetApplicationCommand(testCode))).Returns(new GetApplicationResponse());
 
             qcResultsRespository = new Mock<IQCResultsRepository>();
-            qcConfigurationServices = new Mock<IQCConfigurationServices>();
+            qcConfigurationServices = new Mock<IQCConfigurationServicesPort>();
 
             var qualityControl = new QCConfiguration.Domain.QualityControl();
             qualityControl.Create(testCode,15.25,0.607);
 
-            qcConfigurationServices.Setup(x => x.Handle(It.IsAny<GetQualityControl>()))
-                .Returns(new GetQualityControlFound(new QualityControlPayload(qualityControl)));
+            qcConfigurationServices.Setup(x => x.GetQualityControl(testCode)).Returns(new QualityControlPayload(qualityControl));
 
             receivedHandler = new QCResultReceivedHandler(applicationQCRepository.Object, evaluationsRepository.Object, qcruleRepository.Object, qcResultsRespository.Object, qcConfigurationServices.Object);
         }
@@ -126,14 +126,13 @@ namespace QCEvaluation.Application.Tests
 
             receivedHandler.Handle(validateQcResult);
 
-            qcConfigurationServices.Verify(x=>x.Handle(It.Is<GetQualityControl>(y=>y.TestCode==testCode)));
+            qcConfigurationServices.Verify(x=>x.GetQualityControl(testCode));
         }
 
         [TestMethod]
         public void IfQualityControlIsNotFoundThenNoEvaluationIsStored()
         {
-            qcConfigurationServices.Setup(x => x.Handle(It.IsAny<GetQualityControl>()))
-                .Returns(new QualityControlNotFound(testCode));
+            qcConfigurationServices.Setup(x => x.GetQualityControl(testCode)).Returns(()=>null);
 
             var validateQcResult = new QCResultReceived(new QCResultPayload(new QCResult(testCode, 0.6, DateTime.Now)));
 

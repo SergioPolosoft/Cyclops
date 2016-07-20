@@ -49,6 +49,7 @@
     <Compile Include="Commands\Handlers\IBuilder.cs" />
     <Compile Include="Commands\Handlers\ModifyStandardDeviationRuleHandler.cs" />
     <Compile Include="Commands\Handlers\GetEvaluationHandler.cs" />
+    <Compile Include="Ports\IQCConfigurationServicesPort.cs" />
     <Compile Include="PayloadMappers\QualityControlMapper.cs" />
     <Compile Include="Events\QCResultBuilder.cs" />
     <Compile Include="PayloadMappers\QCResultMapper.cs" />

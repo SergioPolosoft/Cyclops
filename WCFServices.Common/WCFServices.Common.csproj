@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</ProjectGuid>
+    <ProjectGuid>{6FCF010B-F8E5-4A96-BAC3-BAC76E841FA6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Application.Payloads</RootNamespace>
-    <AssemblyName>Application.Payloads</AssemblyName>
+    <RootNamespace>WCFServices.Common</RootNamespace>
+    <AssemblyName>WCFServices.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,35 +32,15 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationPayload.cs" />
-    <Compile Include="FTPConfigurationPayload.cs" />
-    <Compile Include="IDPOMapper.cs" />
-    <Compile Include="IPayloadObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QCResultPayload.cs" />
-    <Compile Include="QualityControlPayload.cs" />
-    <Compile Include="StandardDeviationRulePayload.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
-      <Project>{d8407eb6-346f-4169-8bfa-53c70a6f995a}</Project>
-      <Name>ApplicationServices.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LabConfiguration.Domain\LabConfiguration.Domain.csproj">
-      <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
-      <Name>LabConfiguration.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
-      <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
-      <Name>QCConfiguration.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCRoutine.Domain\QCRoutine.Domain.csproj">
-      <Project>{0D868D3F-C004-4F87-B092-83A23FA9C3EE}</Project>
-      <Name>QCRoutine.Domain</Name>
-    </ProjectReference>
+    <Compile Include="RequestResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

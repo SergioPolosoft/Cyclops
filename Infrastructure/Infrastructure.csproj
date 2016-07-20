@@ -59,8 +59,8 @@
     <Compile Include="DTOs\FTPCredentialsMessageDTO.cs" />
     <Compile Include="EventBroker\IEventBroker.cs" />
     <Compile Include="EventBroker\IEventHandler.cs" />
+    <Compile Include="Repositories\MongoDBQCRepository.cs" />
     <Compile Include="Repositories\MongoDBQCRulesRepository.cs" />
-    <Compile Include="Repositories\HardCodedQCRepository.cs" />
     <Compile Include="Repositories\HardCodedQCResultsEvaluationRepository.cs" />
     <Compile Include="Repositories\InMemoryIQCApplicationRepository.cs" />
     <Compile Include="Repositories\HardCodedApplicationRepository.cs" />
@@ -74,7 +74,6 @@
     <Compile Include="Repositories\HardCodedEvaluationsRepository.cs" />
     <Compile Include="Repositories\HardCodedQCResultsRepository.cs" />
     <Compile Include="Repositories\InMemoryMessageRepository.cs" />
-    <Compile Include="Repositories\InMemoryQCRulesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">

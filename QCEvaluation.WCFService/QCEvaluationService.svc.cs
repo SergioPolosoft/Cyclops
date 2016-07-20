@@ -11,6 +11,8 @@ using QCConfiguration.Application;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Responses;
+using QCEvaluation.WCFService.Adapters;
+using WCFServices.Common;
 
 namespace QCEvaluation.WCFService
 {
@@ -22,7 +24,7 @@ namespace QCEvaluation.WCFService
 
         public QCEvaluationService()
         {
-            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(),new InMemoryIQCApplicationRepository(), new HardCodedEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServices(new HardCodedQCRepository()));
+            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(),new InMemoryIQCApplicationRepository(), new HardCodedEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServicesAdapter());
         }
         
         public CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request)
@@ -34,13 +36,6 @@ namespace QCEvaluation.WCFService
                 return new CreateStandardDeviationRuleResponse(RequestResult.Succesfull, response.Message);
             }
             return new CreateStandardDeviationRuleResponse(RequestResult.Error, response.Message);
-        }
-
-        public GetStandardDeviationRuleResponse GetStandardDeviationRuleByName(string ruleName)
-        {
-            var result = qcEvalutionService.Handle(new GetStandardDeviationRuleByName(ruleName));
-
-            return new GetStandardDeviationRuleResponse(((GetStandardDeviationRuleByNameResult)result).StandardDeviationRule);
-        }
+        }       
     }
 }

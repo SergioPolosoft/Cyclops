@@ -1,4 +1,4 @@
-namespace QCEvaluation.WCFService
+namespace WCFServices.Common
 {
     public enum RequestResult
     {

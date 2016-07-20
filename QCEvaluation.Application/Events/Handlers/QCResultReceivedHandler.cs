@@ -6,6 +6,7 @@ using QCConfiguration.Application.Responses;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.PayloadMappers;
+using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain;
 using QCEvaluation.Domain.Exceptions;
 using QCEvaluation.Domain.Repositories;
@@ -19,9 +20,9 @@ namespace QCEvaluation.Application.Events.Handlers
         private readonly EvaluationDomainService evaluationService;
         private readonly IQCRuleRepository qcruleRepository;
         private readonly IQCResultsRepository resultsRepository;
-        private readonly IQCConfigurationServices qcConfigurationServices;
+        private readonly IQCConfigurationServicesPort qcConfigurationServices;
 
-        public QCResultReceivedHandler(IQCApplicationRepository qcApplicationRepository, IEvaluationsRepository evaluationsRepository, IQCRuleRepository qcruleRepository, IQCResultsRepository resultsRepository, IQCConfigurationServices qcConfigurationServices)
+        public QCResultReceivedHandler(IQCApplicationRepository qcApplicationRepository, IEvaluationsRepository evaluationsRepository, IQCRuleRepository qcruleRepository, IQCResultsRepository resultsRepository, IQCConfigurationServicesPort qcConfigurationServices)
         {
             this.qcApplicationRepository = qcApplicationRepository;
             this.evaluationsRepository = evaluationsRepository;
@@ -44,15 +45,13 @@ namespace QCEvaluation.Application.Events.Handlers
             QCResult qcResult = new QCResultMapper().Map(domainCommand.QCResult);
             resultsRepository.Add(qcResult);
 
-            var response = qcConfigurationServices.Handle(new GetQualityControl(qcResultPayload.TestCode));
+            var qualityControlPayload = qcConfigurationServices.GetQualityControl(qcResultPayload.TestCode);
 
             EvaluationResult evaluation = EvaluationResult.NotEvaluated;
-            
-            if (response is GetQualityControlFound)
-            {
-                QualityControlPayload qualityControlPayload = ((GetQualityControlResponse)response).QualityControl;
 
-                var qualityControl = new QualityControlMapper().Map(qualityControlPayload);
+            if (qualityControlPayload != null)
+            {
+               var qualityControl = new QualityControlMapper().Map(qualityControlPayload);
 
                 evaluation = evaluationService.Evaluate(qcResult, applicationQC.GetRulesEnabled(qcruleRepository), qualityControl);
             }

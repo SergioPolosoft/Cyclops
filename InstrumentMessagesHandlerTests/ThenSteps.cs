@@ -132,7 +132,7 @@ namespace InstrumentMessagesHandlerTests
             ScenarioContext.Current.Get<Mock<IMessageSender>>().Verify(x=>x.SendMessage(It.IsAny<ParameterDTO>()));
         }
         
-        [Then(@"Data Manager sends an xml file with th name ApplicationTest\.xml with the parameters")]
+        [Then(@"Data Manager sends an xml file with th name Application\.xml with the parameters")]
         public void ThenDataManagerSendsAnXmlFileWithThNameApplication_XmlWithTheParameters()
         {
             var messageSender = ScenarioContext.Current.Get<Mock<IMessageSender>>();

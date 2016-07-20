@@ -7,6 +7,7 @@ using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.DTOs;
 using QCEvaluation.Application.Events;
 using QCEvaluation.Application.Events.Handlers;
+using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Application
@@ -17,9 +18,9 @@ namespace QCEvaluation.Application
         private readonly IQCApplicationRepository applicationRepository;
         private readonly IEvaluationsRepository evaluationsRepository;
         private readonly IQCResultsRepository qcResultsRepository;
-        private readonly IQCConfigurationServices qcConfigurationServices;
+        private readonly IQCConfigurationServicesPort qcConfigurationServices;
 
-        public QCEvaluationServices(IQCRuleRepository qcRulesRepository, IQCApplicationRepository applicationRepository, IEvaluationsRepository evaluationsRepository, IQCResultsRepository qcResultsRepository, IQCConfigurationServices qcConfigurationServices)
+        public QCEvaluationServices(IQCRuleRepository qcRulesRepository, IQCApplicationRepository applicationRepository, IEvaluationsRepository evaluationsRepository, IQCResultsRepository qcResultsRepository, IQCConfigurationServicesPort qcConfigurationServices)
         {
             this.qcRulesRepository = qcRulesRepository;
             this.applicationRepository = applicationRepository;

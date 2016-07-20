@@ -262,11 +262,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 43
  testRunner.And("a Standard Deviation rule existing in the system with the values", ((string)(null)), table8, "And ");
 #line 46
- testRunner.And("an existing application with test code \"22393\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("an existing ApplicationTest with test code \"22393\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 47
- testRunner.When("the application \"22393\" is assigned to the qc rule \"2238\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the ApplicationTest \"22393\" is assigned to the qc rule \"2238\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 48
- testRunner.Then("the application \"22393\" and the qc rule \"2238\" are linked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the ApplicationTest \"22393\" and the qc rule \"2238\" are linked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -297,13 +297,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 52
  testRunner.And("a Standard Deviation rule existing in the system with the values", ((string)(null)), table9, "And ");
 #line 55
- testRunner.And("an existing application with test code \"16201\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("an existing ApplicationTest with test code \"16201\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
- testRunner.And("the application \"16201\" is assigned to the qc rule \"1731\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the ApplicationTest \"16201\" is assigned to the qc rule \"1731\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
- testRunner.When("the application \"16201\" is unassigned to the qc rule \"1731\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the ApplicationTest \"16201\" is unassigned to the qc rule \"1731\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 58
- testRunner.Then("the application \"16201\" and the qc rule \"1731\" are not linked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the ApplicationTest \"16201\" and the qc rule \"1731\" are not linked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -317,10 +317,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 60
 this.ScenarioSetup(scenarioInfo);
 #line 61
- testRunner.Given("an existing application with test code \"7260\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("an existing ApplicationTest with test code \"7260\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Range1SD",
+                        "StandardDeviation",
                         "TargetValue"});
             table10.AddRow(new string[] {
                         "0.5",
@@ -343,7 +343,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 65
  testRunner.And("a Standard Deviation rule existing in the system with the values", ((string)(null)), table11, "And ");
 #line 68
- testRunner.And("the application \"7260\" is assigned to the qc rule \"Rule 606\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the ApplicationTest \"7260\" is assigned to the qc rule \"Rule 606\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 69
  testRunner.When("a qc result with for the test \"7260\" with value 0.9 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 70

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="QCConfiguration.WCFService.QCConfigurationService" CodeBehind="QCConfigurationService.svc.cs" %>

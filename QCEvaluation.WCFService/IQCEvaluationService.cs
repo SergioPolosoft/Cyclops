@@ -7,9 +7,6 @@ namespace QCEvaluation.WCFService
     public interface IQCEvaluationService
     {
         [OperationContract]
-        CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request);
-
-        [OperationContract]
-        GetStandardDeviationRuleResponse GetStandardDeviationRuleByName(string ruleName);
+        CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request);       
     }    
 }

@@ -1,26 +1,29 @@
+using System.Runtime.Serialization;
 using QCConfiguration.Domain;
 
 namespace Application.Payloads
 {
+    [DataContract]
     public class QualityControlPayload : IPayloadObject
     {
-        private readonly QualityControl qualityControl;
-
         public QualityControlPayload(QualityControl qualityControl)
         {
-            this.qualityControl = qualityControl;
+            this.StandardDeviation = qualityControl.StandardDeviation;
+            this.TargetValue = qualityControl.TargetValue;
+            this.TestCode = qualityControl.TestCode;
         }
 
-        public double TargetValue
+        public QualityControlPayload()
         {
-            get { return qualityControl.TargetValue; }
         }
 
-        public double StandardDeviation { get { return qualityControl.StandardDeviation; } }
+        [DataMember]
+        public double TargetValue { get; set; }
 
-        public int TestCode
-        {
-            get { return qualityControl.TestCode; }
-        }
+        [DataMember]
+        public double StandardDeviation { get; set; }
+
+        [DataMember]
+        public int TestCode { get; set; }
     }
 }
