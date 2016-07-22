@@ -59,12 +59,13 @@
     <Compile Include="DTOs\FTPCredentialsMessageDTO.cs" />
     <Compile Include="EventBroker\IEventBroker.cs" />
     <Compile Include="EventBroker\IEventHandler.cs" />
-    <Compile Include="Repositories\MongoDBQCApplicationRepository.cs" />
+    <Compile Include="Repositories\MongoDBApplicationRepository.cs" />
+    <Compile Include="Repositories\MongoDBQCApplicationRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Repositories\MongoDBQCRepository.cs" />
     <Compile Include="Repositories\MongoDBQCRulesRepository.cs" />
     <Compile Include="Repositories\HardCodedQCResultsEvaluationRepository.cs" />
-    <Compile Include="Repositories\InMemoryIQCApplicationRepository.cs" />
-    <Compile Include="Repositories\HardCodedApplicationRepository.cs" />
     <Compile Include="Repositories\HardCodedCommunicationStatusRepository.cs" />
     <Compile Include="EventBroker\IEvent.cs" />
     <Compile Include="MessageQueue\IMessageQueue.cs" />

@@ -1,4 +1,5 @@
 using ApplicationServices;
+using Infrastructure;
 using Infrastructure.Repositories;
 using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
@@ -33,7 +34,7 @@ namespace InstrumentMessagesHandlerTests
             var hardCodedConfigurationRepository = new HardCodedConfigurationRepository();
             ScenarioContext.Current.Set(hardCodedConfigurationRepository as IConfigurationRepository);
 
-            var hardCodedApplicationRepository = new HardCodedApplicationRepository();
+            var hardCodedApplicationRepository = new MongoDBApplicationRepository();
             ScenarioContext.Current.Set(hardCodedApplicationRepository as IApplicationRepository);
 
             IEvaluationsRepository evaluationsRepository = new HardCodedEvaluationsRepository();

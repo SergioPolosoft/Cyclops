@@ -61,6 +61,9 @@ namespace InstrumentMessagesHandlerTests
         [When(@"Main Unit sends an AP(.*) message")]
         public void WhenMainUnitSendsAnAPMessage(int p0)
         {
+            var applicationsReposiroty = ScenarioContext.Current.Get<IApplicationRepository>();
+            applicationsReposiroty.RemoveByApplicationCode(1028);
+
             var services = ScenarioContext.Current.Get<InstrumentCommunicationServices>();
             var xmlDocument = new XmlDocument();
             xmlDocument.Load("Files/Adde801Parameter.xml");
