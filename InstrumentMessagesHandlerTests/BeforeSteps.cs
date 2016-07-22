@@ -27,7 +27,7 @@ namespace InstrumentMessagesHandlerTests
         {
             ScenarioContext.Current.Set(new MongoDBQCRulesRepository() as IQCRuleRepository);
 
-            IQCApplicationRepository qcapplicationRepository = new InMemoryIQCApplicationRepository();
+            IQCApplicationRepository qcapplicationRepository = new MongoDBQCApplicationRepository();
             ScenarioContext.Current.Set(qcapplicationRepository);
 
             var hardCodedConfigurationRepository = new HardCodedConfigurationRepository();

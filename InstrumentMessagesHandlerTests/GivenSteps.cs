@@ -76,6 +76,9 @@ namespace InstrumentMessagesHandlerTests
         [Given(@"an existing ApplicationTest with test code ""(.*)""")]
         public void GivenAnExistingApplicationWithTestCode(int applicationTestCode)
         {
+            var applicationQCRepository = ScenarioContext.Current.Get<IQCApplicationRepository>() as MongoDBQCApplicationRepository;
+            applicationQCRepository.DeleteApplication(applicationTestCode);
+
             var labConfigurationServices = ScenarioContext.Current.Get<ILabConfigurationServices>();
             labConfigurationServices.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(applicationTestCode)));
         }

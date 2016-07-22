@@ -3,16 +3,12 @@ using ApplicationServices;
 
 namespace QCEvaluation.Domain.Events
 {
-    public class ApplicationDeleted : AggreggateEvent
+    public class ApplicationDeleted : ApplicationEvent
     {
-        private Guid applicationId;
-
         public ApplicationDeleted(Guid applicationId)
         {
-            this.Id = Guid.NewGuid();
             this.applicationId = applicationId;
         }
-
-        public Guid Id { get; private set; }
+       
     }
 }

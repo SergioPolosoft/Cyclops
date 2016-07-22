@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -24,7 +22,7 @@ namespace QCEvaluation.WCFService
 
         public QCEvaluationService()
         {
-            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(),new InMemoryIQCApplicationRepository(), new HardCodedEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServicesAdapter());
+            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(),new MongoDBQCApplicationRepository(), new HardCodedEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServicesAdapter());
         }
         
         public CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request)

@@ -4,17 +4,12 @@ namespace QCEvaluation.Domain.Events
 {
     public class ApplicationCreated : ApplicationEvent
     {
-        private readonly int testCode;
-
         public ApplicationCreated(Guid applicationId, int testCode)
         {
             this.applicationId = applicationId;
-            this.testCode = testCode;
+            this.TestCode = testCode;
         }
 
-        public int TestCode
-        {
-            get { return testCode; }
-        }
+        public int TestCode { get; private set; }
     }
 }

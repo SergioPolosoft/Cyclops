@@ -4,17 +4,12 @@ namespace QCEvaluation.Domain.Events
 {
     public class QCRuleEnabled : ApplicationEvent
     {
-        private readonly Guid ruleId;
-
         public QCRuleEnabled(Guid applicationId, Guid ruleId)
         {
             this.applicationId = applicationId;
-            this.ruleId = ruleId;
+            this.RuleId = ruleId;
         }
 
-        public Guid RuleId
-        {
-            get { return ruleId; }
-        }
+        public Guid RuleId { get; set; }
     }
 }

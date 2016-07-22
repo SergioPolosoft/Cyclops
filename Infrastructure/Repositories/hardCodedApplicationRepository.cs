@@ -16,10 +16,7 @@ namespace Infrastructure.Repositories
             {
                 throw new InvalidDataException();
             }
-            else
-            {
-                identityMap.Add(applicationTest.Id,applicationTest);
-            }
+            identityMap.Add(applicationTest.Id,applicationTest);
         }
 
         public bool ApplicationExists(Guid id)

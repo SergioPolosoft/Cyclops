@@ -59,6 +59,7 @@
     <Compile Include="DTOs\FTPCredentialsMessageDTO.cs" />
     <Compile Include="EventBroker\IEventBroker.cs" />
     <Compile Include="EventBroker\IEventHandler.cs" />
+    <Compile Include="Repositories\MongoDBQCApplicationRepository.cs" />
     <Compile Include="Repositories\MongoDBQCRepository.cs" />
     <Compile Include="Repositories\MongoDBQCRulesRepository.cs" />
     <Compile Include="Repositories\HardCodedQCResultsEvaluationRepository.cs" />
