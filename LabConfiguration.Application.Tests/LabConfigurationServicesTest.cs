@@ -20,7 +20,7 @@ namespace LabConfiguration.Application.Tests
         {
             var configurationRepository = new Mock<IConfigurationRepository>();
             applicationRepository = new Mock<IApplicationRepository>();
-            labConfigurationServices = new LabConfigurationService(configurationRepository.Object, applicationRepository.Object, new Mock<IQCEvaluationServices>().Object);
+            labConfigurationServices = new LabConfigurationService(configurationRepository.Object, applicationRepository.Object, new Mock<IQCEvaluationPort>().Object);
         }
 
         [TestMethod]

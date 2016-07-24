@@ -67,17 +67,9 @@
     <Compile Include="States\StandardDeviationRuleState.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
-      <Project>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</Project>
-      <Name>Application.Payloads</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
       <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
       <Name>ApplicationServices.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
-      <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
-      <Name>QCConfiguration.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

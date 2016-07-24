@@ -1,15 +1,14 @@
-﻿using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
 using ApplicationServices;
 using Infrastructure.Repositories;
-using QCConfiguration.Application;
+using QCEvaluation.Adapters;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
+using QCEvaluation.Application.Events;
 using QCEvaluation.Application.Responses;
-using QCEvaluation.WCFService.Adapters;
+
 using WCFServices.Common;
 
 namespace QCEvaluation.WCFService
@@ -34,6 +33,11 @@ namespace QCEvaluation.WCFService
                 return new CreateStandardDeviationRuleResponse(RequestResult.Succesfull, response.Message);
             }
             return new CreateStandardDeviationRuleResponse(RequestResult.Error, response.Message);
-        }       
+        }
+
+        public void NotifyApplicationInstalled(int testCode)
+        {
+            qcEvalutionService.Handle(new ApplicationInstalled(testCode));
+        }
     }
 }

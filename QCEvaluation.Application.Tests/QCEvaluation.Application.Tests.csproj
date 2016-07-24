@@ -88,10 +88,6 @@
       <Project>{0843B97A-DCA4-4EB3-AD61-C8072146D159}</Project>
       <Name>LabConfiguration.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Application\QCConfiguration.Application.csproj">
-      <Project>{7B3C3123-461B-4DAA-8750-0570DA36ECE4}</Project>
-      <Name>QCConfiguration.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
       <Project>{9f114ffe-e1f6-41f2-8ee7-471477302a6b}</Project>
       <Name>QCConfiguration.Domain</Name>

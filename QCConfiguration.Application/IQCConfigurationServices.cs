@@ -1,5 +1,4 @@
 ﻿using ApplicationServices;
-using QCEvaluation.Domain;
 
 namespace QCConfiguration.Application
 {

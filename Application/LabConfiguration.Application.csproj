@@ -38,6 +38,7 @@
     <Compile Include="Commands\ConfirmApplicationUpdateCommand.cs" />
     <Compile Include="Commands\GetApplicationCommand.cs" />
     <Compile Include="Commands\GetFTPConfiguration.cs" />
+    <Compile Include="IQCEvaluationPort.cs" />
     <Compile Include="Responses\ErrorReadingApplication.cs" />
     <Compile Include="Responses\ApplicationNotFound.cs" />
     <Compile Include="Commands\Handlers\ConfirmApplicationUpdateHandler.cs" />

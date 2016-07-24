@@ -17,7 +17,7 @@ namespace LabConfiguration.Application.Tests
         {
             var applicationRepository = new Mock<IApplicationRepository>();
 
-            var qcEvaluationServices = new Mock<IQCEvaluationServices>();
+            var qcEvaluationServices = new Mock<IQCEvaluationPort>();
 
             var handler = new ConfirmApplicationInstallationHandler(applicationRepository.Object, qcEvaluationServices.Object);
 
@@ -25,7 +25,7 @@ namespace LabConfiguration.Application.Tests
 
             handler.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(testCode)));
 
-            qcEvaluationServices.Verify(x => x.Handle(It.Is<ApplicationInstalled>(y=>y.TestCode == testCode)));
+            qcEvaluationServices.Verify(x => x.NotifyApplicationInstalled(testCode));
         }
     }
 }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagerFeatures", "InstrumentMessagesHandlerTests\DataManagerFeatures.csproj", "{9E79488A-9DF8-4E6A-85C0-172632145B36}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06} = {A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "InstrumentAdapter\Application.csproj", "{FB43BC8F-36A9-402B-98AA-F5D8D9F79D05}"
 EndProject
@@ -87,6 +90,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCConfiguration.WCFService", "QCConfiguration.WCFService\QCConfiguration.WCFService.csproj", "{B4C079EB-2293-4C8A-9DCE-0BDB3B207D10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServices.Common", "WCFServices.Common\WCFServices.Common.csproj", "{6FCF010B-F8E5-4A96-BAC3-BAC76E841FA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabConfiguration.WCFService", "LabConfiguration.WCFService\LabConfiguration.WCFService.csproj", "{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabConfiguration.Adapters", "LabConfiguration.Adapters\LabConfiguration.Adapters.csproj", "{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCEvaluation.Adapters", "QCEvaluation.Adapters\QCEvaluation.Adapters.csproj", "{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -210,6 +219,18 @@ Global
 		{6FCF010B-F8E5-4A96-BAC3-BAC76E841FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FCF010B-F8E5-4A96-BAC3-BAC76E841FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FCF010B-F8E5-4A96-BAC3-BAC76E841FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -246,5 +267,8 @@ Global
 		{FF90CC35-F615-46D1-B7D3-CAEDD5E8BC89} = {15738161-7E5C-40CA-BDBC-98C69B744F2A}
 		{FBA734C1-F807-432D-BA52-B1E27C5B4B64} = {11A9F11E-CB76-4818-B3DB-3872F2363910}
 		{B4C079EB-2293-4C8A-9DCE-0BDB3B207D10} = {788525AD-DD5C-4DD1-9B7C-92D256FBAB74}
+		{A0F9FC5B-05A1-4CE9-BE94-EACFE93ABC06} = {9BC57F05-20EB-453F-BC87-1F28D4DD6FA6}
+		{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41} = {9BC57F05-20EB-453F-BC87-1F28D4DD6FA6}
+		{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D} = {11A9F11E-CB76-4818-B3DB-3872F2363910}
 	EndGlobalSection
 EndGlobal

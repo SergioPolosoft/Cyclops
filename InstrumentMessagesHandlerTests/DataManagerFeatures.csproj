@@ -84,7 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QCRulesManagement.feature</DependentUpon>
     </Compile>
-    <Compile Include="Service References\QCEvaluationServicesReference\Reference.cs">
+    <Compile Include="Service References\LabConfigurationServicesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QCEvaluationServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -118,14 +123,30 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QCRulesManagement.feature.cs</LastGenOutput>
     </None>
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.wsdl" />
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.xsd">
+    <None Include="Service References\LabConfigurationServicesReference\InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LabConfigurationServicesReference\LabConfigurationService.wsdl" />
+    <None Include="Service References\LabConfigurationServicesReference\LabConfigurationService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService1.xsd">
+    <None Include="Service References\LabConfigurationServicesReference\LabConfigurationService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService2.xsd">
+    <None Include="Service References\LabConfigurationServicesReference\LabConfigurationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService.wsdl" />
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -154,6 +175,10 @@
       <Project>{FB43BC8F-36A9-402B-98AA-F5D8D9F79D05}</Project>
       <Name>Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LabConfiguration.Adapters\LabConfiguration.Adapters.csproj">
+      <Project>{2C470F4F-59AC-4C84-BC7A-C3CB7FB1FC41}</Project>
+      <Name>LabConfiguration.Adapters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LabConfiguration.Domain\LabConfiguration.Domain.csproj">
       <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
       <Name>LabConfiguration.Domain</Name>
@@ -170,6 +195,10 @@
       <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
       <Name>QCConfiguration.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QCEvaluation.Adapters\QCEvaluation.Adapters.csproj">
+      <Project>{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}</Project>
+      <Name>QCEvaluation.Adapters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
       <Project>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</Project>
       <Name>QCEvaluation.Application</Name>
@@ -177,10 +206,6 @@
     <ProjectReference Include="..\QCEvaluation.Domain\QCEvaluation.Domain.csproj">
       <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
       <Name>QCEvaluation.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.WCFService\QCEvaluation.WCFService.csproj">
-      <Project>{fba734c1-f807-432d-ba52-b1e27c5b4b64}</Project>
-      <Name>QCEvaluation.WCFService</Name>
     </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
       <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
@@ -204,22 +229,27 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\QCEvaluationServicesReference\Reference.svcmap">
+    <None Include="Service References\LabConfigurationServicesReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\QCEvaluationServicesReference\configuration.svcinfo" />
-    <None Include="Service References\QCEvaluationServicesReference\configuration91.svcinfo" />
-    <None Include="Service References\QCEvaluationServicesReference\QCEvaluationService.disco" />
+    <None Include="Service References\LabConfigurationServicesReference\configuration.svcinfo" />
+    <None Include="Service References\LabConfigurationServicesReference\configuration91.svcinfo" />
+    <None Include="Service References\LabConfigurationServicesReference\LabConfigurationService.disco" />
+    <None Include="Service References\QCEvaluationServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QCEvaluationServiceReference\configuration.svcinfo" />
+    <None Include="Service References\QCEvaluationServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\QCEvaluationServicesReference\" />
+    <WCFMetadataStorage Include="Service References\LabConfigurationServicesReference\" />
+    <WCFMetadataStorage Include="Service References\QCEvaluationServiceReference\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

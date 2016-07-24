@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Application.Payloads;
 using QCEvaluation.Domain.Repositories;
 
 namespace QCEvaluation.Domain

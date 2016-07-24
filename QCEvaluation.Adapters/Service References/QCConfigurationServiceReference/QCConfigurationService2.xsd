@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1812/QCConfigurationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common" />
+  <xs:complexType name="GetQualityControlRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TestCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetQualityControlRequest" nillable="true" type="tns:GetQualityControlRequest" />
+  <xs:complexType name="GetQualityControlResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QualityControl" nillable="true" type="tns:QualityControlDTO" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServices.Common" minOccurs="0" name="RequestResult" type="q1:RequestResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetQualityControlResponse" nillable="true" type="tns:GetQualityControlResponse" />
+  <xs:complexType name="QualityControlDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StandardDeviation" type="xs:double" />
+      <xs:element minOccurs="0" name="TargetValue" type="xs:double" />
+      <xs:element minOccurs="0" name="TestCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QualityControlDTO" nillable="true" type="tns:QualityControlDTO" />
+</xs:schema>

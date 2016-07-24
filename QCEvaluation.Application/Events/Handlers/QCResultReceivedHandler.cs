@@ -1,8 +1,5 @@
 using Application.Payloads;
 using ApplicationServices;
-using QCConfiguration.Application;
-using QCConfiguration.Application.Commands;
-using QCConfiguration.Application.Responses;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.PayloadMappers;

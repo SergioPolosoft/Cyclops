@@ -36,7 +36,7 @@ namespace InstrumentAdapter.Application.Tests
             messageSender =  new Mock<IMessageSender>();
             tsnAdapter = new Mock<ITSNAdapter>();
             Mock<IApplicationRepository> applicationRepository = new Mock<IApplicationRepository>();
-            ILabConfigurationServices labConfigurationServices = new LabConfigurationService(configurationRepository.Object, applicationRepository.Object, new Mock<IQCEvaluationServices>().Object);
+            ILabConfigurationServices labConfigurationServices = new LabConfigurationService(configurationRepository.Object, applicationRepository.Object, new Mock<IQCEvaluationPort>().Object);
             applicationService = new InstrumentCommunicationServices(communicationStatusRepository.Object, tsnAdapter.Object, messageSender.Object, messageRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices),new Mock<IQCRoutineServices>().Object);
         }
 

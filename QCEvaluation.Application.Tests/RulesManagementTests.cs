@@ -5,7 +5,6 @@ using ApplicationServices;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCConfiguration.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain;

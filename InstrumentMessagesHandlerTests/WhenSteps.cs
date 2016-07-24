@@ -7,7 +7,9 @@ using InstrumentCommunication.Application;
 using InstrumentCommunication.Application.Commands;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Events;
+using LabConfiguration.Adapters.QCEvaluationServiceReference;
 using LabConfiguration.Domain;
+
 using Moq;
 using QCConfiguration.Application;
 using QCConfiguration.Application.Commands;
@@ -16,7 +18,6 @@ using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Domain.Repositories;
-using QCEvaluation.WCFService;
 using QCRoutine.Application;
 using QCRoutine.Application.Commands;
 using TechTalk.SpecFlow;
@@ -106,7 +107,7 @@ namespace InstrumentMessagesHandlerTests
             var qcrulesRepository = ScenarioContext.Current.Get<IQCRuleRepository>() as MongoDBQCRulesRepository;
             qcrulesRepository.DeleteRuleByName(ruleName);
 
-            var request = new CreateStandardDeviationRuleRequest
+            CreateStandardDeviationRuleRequest request = new CreateStandardDeviationRuleRequest
             {
                 RuleName = ruleName,
                 WithinControlValue = withingControlValue,
@@ -115,7 +116,7 @@ namespace InstrumentMessagesHandlerTests
                 StandardDeviationLimits = standardDeviationLimits
             };
 
-            var qcConfigutationServices = ScenarioContext.Current.Get<QCEvaluationServicesReference.QCEvaluationServiceClient>();
+            var qcConfigutationServices = ScenarioContext.Current.Get<QCEvaluationServiceClient>();
             qcConfigutationServices.CreateStandardDeviationRule(request);
         }
 

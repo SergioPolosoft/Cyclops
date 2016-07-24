@@ -1,17 +1,15 @@
 ﻿using ApplicationServices;
 using LabConfiguration.Application.Exceptions;
 using LabConfiguration.Domain;
-using QCEvaluation.Application;
-using QCEvaluation.Application.Events;
 
 namespace LabConfiguration.Application.Commands.Handlers
 {
     public class ConfirmApplicationInstallationHandler:IHandler<ConfirmApplicationInstallationCommand,IResponse>
     {
         private readonly IApplicationRepository applicationRepository;
-        private readonly IQCEvaluationServices qcevaluationServices;
+        private readonly IQCEvaluationPort qcevaluationServices;
 
-        public ConfirmApplicationInstallationHandler(IApplicationRepository applicationRepository, IQCEvaluationServices qcevaluationServices)
+        public ConfirmApplicationInstallationHandler(IApplicationRepository applicationRepository, IQCEvaluationPort qcevaluationServices)
         {
             this.applicationRepository = applicationRepository;
             this.qcevaluationServices = qcevaluationServices;
@@ -28,9 +26,9 @@ namespace LabConfiguration.Application.Commands.Handlers
                 throw new ApplicationExistException();
             }
 
-            applicationRepository.Add(new Domain.ApplicationTest(applicationCode));
+            applicationRepository.Add(new ApplicationTest(applicationCode));
 
-            qcevaluationServices.Handle(new ApplicationInstalled(applicationCode));
+            qcevaluationServices.NotifyApplicationInstalled(applicationCode);
 
             return new CommandSuccesfullyHandled();
         }

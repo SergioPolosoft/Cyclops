@@ -6,6 +6,7 @@ using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
+using InstrumentMessagesHandlerTests.LabConfigurationServicesReference;
 using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
 using LabConfiguration.Domain;
@@ -82,8 +83,13 @@ namespace InstrumentMessagesHandlerTests
             var applicationQCRepository = ScenarioContext.Current.Get<IQCApplicationRepository>() as MongoDBQCApplicationRepository;
             applicationQCRepository.DeleteApplication(applicationTestCode);
 
-            var labConfigurationServices = ScenarioContext.Current.Get<ILabConfigurationServices>();
-            labConfigurationServices.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(applicationTestCode)));
+            var labConfigurationServices = ScenarioContext.Current.Get<LabConfigurationServiceClient>();
+            var confirmApplicationInstallationRequest = new ConfirmApplicationInstallationRequest
+            {
+                ApplicationTestCode = applicationTestCode
+            };
+            labConfigurationServices.ConfirmApplicationInstallation(
+                confirmApplicationInstallationRequest);            
         }
 
         [Given(@"the ApplicationTest ""(.*)"" is assigned to the qc rule ""(.*)""")]

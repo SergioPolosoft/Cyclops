@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="19587e1a-bb2e-42a1-9a86-6c01a60ea5fd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1813/QCEvaluationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QCEvaluationService.wsdl" MetadataType="Wsdl" ID="61c44069-518a-492f-b5ef-fcb2b9f394a8" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?wsdl" />
+    <MetadataFile FileName="QCEvaluationService.disco" MetadataType="Disco" ID="3d2069c1-caa1-4fca-9ae0-d73edec004f6" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?disco" />
+    <MetadataFile FileName="QCEvaluationService.xsd" MetadataType="Schema" ID="c3375bbf-3c40-42ba-b783-4badb84af9ba" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="QCEvaluationService1.xsd" MetadataType="Schema" ID="b0824033-d477-4c48-9048-9436d1313705" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="QCEvaluationService2.xsd" MetadataType="Schema" ID="1a4b46a2-1c93-4283-80a4-00fb6336b338" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="QCEvaluationService3.xsd" MetadataType="Schema" ID="4a7db279-29ca-46ba-9b12-4782788897de" SourceId="1" SourceUrl="http://localhost:1813/QCEvaluationService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -5,7 +5,6 @@ using InstrumentCommunication.Application.Commands;
 using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Commands.Handlers;
 using LabConfiguration.Domain;
-using QCEvaluation.Application;
 
 namespace LabConfiguration.Application
 {
@@ -13,9 +12,9 @@ namespace LabConfiguration.Application
     {
         private readonly IConfigurationRepository configurationRepository;
         private readonly IApplicationRepository applicationRepository;
-        private readonly IQCEvaluationServices qcevaluationServices;
+        private readonly IQCEvaluationPort qcevaluationServices;
 
-        public LabConfigurationService(IConfigurationRepository configurationRepository, IApplicationRepository applicationRepository, IQCEvaluationServices qcevaluationServices)
+        public LabConfigurationService(IConfigurationRepository configurationRepository, IApplicationRepository applicationRepository, IQCEvaluationPort qcevaluationServices)
         {
             this.configurationRepository = configurationRepository;
             this.applicationRepository = applicationRepository;

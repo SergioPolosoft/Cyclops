@@ -5,18 +5,21 @@ using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
+using LabConfiguration.Adapters;
+using LabConfiguration.Adapters.QCEvaluationServiceReference;
 using LabConfiguration.Application;
 using LabConfiguration.Domain;
 using Moq;
 using QCConfiguration.Application;
 using QCConfiguration.Domain.Repositories;
+using QCEvaluation.Adapters;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain.Repositories;
-using QCEvaluation.WCFService.Adapters;
 using QCRoutine.Application;
 using TechTalk.SpecFlow;
 using IQCResultsRepository = QCRoutine.Domain.IQCResultsRepository;
+using LabConfigurationService = LabConfiguration.Application.LabConfigurationService;
 
 namespace InstrumentMessagesHandlerTests
 {
@@ -55,7 +58,7 @@ namespace InstrumentMessagesHandlerTests
                 qcapplicationRepository, evaluationsRepository, qcResultsEvaluationRepository, configurationServicesAdapter);
             ScenarioContext.Current.Set(evaluationServices);
 
-            var labConfigurationServices = new LabConfigurationService(hardCodedConfigurationRepository, hardCodedApplicationRepository, evaluationServices);
+            var labConfigurationServices = new LabConfigurationService(hardCodedConfigurationRepository, hardCodedApplicationRepository, new QCEvaluationAdapter());
             ScenarioContext.Current.Set(labConfigurationServices as ILabConfigurationServices);
 
             var tsnAgentAdapter = new Mock<ITSNAdapter>();
@@ -73,11 +76,13 @@ namespace InstrumentMessagesHandlerTests
             IQCRoutineServices qcRoutineServices = new QCRoutineServices(evaluationServices, qcresultsRepository, logger, labConfigurationServices);
             ScenarioContext.Current.Set(qcRoutineServices);
 
+            ScenarioContext.Current.Set(new LabConfigurationServicesReference.LabConfigurationServiceClient());
+
             var instrumentCommunicationServices = new InstrumentCommunicationServices(new HardCodedCommunicationStatusRepository(), tsnAgentAdapter.Object, messageSender.Object, messagesRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices), qcRoutineServices);
 
             ScenarioContext.Current.Set(instrumentCommunicationServices);
             
-            ScenarioContext.Current.Set(new QCEvaluationServicesReference.QCEvaluationServiceClient());
+            ScenarioContext.Current.Set(new QCEvaluationServiceClient());
         }
     }
 }

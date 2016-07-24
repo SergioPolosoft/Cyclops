@@ -39,72 +39,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="QCEvaluationService.svc" />
     <None Include="Properties\PublishProfiles\Localhost.pubxml" />
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService.disco" />
-    <None Include="Service References\QCConfigurationServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\QCConfigurationServiceReference\configuration.svcinfo" />
-    <Content Include="Service References\QCConfigurationServiceReference\QCEvaluation.WCFService.QCConfigurationServiceReference.GetQualityControlResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\QCConfigurationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateStandardDeviationRuleRequest.cs" />
     <Compile Include="CreateStandardDeviationRuleResponse.cs" />
     <Compile Include="IQCEvaluationService.cs" />
-    <Compile Include="Adapters\QCConfigurationServicesAdapter.cs" />
     <Compile Include="QCEvaluationService.svc.cs">
       <DependentUpon>QCEvaluationService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\QCConfigurationServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Adapters\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService.wsdl" />
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\QCConfigurationServiceReference\QCConfigurationService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -125,17 +84,9 @@
       <Project>{EAC59FA5-08AA-4CF1-97E5-9D8D70D9C661}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InstrumentAdapter\Application.csproj">
-      <Project>{fb43bc8f-36a9-402b-98aa-f5d8d9f79d05}</Project>
-      <Name>Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Application\QCConfiguration.Application.csproj">
-      <Project>{7B3C3123-461B-4DAA-8750-0570DA36ECE4}</Project>
-      <Name>QCConfiguration.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Domain\QCConfiguration.Domain.csproj">
-      <Project>{9f114ffe-e1f6-41f2-8ee7-471477302a6b}</Project>
-      <Name>QCConfiguration.Domain</Name>
+    <ProjectReference Include="..\QCEvaluation.Adapters\QCEvaluation.Adapters.csproj">
+      <Project>{C5D0615C-B519-45CE-AC0A-82DFDE2D8B3D}</Project>
+      <Name>QCEvaluation.Adapters</Name>
     </ProjectReference>
     <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
       <Project>{0024bf16-d54d-42e8-a4d8-d41dce133a20}</Project>
@@ -152,9 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\QCConfigurationServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

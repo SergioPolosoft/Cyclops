@@ -62,10 +62,6 @@
       <Project>{9F114FFE-E1F6-41F2-8EE7-471477302A6B}</Project>
       <Name>QCConfiguration.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.Domain\QCEvaluation.Domain.csproj">
-      <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
-      <Name>QCEvaluation.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

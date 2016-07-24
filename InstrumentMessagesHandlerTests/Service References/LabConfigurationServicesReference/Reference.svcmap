@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7ec6deb2-6be7-4c19-9fa7-cca733f6ad2c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1814/LabConfigurationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LabConfigurationService.disco" MetadataType="Disco" ID="7295f7f7-6e3d-40a2-9471-625a03dc9594" SourceId="1" SourceUrl="http://localhost:1814/LabConfigurationService.svc?disco" />
+    <MetadataFile FileName="LabConfigurationService.xsd" MetadataType="Schema" ID="2835c062-a133-47d6-995e-a06a238ec2e8" SourceId="1" SourceUrl="http://localhost:1814/LabConfigurationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LabConfigurationService1.xsd" MetadataType="Schema" ID="08380026-353b-4ba9-8751-4a286556ae29" SourceId="1" SourceUrl="http://localhost:1814/LabConfigurationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LabConfigurationService2.xsd" MetadataType="Schema" ID="87f0394e-e6ef-41ee-b702-fce3ca445113" SourceId="1" SourceUrl="http://localhost:1814/LabConfigurationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LabConfigurationService.wsdl" MetadataType="Wsdl" ID="d7147f7c-7713-40d1-b2c7-91ddd9bc604c" SourceId="1" SourceUrl="http://localhost:1814/LabConfigurationService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

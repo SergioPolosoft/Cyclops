@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Application.Payloads;
 using ApplicationServices;
 using QCEvaluation.Domain.Events;
 using QCEvaluation.Domain.Repositories;

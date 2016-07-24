@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using ApplicationServices;
-using QCConfiguration.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.DTOs;

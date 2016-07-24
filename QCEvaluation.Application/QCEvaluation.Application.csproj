@@ -74,10 +74,6 @@
       <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
       <Name>ApplicationServices.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCConfiguration.Application\QCConfiguration.Application.csproj">
-      <Project>{7B3C3123-461B-4DAA-8750-0570DA36ECE4}</Project>
-      <Name>QCConfiguration.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\QCEvaluation.Domain\QCEvaluation.Domain.csproj">
       <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
       <Name>QCEvaluation.Domain</Name>

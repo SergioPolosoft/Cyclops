@@ -1,5 +1,4 @@
 ﻿using System.ServiceModel;
-using System.Web.Caching;
 
 namespace QCEvaluation.WCFService
 {
@@ -7,6 +6,9 @@ namespace QCEvaluation.WCFService
     public interface IQCEvaluationService
     {
         [OperationContract]
-        CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request);       
+        CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request);
+
+        [OperationContract]
+        void NotifyApplicationInstalled(int testCode);
     }    
 }
