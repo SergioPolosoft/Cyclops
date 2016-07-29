@@ -88,14 +88,6 @@
       <Project>{38FD9151-E0ED-4024-8B1B-848E39D630B9}</Project>
       <Name>LabConfigurationAdapter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
-      <Project>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</Project>
-      <Name>QCEvaluation.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
-      <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
-      <Name>QCRoutine.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sender\Sender.csproj">
       <Project>{7D753AE6-FEF6-4EDB-AB4D-3FFFD2B00CFF}</Project>
       <Name>Sender</Name>

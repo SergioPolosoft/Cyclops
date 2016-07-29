@@ -39,41 +39,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LabConfigurationService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationData.cs" />
     <Compile Include="ConfirmApplicationInstallationRequest.cs" />
     <Compile Include="ConfirmApplicationInstallationResponse.cs" />
+    <Compile Include="GetApplicationByTestCodeResponse.cs" />
     <Compile Include="ILabConfigurationService.cs" />
     <Compile Include="LabConfigurationService.svc.cs">
       <DependentUpon>LabConfigurationService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
@@ -84,6 +71,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
+      <Project>{258CB1CB-DB23-4D44-A5B3-7764DA077F8B}</Project>
+      <Name>Application.Payloads</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
       <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
       <Name>ApplicationServices.Common</Name>
@@ -104,9 +95,6 @@
       <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
       <Name>LabConfiguration.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

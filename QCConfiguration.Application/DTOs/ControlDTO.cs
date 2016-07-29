@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace QCConfiguration.Application.DTOs
+﻿namespace QCConfiguration.Application.DTOs
 {
     public class ControlDTO
     {

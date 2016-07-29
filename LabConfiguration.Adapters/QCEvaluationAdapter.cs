@@ -1,5 +1,5 @@
 ﻿using System;
-using LabConfiguration.Adapters.QCEvaluationServiceReference;
+using LabConfiguration.Adapters.Service_References.QCEvaluationServiceReference;
 using LabConfiguration.Application;
 
 namespace LabConfiguration.Adapters

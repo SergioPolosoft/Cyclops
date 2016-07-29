@@ -10,8 +10,8 @@ using InstrumentCommunication.Application.Ports;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Events;
-using QCRoutine.Application;
-using QCRoutine.Application.Commands;
+using ILabConfigurationPort = InstrumentCommunication.Application.Ports.ILabConfigurationPort;
+using StoreQCResult = InstrumentCommunication.Application.Commands.StoreQCResult;
 using StoreQCResultHandler = InstrumentCommunication.Application.Commands.Handlers.StoreQCResultHandler;
 
 namespace InstrumentCommunication.Application
@@ -23,9 +23,9 @@ namespace InstrumentCommunication.Application
         private readonly IMessageSender messageSender;
         private readonly ITSNAdapter tsnAdapter;        
         private readonly ILabConfigurationPort labConfigurationAdapter;
-        private readonly IQCRoutineServices qcRoutineServices;
+        private readonly IQCRoutineServicePort qcRoutineServices;
 
-        public InstrumentCommunicationServices(ICommunicationStatusRepository communicationStatusRepository, ITSNAdapter tsnAdapter, IMessageSender messageSender, IMessagesRepository messageRepository, ILabConfigurationPort labConfigurationAdapter, IQCRoutineServices qcRoutineServices)
+        public InstrumentCommunicationServices(ICommunicationStatusRepository communicationStatusRepository, ITSNAdapter tsnAdapter, IMessageSender messageSender, IMessagesRepository messageRepository, ILabConfigurationPort labConfigurationAdapter, IQCRoutineServicePort qcRoutineServices)
         {
             this.communicationStatusRepository = communicationStatusRepository;
             this.messageRepository = messageRepository;

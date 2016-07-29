@@ -1,28 +1,24 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Application.Payloads;
 using ApplicationServices;
-using LabConfiguration.Application;
-using QCEvaluation.Application;
 using QCRoutine.Application.Commands;
 using QCRoutine.Application.Commands.Handlers;
+using QCRoutine.Application.Ports;
 using QCRoutine.Domain;
+using IQCEvaluationPort = QCRoutine.Application.Ports.IQCEvaluationPort;
 
 namespace QCRoutine.Application
 {
     public class QCRoutineServices :ApplicationServicesBase, IQCRoutineServices
     {
-        private readonly IQCEvaluationServices qcConfigurationServices;
+        private readonly IQCEvaluationPort qcEvaluationServices;
         private readonly IQCResultsRepository resultsRepository;
-        private readonly ILogger log;
-        private readonly ILabConfigurationServices labconfiguration;
+        private readonly ILabConfigurationPort labconfiguration;
 
-        public QCRoutineServices(IQCEvaluationServices qcConfigurationServices, IQCResultsRepository resultsRepository, ILogger log, ILabConfigurationServices labconfiguration)
+        public QCRoutineServices(IQCEvaluationPort qcEvaluationServices, IQCResultsRepository resultsRepository, ILabConfigurationPort labconfiguration)
         {
-            this.qcConfigurationServices = qcConfigurationServices;
+            this.qcEvaluationServices = qcEvaluationServices;
             this.resultsRepository = resultsRepository;
-            this.log = log;
             this.labconfiguration = labconfiguration;
         }
 
@@ -30,7 +26,7 @@ namespace QCRoutine.Application
         {
             return new Dictionary<Type, Func<ICommand, IResponse>>
             {
-                {typeof(StoreQCResult),x=>new StoreQCResultHandler(qcConfigurationServices,resultsRepository, labconfiguration).Handle(x as StoreQCResult)},
+                {typeof(StoreQCResult),x=>new StoreQCResultHandler(qcEvaluationServices,resultsRepository, labconfiguration).Handle(x as StoreQCResult)},
                 {typeof(GetResultsByDate),x=>new GetQCResultHandler(resultsRepository).Handle(x as GetResultsByDate)}
             };
         }

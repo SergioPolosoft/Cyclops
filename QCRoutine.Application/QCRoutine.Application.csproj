@@ -37,6 +37,8 @@
     <Compile Include="ApplicationNotExistsException.cs" />
     <Compile Include="Commands\GetResultsByDate.cs" />
     <Compile Include="Commands\Handlers\GetQCResultHandler.cs" />
+    <Compile Include="Ports\ILabConfigurationPort.cs" />
+    <Compile Include="Ports\IQCEvaluationPort.cs" />
     <Compile Include="Responses\QCResultNotStoredResponse.cs" />
     <Compile Include="Responses\GetResultsResponseError.cs" />
     <Compile Include="IQCRoutineServices.cs" />
@@ -56,14 +58,6 @@
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
       <Project>{D8407EB6-346F-4169-8BFA-53C70A6F995A}</Project>
       <Name>ApplicationServices.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Application\LabConfiguration.Application.csproj">
-      <Project>{0843B97A-DCA4-4EB3-AD61-C8072146D159}</Project>
-      <Name>LabConfiguration.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
-      <Project>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</Project>
-      <Name>QCEvaluation.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Domain\QCRoutine.Domain.csproj">
       <Project>{0D868D3F-C004-4F87-B092-83A23FA9C3EE}</Project>

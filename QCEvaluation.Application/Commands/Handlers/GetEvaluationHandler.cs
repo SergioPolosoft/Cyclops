@@ -1,4 +1,3 @@
-using System;
 using ApplicationServices;
 using QCEvaluation.Application.DTOs;
 using QCEvaluation.Application.Responses;

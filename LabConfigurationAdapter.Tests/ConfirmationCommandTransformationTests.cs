@@ -1,7 +1,5 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 using InstrumentCommunication.Application.Commands;
-using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

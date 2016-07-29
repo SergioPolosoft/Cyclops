@@ -1,14 +1,10 @@
-﻿using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using Application.Payloads;
 using ApplicationServices;
 using Infrastructure.Repositories;
 using QCEvaluation.Adapters;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Events;
-using QCEvaluation.Application.Responses;
-
 using WCFServices.Common;
 
 namespace QCEvaluation.WCFService
@@ -21,7 +17,7 @@ namespace QCEvaluation.WCFService
 
         public QCEvaluationService()
         {
-            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(),new MongoDBQCApplicationRepository(), new HardCodedEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServicesAdapter());
+            qcEvalutionService = new QCEvaluationServices(new MongoDBQCRulesRepository(), new MongoDBQCApplicationRepository(), new MongoDBQCEvaluationsRepository(), new HardCodedQCResultsEvaluationRepository(), new QCConfigurationServicesAdapter());
         }
         
         public CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request)
@@ -38,6 +34,18 @@ namespace QCEvaluation.WCFService
         public void NotifyApplicationInstalled(int testCode)
         {
             qcEvalutionService.Handle(new ApplicationInstalled(testCode));
+        }
+
+        public void NotifyResultReceived(QCResultDTO qcResultDto)
+        {
+            var qcResultPayload = new QCResultPayload
+            {
+                Id = qcResultDto.Id,
+                TestCode = qcResultDto.TestCode,
+                Value = qcResultDto.Value
+            };
+
+            qcEvalutionService.Handle(new QCResultReceived(qcResultPayload));
         }
     }
 }

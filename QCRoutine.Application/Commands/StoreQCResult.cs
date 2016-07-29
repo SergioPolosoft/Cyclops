@@ -12,9 +12,9 @@ namespace QCRoutine.Application.Commands
             this.MeasuredDate = measuredDateTime;
         }
 
-        internal double Result { get; private set; }
+        public double Result { get; private set; }
 
-        internal int TestCode { get; private set; }
+        public int TestCode { get; private set; }
         public DateTime MeasuredDate { get; private set; }
     }
 }

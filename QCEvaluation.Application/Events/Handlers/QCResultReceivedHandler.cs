@@ -1,7 +1,4 @@
-using Application.Payloads;
 using ApplicationServices;
-using QCEvaluation.Application.Commands;
-using QCEvaluation.Application.Commands.Handlers;
 using QCEvaluation.Application.PayloadMappers;
 using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain;

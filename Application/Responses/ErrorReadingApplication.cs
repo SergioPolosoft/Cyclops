@@ -1,7 +1,6 @@
 using ApplicationServices;
-using LabConfiguration.Application.Responses;
 
-namespace LabConfiguration.Application.Commands.Handlers
+namespace LabConfiguration.Application.Responses
 {
     public class ErrorReadingApplication : GetApplicationResponse
     {

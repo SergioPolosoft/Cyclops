@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicationServices;
-using QCEvaluation.Domain.Events;
 
 namespace QCEvaluation.Domain.Repositories
 {

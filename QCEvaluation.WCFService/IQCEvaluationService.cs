@@ -10,5 +10,8 @@ namespace QCEvaluation.WCFService
 
         [OperationContract]
         void NotifyApplicationInstalled(int testCode);
-    }    
+
+        [OperationContract]
+        void NotifyResultReceived(QCResultDTO qcResultDto);
+    }
 }

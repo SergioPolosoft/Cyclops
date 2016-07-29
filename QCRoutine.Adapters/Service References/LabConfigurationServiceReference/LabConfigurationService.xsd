@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1814/LabConfigurationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common" />
+  <xs:complexType name="ConfirmApplicationInstallationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationTestCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmApplicationInstallationRequest" nillable="true" type="tns:ConfirmApplicationInstallationRequest" />
+  <xs:complexType name="ConfirmApplicationInstallationResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ConfirmApplicationInstallationResponse" nillable="true" type="tns:ConfirmApplicationInstallationResponse" />
+  <xs:complexType name="GetApplicationByTestCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="tns:ApplicationData" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServices.Common" minOccurs="0" name="Status" type="q1:RequestResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetApplicationByTestCodeResponse" nillable="true" type="tns:GetApplicationByTestCodeResponse" />
+  <xs:complexType name="ApplicationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TestCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationData" nillable="true" type="tns:ApplicationData" />
+</xs:schema>

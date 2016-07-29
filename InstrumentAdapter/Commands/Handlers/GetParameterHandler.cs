@@ -1,5 +1,4 @@
-﻿using System;
-using ApplicationServices;
+﻿using ApplicationServices;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Commands;
 

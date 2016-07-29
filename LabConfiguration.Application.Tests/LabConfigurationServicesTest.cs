@@ -1,11 +1,8 @@
-﻿using System;
-using FluentAssertions;
-using LabConfiguration.Application.Commands;
+﻿using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Exceptions;
 using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCEvaluation.Application;
 
 namespace LabConfiguration.Application.Tests
 {

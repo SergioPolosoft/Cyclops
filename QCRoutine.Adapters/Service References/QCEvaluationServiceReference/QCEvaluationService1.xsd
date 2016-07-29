@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1813/QCEvaluationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common" />
+  <xs:import schemaLocation="http://localhost:1813/QCEvaluationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CreateStandardDeviationRuleRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfControls" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardDeviationLimits" type="xs:int" />
+      <xs:element minOccurs="0" name="WithinControlValue" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateStandardDeviationRuleRequest" nillable="true" type="tns:CreateStandardDeviationRuleRequest" />
+  <xs:complexType name="CreateStandardDeviationRuleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServices.Common" minOccurs="0" name="RequestResult" type="q1:RequestResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateStandardDeviationRuleResponse" nillable="true" type="tns:CreateStandardDeviationRuleResponse" />
+  <xs:complexType name="QCResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="TestCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QCResultDTO" nillable="true" type="tns:QCResultDTO" />
+</xs:schema>

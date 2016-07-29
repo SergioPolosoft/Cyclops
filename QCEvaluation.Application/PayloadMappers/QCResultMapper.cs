@@ -1,8 +1,8 @@
 using Application.Payloads;
-using ApplicationServices;
+using QCEvaluation.Application.Events;
 using QCEvaluation.Domain;
 
-namespace QCEvaluation.Application.Events
+namespace QCEvaluation.Application.PayloadMappers
 {
     public class QCResultMapper:IDPOMapper<QCResultPayload,QCResult>
     {

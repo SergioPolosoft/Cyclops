@@ -1,5 +1,5 @@
 ﻿using Application.Payloads;
-using QCEvaluation.Adapters.QCConfigurationServiceReference;
+using QCEvaluation.Adapters.Service_References.QCConfigurationServiceReference;
 using QCEvaluation.Application.Ports;
 
 namespace QCEvaluation.Adapters

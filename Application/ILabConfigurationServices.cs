@@ -1,6 +1,4 @@
-﻿using System;
-using ApplicationServices;
-using LabConfiguration.Domain;
+﻿using ApplicationServices;
 
 namespace LabConfiguration.Application
 {

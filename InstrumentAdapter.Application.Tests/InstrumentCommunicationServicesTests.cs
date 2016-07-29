@@ -3,7 +3,7 @@ using Infrastructure.DTOs;
 using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
 using InstrumentCommunication.Application.Commands;
-using InstrumentCommunication.Application.Events;
+using InstrumentCommunication.Application.Ports;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Commands;
@@ -12,8 +12,6 @@ using LabConfiguration.Application;
 using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCEvaluation.Application;
-using QCRoutine.Application;
 
 namespace InstrumentAdapter.Application.Tests
 {
@@ -37,7 +35,7 @@ namespace InstrumentAdapter.Application.Tests
             tsnAdapter = new Mock<ITSNAdapter>();
             Mock<IApplicationRepository> applicationRepository = new Mock<IApplicationRepository>();
             ILabConfigurationServices labConfigurationServices = new LabConfigurationService(configurationRepository.Object, applicationRepository.Object, new Mock<IQCEvaluationPort>().Object);
-            applicationService = new InstrumentCommunicationServices(communicationStatusRepository.Object, tsnAdapter.Object, messageSender.Object, messageRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices),new Mock<IQCRoutineServices>().Object);
+            applicationService = new InstrumentCommunicationServices(communicationStatusRepository.Object, tsnAdapter.Object, messageSender.Object, messageRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices),new Mock<IQCRoutineServicePort>().Object);
         }
 
         [TestMethod]

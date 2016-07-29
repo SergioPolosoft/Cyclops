@@ -8,21 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace QCEvaluation.Adapters.Service_References.QCConfigurationServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GetQualityControlRequest", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="GetQualityControlRequest", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
+    [Serializable()]
     public partial class GetQualityControlRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int TestCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -35,7 +34,7 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int TestCode {
             get {
                 return this.TestCodeField;
@@ -60,21 +59,21 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GetQualityControlResponse", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="GetQualityControlResponse", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
+    [Serializable()]
     public partial class GetQualityControlResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string MessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private QCEvaluation.Adapters.QCConfigurationServiceReference.QualityControlDTO QualityControlField;
+        [OptionalField()]
+        private QualityControlDTO QualityControlField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private QCEvaluation.Adapters.QCConfigurationServiceReference.RequestResult RequestResultField;
+        [OptionalField()]
+        private RequestResult RequestResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -86,7 +85,7 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Message {
             get {
                 return this.MessageField;
@@ -99,8 +98,8 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public QCEvaluation.Adapters.QCConfigurationServiceReference.QualityControlDTO QualityControl {
+        [DataMember()]
+        public QualityControlDTO QualityControl {
             get {
                 return this.QualityControlField;
             }
@@ -112,8 +111,8 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public QCEvaluation.Adapters.QCConfigurationServiceReference.RequestResult RequestResult {
+        [DataMember()]
+        public RequestResult RequestResult {
             get {
                 return this.RequestResultField;
             }
@@ -137,20 +136,20 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QualityControlDTO", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="QualityControlDTO", Namespace="http://schemas.datacontract.org/2004/07/QCConfiguration.WCFService")]
+    [Serializable()]
     public partial class QualityControlDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private double StandardDeviationField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private double TargetValueField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int TestCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -163,7 +162,7 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public double StandardDeviation {
             get {
                 return this.StandardDeviationField;
@@ -176,7 +175,7 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public double TargetValue {
             get {
                 return this.TargetValueField;
@@ -189,7 +188,7 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int TestCode {
             get {
                 return this.TestCodeField;
@@ -213,13 +212,13 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RequestResult", Namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common")]
+    [DataContract(Name="RequestResult", Namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common")]
     public enum RequestResult : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Succesfull = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Error = 1,
     }
     
@@ -228,19 +227,19 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
     public interface IQcConfigurationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQcConfigurationService/GetQualityControl", ReplyAction="http://tempuri.org/IQcConfigurationService/GetQualityControlResponse")]
-        QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlResponse GetQualityControl(QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlRequest request);
+        GetQualityControlResponse GetQualityControl(GetQualityControlRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQcConfigurationService/GetQualityControl", ReplyAction="http://tempuri.org/IQcConfigurationService/GetQualityControlResponse")]
-        System.Threading.Tasks.Task<QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlResponse> GetQualityControlAsync(QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlRequest request);
+        System.Threading.Tasks.Task<GetQualityControlResponse> GetQualityControlAsync(GetQualityControlRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IQcConfigurationServiceChannel : QCEvaluation.Adapters.QCConfigurationServiceReference.IQcConfigurationService, System.ServiceModel.IClientChannel {
+    public interface IQcConfigurationServiceChannel : IQcConfigurationService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class QcConfigurationServiceClient : System.ServiceModel.ClientBase<QCEvaluation.Adapters.QCConfigurationServiceReference.IQcConfigurationService>, QCEvaluation.Adapters.QCConfigurationServiceReference.IQcConfigurationService {
+    public partial class QcConfigurationServiceClient : System.ServiceModel.ClientBase<IQcConfigurationService>, IQcConfigurationService {
         
         public QcConfigurationServiceClient() {
         }
@@ -261,11 +260,11 @@ namespace QCEvaluation.Adapters.QCConfigurationServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlResponse GetQualityControl(QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlRequest request) {
+        public GetQualityControlResponse GetQualityControl(GetQualityControlRequest request) {
             return base.Channel.GetQualityControl(request);
         }
         
-        public System.Threading.Tasks.Task<QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlResponse> GetQualityControlAsync(QCEvaluation.Adapters.QCConfigurationServiceReference.GetQualityControlRequest request) {
+        public System.Threading.Tasks.Task<GetQualityControlResponse> GetQualityControlAsync(GetQualityControlRequest request) {
             return base.Channel.GetQualityControlAsync(request);
         }
     }

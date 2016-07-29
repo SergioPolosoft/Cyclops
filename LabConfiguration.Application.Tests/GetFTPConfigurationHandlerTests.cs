@@ -1,7 +1,7 @@
 ﻿using System;
 using ApplicationServices;
 using FluentAssertions;
-using InstrumentCommunication.Application.Commands;
+using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Commands.Handlers;
 using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

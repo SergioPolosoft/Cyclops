@@ -1,11 +1,8 @@
-﻿using System;
-using LabConfiguration.Application.Commands;
+﻿using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Commands.Handlers;
 using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCEvaluation.Application;
-using QCEvaluation.Application.Events;
 
 namespace LabConfiguration.Application.Tests
 {

@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using ApplicationServices;
 using WCFServices.Common;
 
 namespace QCEvaluation.WCFService

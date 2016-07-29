@@ -1,7 +1,5 @@
 ﻿using System;
-using Application.Payloads;
 using ApplicationServices;
-using InstrumentCommunication.Application.Commands;
 using LabConfiguration.Application.Responses;
 using LabConfiguration.Domain;
 using FTPConfigurationPayload = Application.Payloads.FTPConfigurationPayload;

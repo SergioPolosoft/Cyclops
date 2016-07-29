@@ -1,5 +1,4 @@
-﻿using System;
-using ApplicationServices;
+﻿using ApplicationServices;
 using Infrastructure.DTOs;
 using InstrumentCommunication.Sender;
 

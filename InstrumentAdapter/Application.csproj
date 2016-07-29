@@ -49,12 +49,15 @@
     <Compile Include="Commands\ICommandWithMessage.cs" />
     <Compile Include="Commands\Handlers\GetParameterHandler.cs" />
     <Compile Include="Commands\ParameterConfirmationCommand.cs" />
+    <Compile Include="Commands\StoreQCResult.cs" />
     <Compile Include="InstrumentCommunicationServices.cs" />
     <Compile Include="Events\Handlers\ParametersListReceivedHandler.cs" />
     <Compile Include="Events\Handlers\ParameterReceivedHandler.cs" />
     <Compile Include="Commands\Handlers\ParameterConfirmationHandler.cs" />
     <Compile Include="Ports\FTPConfigurationDTO.cs" />
     <Compile Include="Ports\ILabConfigurationPort.cs" />
+    <Compile Include="Ports\IQCRoutineServicePort.cs" />
+    <Compile Include="Ports\QCResultDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\StoreMainUnitFTPCredentialsCommand.cs" />
     <Compile Include="Commands\Handlers\StoreMainUnitFtpCredentialsHandler.cs" />
@@ -76,10 +79,6 @@
     <ProjectReference Include="..\InstrumentAdapter.Domain\InstrumentAdapter.Domain.csproj">
       <Project>{098309D2-147C-4567-B006-54542DF12CF3}</Project>
       <Name>InstrumentAdapter.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
-      <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
-      <Name>QCRoutine.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sender\Sender.csproj">
       <Project>{7D753AE6-FEF6-4EDB-AB4D-3FFFD2B00CFF}</Project>

@@ -1,5 +1,4 @@
-﻿using System;
-using ApplicationServices;
+﻿using ApplicationServices;
 
 namespace LabConfiguration.Application.Commands
 {

@@ -77,13 +77,9 @@
       <Project>{d8407eb6-346f-4169-8bfa-53c70a6f995a}</Project>
       <Name>ApplicationServices.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Application\LabConfiguration.Application.csproj">
-      <Project>{0843B97A-DCA4-4EB3-AD61-C8072146D159}</Project>
-      <Name>LabConfiguration.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
-      <Project>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</Project>
-      <Name>QCEvaluation.Application</Name>
+    <ProjectReference Include="..\LabConfiguration.Domain\LabConfiguration.Domain.csproj">
+      <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
+      <Name>LabConfiguration.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
       <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>

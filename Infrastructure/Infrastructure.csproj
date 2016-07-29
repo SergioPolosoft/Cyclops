@@ -72,8 +72,8 @@
     <Compile Include="MessageQueue\MessageQueue.cs" />
     <Compile Include="Repositories\HardCodedConfigurationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\HardCodedEvaluationsRepository.cs" />
-    <Compile Include="Repositories\HardCodedQCResultsRepository.cs" />
+    <Compile Include="Repositories\MongoDBQCEvaluationsRepository.cs" />
+    <Compile Include="Repositories\MongoDBQCResultsRepository.cs" />
     <Compile Include="Repositories\InMemoryMessageRepository.cs" />
   </ItemGroup>
   <ItemGroup>

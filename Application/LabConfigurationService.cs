@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicationServices;
-using InstrumentCommunication.Application.Commands;
 using LabConfiguration.Application.Commands;
 using LabConfiguration.Application.Commands.Handlers;
 using LabConfiguration.Domain;

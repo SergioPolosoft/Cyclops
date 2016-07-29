@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using Application.Payloads;
 using ApplicationServices;
 using LabConfiguration.Application.Responses;

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ApplicationServices;
+﻿using ApplicationServices;
 
 
 namespace QCRoutine.Application

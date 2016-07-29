@@ -8,21 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstrumentMessagesHandlerTests.LabConfigurationServicesReference {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace InstrumentMessagesHandlerTests.Service_References.LabConfigurationServicesReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConfirmApplicationInstallationRequest", Namespace="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ConfirmApplicationInstallationRequest", Namespace="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService")]
+    [Serializable()]
     public partial class ConfirmApplicationInstallationRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int ApplicationTestCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -35,7 +34,7 @@ namespace InstrumentMessagesHandlerTests.LabConfigurationServicesReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int ApplicationTestCode {
             get {
                 return this.ApplicationTestCodeField;
@@ -60,11 +59,11 @@ namespace InstrumentMessagesHandlerTests.LabConfigurationServicesReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConfirmApplicationInstallationResponse", Namespace="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="ConfirmApplicationInstallationResponse", Namespace="http://schemas.datacontract.org/2004/07/LabConfiguration.WCFService")]
+    [Serializable()]
     public partial class ConfirmApplicationInstallationResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -93,20 +92,20 @@ namespace InstrumentMessagesHandlerTests.LabConfigurationServicesReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabConfigurationService/ConfirmApplicationInstallation", ReplyAction="http://tempuri.org/ILabConfigurationService/ConfirmApplicationInstallationRespons" +
             "e")]
-        InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationResponse ConfirmApplicationInstallation(InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationRequest request);
+        ConfirmApplicationInstallationResponse ConfirmApplicationInstallation(ConfirmApplicationInstallationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILabConfigurationService/ConfirmApplicationInstallation", ReplyAction="http://tempuri.org/ILabConfigurationService/ConfirmApplicationInstallationRespons" +
             "e")]
-        System.Threading.Tasks.Task<InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationResponse> ConfirmApplicationInstallationAsync(InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationRequest request);
+        System.Threading.Tasks.Task<ConfirmApplicationInstallationResponse> ConfirmApplicationInstallationAsync(ConfirmApplicationInstallationRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ILabConfigurationServiceChannel : InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ILabConfigurationService, System.ServiceModel.IClientChannel {
+    public interface ILabConfigurationServiceChannel : ILabConfigurationService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LabConfigurationServiceClient : System.ServiceModel.ClientBase<InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ILabConfigurationService>, InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ILabConfigurationService {
+    public partial class LabConfigurationServiceClient : System.ServiceModel.ClientBase<ILabConfigurationService>, ILabConfigurationService {
         
         public LabConfigurationServiceClient() {
         }
@@ -127,11 +126,11 @@ namespace InstrumentMessagesHandlerTests.LabConfigurationServicesReference {
                 base(binding, remoteAddress) {
         }
         
-        public InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationResponse ConfirmApplicationInstallation(InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationRequest request) {
+        public ConfirmApplicationInstallationResponse ConfirmApplicationInstallation(ConfirmApplicationInstallationRequest request) {
             return base.Channel.ConfirmApplicationInstallation(request);
         }
         
-        public System.Threading.Tasks.Task<InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationResponse> ConfirmApplicationInstallationAsync(InstrumentMessagesHandlerTests.LabConfigurationServicesReference.ConfirmApplicationInstallationRequest request) {
+        public System.Threading.Tasks.Task<ConfirmApplicationInstallationResponse> ConfirmApplicationInstallationAsync(ConfirmApplicationInstallationRequest request) {
             return base.Channel.ConfirmApplicationInstallationAsync(request);
         }
     }

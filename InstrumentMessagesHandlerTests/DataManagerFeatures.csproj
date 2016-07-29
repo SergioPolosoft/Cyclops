@@ -94,6 +94,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\QCRoutineServicesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ThenSteps.cs" />
     <Compile Include="ParameterDownload.feature.cs">
       <AutoGen>True</AutoGen>
@@ -149,12 +154,21 @@
     <None Include="Service References\QCEvaluationServiceReference\QCEvaluationService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\QCRoutineServicesReference\InstrumentMessagesHandlerTests.QCRoutineServicesReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QCRoutineServicesReference\QcRoutineService.wsdl" />
+    <None Include="Service References\QCRoutineServicesReference\QCRoutineService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCRoutineServicesReference\QCRoutineService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QCRoutineServicesReference\QCRoutineService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application.Payloads\Application.Payloads.csproj">
-      <Project>{258cb1cb-db23-4d44-a5b3-7764da077f8b}</Project>
-      <Name>Application.Payloads</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ApplicationServices\ApplicationServices.Common.csproj">
       <Project>{d8407eb6-346f-4169-8bfa-53c70a6f995a}</Project>
       <Name>ApplicationServices.Common</Name>
@@ -207,9 +221,9 @@
       <Project>{04922212-5EA5-48B8-8169-1DE00152586B}</Project>
       <Name>QCEvaluation.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCRoutine.Application\QCRoutine.Application.csproj">
-      <Project>{86094A9A-FE9B-4913-AE9F-5AECFF4A21D2}</Project>
-      <Name>QCRoutine.Application</Name>
+    <ProjectReference Include="..\QCRoutine.Adapter\QCRoutine.Adapter.csproj">
+      <Project>{3DDF7E8B-4548-45CF-9990-3DE413B91D53}</Project>
+      <Name>QCRoutine.Adapter</Name>
     </ProjectReference>
     <ProjectReference Include="..\QCRoutine.Domain\QCRoutine.Domain.csproj">
       <Project>{0D868D3F-C004-4F87-B092-83A23FA9C3EE}</Project>
@@ -229,6 +243,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Service References\QCRoutineServicesReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QCRoutineServicesReference\configuration.svcinfo" />
+    <None Include="Service References\QCRoutineServicesReference\configuration91.svcinfo" />
+    <None Include="Service References\QCRoutineServicesReference\QCRoutineService.disco" />
     <None Include="Service References\LabConfigurationServicesReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -250,6 +271,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\LabConfigurationServicesReference\" />
     <WCFMetadataStorage Include="Service References\QCEvaluationServiceReference\" />
+    <WCFMetadataStorage Include="Service References\QCRoutineServicesReference\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

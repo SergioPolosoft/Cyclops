@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ApplicationServices;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using QCConfiguration.Domain;
 using QCConfiguration.Domain.Events;
 using QCConfiguration.Domain.Repositories;
-using QCEvaluation.Domain.Events;
 
 namespace Infrastructure.Repositories
 {

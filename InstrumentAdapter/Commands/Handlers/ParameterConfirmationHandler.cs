@@ -1,5 +1,4 @@
-﻿using System;
-using ApplicationServices;
+﻿using ApplicationServices;
 using InstrumentCommunication.Application.Ports;
 
 namespace InstrumentCommunication.Application.Commands.Handlers

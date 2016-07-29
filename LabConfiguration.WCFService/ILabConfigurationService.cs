@@ -8,5 +8,8 @@ namespace LabConfiguration.WCFService
         [OperationContract]
         ConfirmApplicationInstallationResponse ConfirmApplicationInstallation(
             ConfirmApplicationInstallationRequest request);
+
+        [OperationContract]
+        GetApplicationByTestCodeResponse GetApplicationByTestCode(int testCode);
     }
 }

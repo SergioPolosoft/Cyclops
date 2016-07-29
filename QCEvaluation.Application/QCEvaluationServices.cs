@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ApplicationServices;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.Commands.Handlers;
-using QCEvaluation.Application.DTOs;
 using QCEvaluation.Application.Events;
 using QCEvaluation.Application.Events.Handlers;
 using QCEvaluation.Application.Ports;

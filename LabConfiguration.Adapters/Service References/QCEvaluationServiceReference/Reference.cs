@@ -8,33 +8,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
-    using System.Runtime.Serialization;
-    using System;
-    
-    
+using System;
+using System.Runtime.Serialization;
+
+namespace LabConfiguration.Adapters.Service_References.QCEvaluationServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CreateStandardDeviationRuleRequest", Namespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="CreateStandardDeviationRuleRequest", Namespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService")]
+    [Serializable()]
     public partial class CreateStandardDeviationRuleRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string CommentsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int NumberOfControlsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string RuleNameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private int StandardDeviationLimitsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private bool WithinControlValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -47,7 +46,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Comments {
             get {
                 return this.CommentsField;
@@ -60,7 +59,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int NumberOfControls {
             get {
                 return this.NumberOfControlsField;
@@ -73,7 +72,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string RuleName {
             get {
                 return this.RuleNameField;
@@ -86,7 +85,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public int StandardDeviationLimits {
             get {
                 return this.StandardDeviationLimitsField;
@@ -99,7 +98,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public bool WithinControlValue {
             get {
                 return this.WithinControlValueField;
@@ -124,18 +123,18 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CreateStandardDeviationRuleResponse", Namespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService")]
-    [System.SerializableAttribute()]
+    [DataContract(Name="CreateStandardDeviationRuleResponse", Namespace="http://schemas.datacontract.org/2004/07/QCEvaluation.WCFService")]
+    [Serializable()]
     public partial class CreateStandardDeviationRuleResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
+        [NonSerialized()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        [OptionalField()]
         private string MessageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private LabConfiguration.Adapters.QCEvaluationServiceReference.RequestResult RequestResultField;
+        [OptionalField()]
+        private RequestResult RequestResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -147,7 +146,7 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [DataMember()]
         public string Message {
             get {
                 return this.MessageField;
@@ -160,8 +159,8 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabConfiguration.Adapters.QCEvaluationServiceReference.RequestResult RequestResult {
+        [DataMember()]
+        public RequestResult RequestResult {
             get {
                 return this.RequestResultField;
             }
@@ -184,13 +183,13 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RequestResult", Namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common")]
+    [DataContract(Name="RequestResult", Namespace="http://schemas.datacontract.org/2004/07/WCFServices.Common")]
     public enum RequestResult : int {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Succesfull = 0,
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
+        [EnumMember()]
         Error = 1,
     }
     
@@ -199,10 +198,10 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
     public interface IQCEvaluationService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRule", ReplyAction="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRuleResponse")]
-        LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleResponse CreateStandardDeviationRule(LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleRequest request);
+        CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRule", ReplyAction="http://tempuri.org/IQCEvaluationService/CreateStandardDeviationRuleResponse")]
-        System.Threading.Tasks.Task<LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleRequest request);
+        System.Threading.Tasks.Task<CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(CreateStandardDeviationRuleRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IQCEvaluationService/NotifyApplicationInstalled", ReplyAction="http://tempuri.org/IQCEvaluationService/NotifyApplicationInstalledResponse")]
         void NotifyApplicationInstalled(int testCode);
@@ -212,12 +211,12 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IQCEvaluationServiceChannel : LabConfiguration.Adapters.QCEvaluationServiceReference.IQCEvaluationService, System.ServiceModel.IClientChannel {
+    public interface IQCEvaluationServiceChannel : IQCEvaluationService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class QCEvaluationServiceClient : System.ServiceModel.ClientBase<LabConfiguration.Adapters.QCEvaluationServiceReference.IQCEvaluationService>, LabConfiguration.Adapters.QCEvaluationServiceReference.IQCEvaluationService {
+    public partial class QCEvaluationServiceClient : System.ServiceModel.ClientBase<IQCEvaluationService>, IQCEvaluationService {
         
         public QCEvaluationServiceClient() {
         }
@@ -238,11 +237,11 @@ namespace LabConfiguration.Adapters.QCEvaluationServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleResponse CreateStandardDeviationRule(LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleRequest request) {
+        public CreateStandardDeviationRuleResponse CreateStandardDeviationRule(CreateStandardDeviationRuleRequest request) {
             return base.Channel.CreateStandardDeviationRule(request);
         }
         
-        public System.Threading.Tasks.Task<LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(LabConfiguration.Adapters.QCEvaluationServiceReference.CreateStandardDeviationRuleRequest request) {
+        public System.Threading.Tasks.Task<CreateStandardDeviationRuleResponse> CreateStandardDeviationRuleAsync(CreateStandardDeviationRuleRequest request) {
             return base.Channel.CreateStandardDeviationRuleAsync(request);
         }
         

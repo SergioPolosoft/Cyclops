@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ServiceModel;
-using System.Text;
-using ApplicationServices;
-using Infrastructure.Repositories;
+﻿using Infrastructure.Repositories;
 using QCConfiguration.Application.Commands;
 using QCConfiguration.Application.Responses;
 using WCFServices.Common;

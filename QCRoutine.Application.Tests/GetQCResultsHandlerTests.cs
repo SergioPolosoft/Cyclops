@@ -5,7 +5,6 @@ using ApplicationServices;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCEvaluation.Application;
 using QCRoutine.Application.Commands;
 using QCRoutine.Application.Commands.Handlers;
 using QCRoutine.Domain;

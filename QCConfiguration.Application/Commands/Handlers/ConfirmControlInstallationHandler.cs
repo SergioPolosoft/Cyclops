@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using ApplicationServices;
 using QCConfiguration.Domain;
-using QCConfiguration.Domain.Events;
 using QCConfiguration.Domain.Repositories;
 
 namespace QCConfiguration.Application.Commands.Handlers

@@ -1,6 +1,4 @@
-﻿using System;
-using ApplicationServices;
-using QCEvaluation.Application.DTOs;
+﻿using ApplicationServices;
 using ICommand = ApplicationServices.ICommand;
 
 namespace QCEvaluation.Application

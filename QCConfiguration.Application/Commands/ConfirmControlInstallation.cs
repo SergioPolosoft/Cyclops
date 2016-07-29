@@ -1,4 +1,3 @@
-using System;
 using ApplicationServices;
 using QCConfiguration.Application.DTOs;
 

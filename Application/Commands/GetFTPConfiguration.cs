@@ -1,6 +1,6 @@
 ﻿using ApplicationServices;
 
-namespace InstrumentCommunication.Application.Commands
+namespace LabConfiguration.Application.Commands
 {
     public class GetFTPConfiguration : ICommand
     {

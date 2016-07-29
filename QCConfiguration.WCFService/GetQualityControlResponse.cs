@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using Application.Payloads;
 using WCFServices.Common;
 
 namespace QCConfiguration.WCFService

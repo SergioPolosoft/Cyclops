@@ -7,19 +7,13 @@ using InstrumentCommunication.Application;
 using InstrumentCommunication.Application.Commands;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Events;
-using LabConfiguration.Adapters.QCEvaluationServiceReference;
+using LabConfiguration.Adapters.Service_References.QCEvaluationServiceReference;
 using LabConfiguration.Domain;
 
 using Moq;
-using QCConfiguration.Application;
-using QCConfiguration.Application.Commands;
-using QCConfiguration.Domain;
-using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Domain.Repositories;
-using QCRoutine.Application;
-using QCRoutine.Application.Commands;
 using TechTalk.SpecFlow;
 
 namespace InstrumentMessagesHandlerTests

@@ -1,38 +1,36 @@
 ﻿using System;
+using Application.Payloads;
 using ApplicationServices;
 using FluentAssertions;
-using LabConfiguration.Application;
-using LabConfiguration.Application.Commands;
-using LabConfiguration.Application.Responses;
+using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCEvaluation.Application;
-using QCEvaluation.Application.Commands;
-using QCEvaluation.Application.Events;
 using QCRoutine.Application.Commands;
 using QCRoutine.Application.Commands.Handlers;
+using QCRoutine.Application.Ports;
 using QCRoutine.Application.Responses;
 using QCRoutine.Domain;
+using IQCEvaluationPort = QCRoutine.Application.Ports.IQCEvaluationPort;
 
 namespace QCRoutine.Application.Tests
 {
     [TestClass]
     public class StoreQCResultHandlerTests
     {
-        private Mock<IQCEvaluationServices> qcConfigurationServices;
+        private Mock<IQCEvaluationPort> qcConfigurationServices;
         private StoreQCResultHandler handler;
         private Mock<IQCResultsRepository> qcresultsRepository;
-        private Mock<ILabConfigurationServices> labConfigurationServices;
+        private Mock<ILabConfigurationPort> labConfigurationServices;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            qcConfigurationServices = new Mock<IQCEvaluationServices>();
+            qcConfigurationServices = new Mock<IQCEvaluationPort>();
             qcresultsRepository = new Mock<IQCResultsRepository>();
-            labConfigurationServices = new Mock<ILabConfigurationServices>();
+            labConfigurationServices = new Mock<ILabConfigurationPort>();
 
 
-            labConfigurationServices.Setup(x => x.Handle(It.IsAny<GetApplicationCommand>())).Returns(new GetApplicationResponse());
+            labConfigurationServices.Setup(x => x.GetApplicationByTestCode(It.IsAny<int>())).Returns(new ApplicationPayload(new ApplicationTest(10562)));
             
             handler = new StoreQCResultHandler(qcConfigurationServices.Object,qcresultsRepository.Object,labConfigurationServices.Object);
         }
@@ -45,13 +43,13 @@ namespace QCRoutine.Application.Tests
             
             handler.Handle(new StoreQCResult(testCode,result,DateTime.Now));
            
-            qcConfigurationServices.Verify(x=>x.Handle(It.Is<QCResultReceived>(y=>y.QCResult.TestCode==testCode && y.QCResult.Value==result)));
+            qcConfigurationServices.Verify(x=>x.NotifyResultReceived(It.Is<QCResultPayload>(y=>y.TestCode==testCode && y.Value==result)));
         }
 
         [TestMethod]
         public void IfTestCodeDoesNotExistsAnUnableToProcessResponseIsReturned()
         {
-            labConfigurationServices.Setup(x => x.Handle(It.Is<GetApplicationCommand>(y=>y.TestCode==15182))).Returns(new ApplicationNotFound(15182));
+            labConfigurationServices.Setup(x => x.GetApplicationByTestCode(15182)).Returns(() => null);
 
             var response = handler.Handle(new StoreQCResult(15182, 3.6, DateTime.Now));
 

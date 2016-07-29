@@ -87,10 +87,6 @@
       <Project>{5975D3C1-C9D9-4D9B-B66D-B7DEBEB5D3F4}</Project>
       <Name>LabConfiguration.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QCEvaluation.Application\QCEvaluation.Application.csproj">
-      <Project>{0024BF16-D54D-42E8-A4D8-D41DCE133A20}</Project>
-      <Name>QCEvaluation.Application</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

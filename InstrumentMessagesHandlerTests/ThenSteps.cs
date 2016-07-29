@@ -5,25 +5,19 @@ using Infrastructure.DTOs;
 using Infrastructure.Repositories;
 using InstrumentCommunication.Application;
 using InstrumentCommunication.Application.Commands;
-using InstrumentCommunication.Application.Commands.Handlers;
+using InstrumentCommunication.Application.Ports;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
 using InstrumentCommunication.TsnAdapter.Commands;
 using LabConfiguration.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using QCConfiguration.Application;
-using QCConfiguration.Domain;
-using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Application.DTOs;
 using QCEvaluation.Application.Responses;
 using QCEvaluation.Domain;
 using QCEvaluation.Domain.Repositories;
-using QCRoutine.Application;
-using QCRoutine.Application.Commands;
-using QCRoutine.Application.Responses;
 using TechTalk.SpecFlow;
 
 namespace InstrumentMessagesHandlerTests
@@ -226,13 +220,13 @@ namespace InstrumentMessagesHandlerTests
         public void ThenTheQcResultIsSuccesfullyEvaluated()
         {
             var qcServices = ScenarioContext.Current.Get<IQCEvaluationServices>();
-            var response = ScenarioContext.Current.Get<IQCRoutineServices>().Handle(new GetResultsByDate(1));
+            var results = ScenarioContext.Current.Get<QCRoutine.Domain.IQCResultsRepository>().GetResultsOrderedByDate(1);
+            
+            Assert.IsNotNull(results);
+            results.Should().NotBeEmpty();
 
-            var getResultsResponse = response as GetResultsResponse;
-            Assert.IsNotNull(getResultsResponse);
-
-            var qcResultId = getResultsResponse.Results.First().Id;
-            response   = qcServices.Handle(new GetEvaluation(qcResultId));
+            var qcResultId = results.First().Id;
+            var response = qcServices.Handle(new GetEvaluation(qcResultId));
 
             var evaluation = response as GetEvaluationResponse;
             Assert.IsNotNull(evaluation);

@@ -1,11 +1,6 @@
 using Application.Payloads;
 using ApplicationServices;
-using LabConfiguration.Application;
-using LabConfiguration.Application.Commands;
-using LabConfiguration.Application.Responses;
-using QCEvaluation.Application;
-using QCEvaluation.Application.Commands;
-using QCEvaluation.Application.Events;
+using QCRoutine.Application.Ports;
 using QCRoutine.Application.Responses;
 using QCRoutine.Domain;
 
@@ -13,13 +8,13 @@ namespace QCRoutine.Application.Commands.Handlers
 {
     public class StoreQCResultHandler:IHandler<StoreQCResult,StoreQCResultResponse>
     {
-        private readonly IQCEvaluationServices qcConfiguration;
+        private readonly IQCEvaluationPort qcEvaluationServices;
         private readonly IQCResultsRepository qcRepository;
-        private readonly ILabConfigurationServices labconfiguration;
+        private readonly ILabConfigurationPort labconfiguration;
 
-        public StoreQCResultHandler(IQCEvaluationServices qcConfiguration, IQCResultsRepository qcRepository, ILabConfigurationServices labconfiguration)
+        public StoreQCResultHandler(IQCEvaluationPort qcEvaluationServices, IQCResultsRepository qcRepository, ILabConfigurationPort labconfiguration)
         {
-            this.qcConfiguration = qcConfiguration;
+            this.qcEvaluationServices = qcEvaluationServices;
             this.qcRepository = qcRepository;
             this.labconfiguration = labconfiguration;
         }
@@ -28,9 +23,9 @@ namespace QCRoutine.Application.Commands.Handlers
         {
             var testCode = domainCommand.TestCode;
 
-            var response = labconfiguration.Handle(new GetApplicationCommand(testCode));
+            var application = labconfiguration.GetApplicationByTestCode(testCode);
             
-            if (response is ApplicationNotFound)
+            if (application == null)
             {
                 return new QCResultNotStoredResponse(string.Format(QCRoutineMessages.ApplictionCodeDoesNotExists, testCode));
             }
@@ -41,7 +36,7 @@ namespace QCRoutine.Application.Commands.Handlers
 
             var qcResultPayload = new QCResultPayload(qcResult);
 
-            qcConfiguration.Handle(new QCResultReceived(qcResultPayload));
+            qcEvaluationServices.NotifyResultReceived(qcResultPayload);
 
             return new StoreQCResultResponse();
         }

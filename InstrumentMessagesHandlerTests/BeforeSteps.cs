@@ -1,12 +1,14 @@
 using ApplicationServices;
-using Infrastructure;
 using Infrastructure.Repositories;
 using InstrumentAdapter.Domain;
 using InstrumentCommunication.Application;
+using InstrumentCommunication.Application.Ports;
 using InstrumentCommunication.Sender;
 using InstrumentCommunication.TsnAdapter;
+using InstrumentMessagesHandlerTests.Service_References.LabConfigurationServicesReference;
+using InstrumentMessagesHandlerTests.Service_References.QCRoutineServicesReference;
 using LabConfiguration.Adapters;
-using LabConfiguration.Adapters.QCEvaluationServiceReference;
+using LabConfiguration.Adapters.Service_References.QCEvaluationServiceReference;
 using LabConfiguration.Application;
 using LabConfiguration.Domain;
 using Moq;
@@ -16,7 +18,7 @@ using QCEvaluation.Adapters;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Ports;
 using QCEvaluation.Domain.Repositories;
-using QCRoutine.Application;
+using QCRoutine.Adapter;
 using TechTalk.SpecFlow;
 using IQCResultsRepository = QCRoutine.Domain.IQCResultsRepository;
 using LabConfigurationService = LabConfiguration.Application.LabConfigurationService;
@@ -40,7 +42,7 @@ namespace InstrumentMessagesHandlerTests
             var hardCodedApplicationRepository = new MongoDBApplicationRepository();
             ScenarioContext.Current.Set(hardCodedApplicationRepository as IApplicationRepository);
 
-            IEvaluationsRepository evaluationsRepository = new HardCodedEvaluationsRepository();
+            IEvaluationsRepository evaluationsRepository = new MongoDBQCEvaluationsRepository();
             ScenarioContext.Current.Set(evaluationsRepository);
 
             QCEvaluation.Domain.Repositories.IQCResultsRepository qcResultsEvaluationRepository = new HardCodedQCResultsEvaluationRepository();
@@ -69,16 +71,20 @@ namespace InstrumentMessagesHandlerTests
 
             var messagesRepository = new Mock<IMessagesRepository>();
 
-            IQCResultsRepository qcresultsRepository = new HardCodedQCResultsRepository();
-            
+            IQCResultsRepository qcresultsRepository = new MongoDBQCResultsRepository();
+            ScenarioContext.Current.Set(qcresultsRepository);
+
             ILogger logger = new ConsoleLogger();
 
-            IQCRoutineServices qcRoutineServices = new QCRoutineServices(evaluationServices, qcresultsRepository, logger, labConfigurationServices);
+            var qcRoutineServices = new QCRoutineServiceClient();
             ScenarioContext.Current.Set(qcRoutineServices);
 
-            ScenarioContext.Current.Set(new LabConfigurationServicesReference.LabConfigurationServiceClient());
+            ScenarioContext.Current.Set(new LabConfigurationServiceClient());
 
-            var instrumentCommunicationServices = new InstrumentCommunicationServices(new HardCodedCommunicationStatusRepository(), tsnAgentAdapter.Object, messageSender.Object, messagesRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices), qcRoutineServices);
+            var qcRoutineServicesAdapter = new QCRoutineServicesAdapter();
+            ScenarioContext.Current.Set(qcRoutineServicesAdapter as IQCRoutineServicePort);
+
+            var instrumentCommunicationServices = new InstrumentCommunicationServices(new HardCodedCommunicationStatusRepository(), tsnAgentAdapter.Object, messageSender.Object, messagesRepository.Object, new LabConfigurationAdapter.LabConfigurationAdapter(labConfigurationServices), qcRoutineServicesAdapter);
 
             ScenarioContext.Current.Set(instrumentCommunicationServices);
             

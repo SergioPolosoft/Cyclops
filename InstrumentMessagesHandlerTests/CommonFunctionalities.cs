@@ -1,7 +1,3 @@
-using LabConfiguration.Domain;
-using QCConfiguration.Application;
-using QCConfiguration.Application.Commands;
-using QCConfiguration.Domain.Repositories;
 using QCEvaluation.Application;
 using QCEvaluation.Application.Commands;
 using QCEvaluation.Domain.Repositories;

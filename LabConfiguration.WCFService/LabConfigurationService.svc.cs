@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+﻿using ApplicationServices;
 using Infrastructure.Repositories;
 using LabConfiguration.Adapters;
+using LabConfiguration.Adapters.Service_References.QCEvaluationServiceReference;
 using LabConfiguration.Application;
 using LabConfiguration.Application.Commands;
+using LabConfiguration.Application.Commands.Handlers;
+using LabConfiguration.Application.Responses;
 
 namespace LabConfiguration.WCFService
 {
@@ -28,5 +25,24 @@ namespace LabConfiguration.WCFService
             labConfigurationService.Handle(new ConfirmApplicationInstallationCommand(new ApplicationDTO(request.ApplicationTestCode)));
             return new ConfirmApplicationInstallationResponse();
         }
+
+        public GetApplicationByTestCodeResponse GetApplicationByTestCode(int testCode)
+        {
+            var commandResponse = labConfigurationService.Handle(new GetApplicationCommand(testCode));
+            var applicationFound = commandResponse as ApplicationFound;
+            
+            if (applicationFound!=null)
+            {
+                return new GetApplicationByTestCodeResponse()
+                {
+                    Status = RequestResult.Succesfull,
+                    Application = new ApplicationData()
+                    {
+                        TestCode = applicationFound.Application.TestCode,
+                    }
+                };
+            }
+            return new GetApplicationByTestCodeResponse(){Status = RequestResult.Error};
+        } 
     }
 }

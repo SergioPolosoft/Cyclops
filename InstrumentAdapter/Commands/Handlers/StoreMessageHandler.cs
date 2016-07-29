@@ -1,5 +1,4 @@
-﻿using System;
-using ApplicationServices;
+﻿using ApplicationServices;
 using InstrumentAdapter.Domain;
 
 namespace InstrumentCommunication.Application.Commands.Handlers

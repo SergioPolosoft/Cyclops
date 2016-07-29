@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace ApplicationServices
+﻿namespace ApplicationServices
 {
     public interface ICommand
     {        

@@ -13,6 +13,11 @@ namespace Infrastructure.Repositories
     {
         private readonly IMongoDatabase database;
 
+        private IMongoCollection<ApplicationEvent> Collection
+        {
+            get { return this.database.GetCollection<ApplicationEvent>("ApplicationEvents"); }
+        }
+
         public MongoDBQCApplicationRepository()
         {
             var client = new MongoClient();
@@ -30,10 +35,7 @@ namespace Infrastructure.Repositories
             }
         }
 
-        private IMongoCollection<ApplicationEvent> Collection
-        {
-            get { return this.database.GetCollection<ApplicationEvent>("ApplicationEvents"); }
-        }
+        
 
         public void Save(IList<AggreggateEvent> domainEvents)
         {
